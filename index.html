@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[SUA MARCA] | Parceira estratégica de transformação digital</title>
+  <meta name="description" content="Desde 2010 traduzindo tecnologia em direção, estratégia e crescimento. Mais do que venda de software. Sua parceira estratégica de transformação digital.">
+  <meta property="og:title" content="[SUA MARCA] | Parceira estratégica de transformação digital">
+  <meta property="og:description" content="Desde 2010 traduzindo tecnologia em direção, estratégia e crescimento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          screens: {
+            'nav': '1024px',
+            'foot': '1280px',
+          },
+          fontFamily: {
+            heading: ['Public Sans', 'sans-serif'],
+            sans:    ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'brand-blue':       '#00B4FB',
+            'brand-blue-light': '#1FB2F6',
+            'brand-dark':       '#0A0D12',
+            'brand-card':       '#252B37',
+            'brand-muted':      '#535862',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6, button, a { font-family: 'Public Sans', sans-serif; }
+
+    /* Parallelogram button */
+    .btn-para {
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      display: inline-block;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hide scrollbar */
+    .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+
+    /* Navbar gradient */
+    #navbar {
+      background: linear-gradient(to right, rgba(10,13,18,0.2) 66%, #00B4FB);
+      transition: background 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: linear-gradient(to right, #0A0D12 66%, #00B4FB);
+    }
+
+    /* hero-clip-wrap removed — now using rounded-[32px] + border overlay */
+
+    /* Service card hover */
+    .service-card:hover .service-img { transform: scale(1.05); }
+    .service-img { transition: transform 0.5s ease; }
+
+    /* Mobile menu */
+    #mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Dot transitions */
+    .dot { transition: width 0.3s ease, background-color 0.3s ease; }
+
+    /* Partner marquee */
+    @keyframes ticker {
+      0%   { transform: translate(0); }
+      100% { transform: translate(-50%); }
+    }
+    @keyframes ticker-reverse {
+      0%   { transform: translate(-50%); }
+      100% { transform: translate(0); }
+    }
+    .marquee-track-left {
+      display: flex;
+      width: max-content;
+      gap: 4rem;
+      animation: ticker 25s linear infinite;
+    }
+    .marquee-track-right {
+      display: flex;
+      width: max-content;
+      gap: 4rem;
+      animation: ticker-reverse 30s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-white text-[#0A0D12]">
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar" class="fixed top-0 left-0 w-full h-[72px] z-50 px-4 nav:px-12">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between h-full">
+
+      <!-- Mobile: hamburger -->
+      <button id="menu-btn" class="nav:hidden text-white p-2 -ml-2" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Logo (centered on mobile, left on desktop) -->
+      <a href="/" class="absolute left-1/2 -translate-x-1/2 nav:static nav:translate-x-0 flex items-center">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
+             alt="[SUA MARCA]" class="h-7 nav:h-8 brightness-0 invert">
+      </a>
+
+      <!-- Desktop nav links -->
+      <nav class="hidden nav:flex items-center gap-6 text-white text-sm font-medium">
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-[#00B4FB] transition-colors py-2">
+            Produtos
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-[#00B4FB] transition-colors py-2">
+            Soluções Inteligentes
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-[#00B4FB] transition-colors py-2">
+            Acesso rápido
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Desktop: phone + search bar -->
+      <div class="hidden nav:flex items-center gap-4">
+        <a href="tel:08006001434" class="text-white text-sm font-medium flex items-center gap-2 hover:text-[#00B4FB] transition-colors whitespace-nowrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          0800-600 1434
+        </a>
+        <div class="flex items-center bg-white/10 border border-white/20 rounded-md overflow-hidden">
+          <input type="text" placeholder="Busque por..." class="bg-transparent text-white text-sm px-3 py-1.5 outline-none placeholder-white/50 w-36">
+          <button class="bg-white/10 hover:bg-white/20 px-3 py-1.5 text-white transition-colors border-l border-white/20">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile: search icon -->
+      <button class="nav:hidden text-white p-2 -mr-2" aria-label="Buscar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0A0D12] flex flex-col px-6 pb-8" style="padding-top:72px">
+    <nav class="flex flex-col gap-6 mt-8 text-white text-lg font-medium border-t border-white/10 pt-8">
+      <button class="flex items-center justify-between hover:text-[#00B4FB] transition-colors text-left">
+        Produtos
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="flex items-center justify-between hover:text-[#00B4FB] transition-colors text-left">
+        Soluções Inteligentes
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="flex items-center justify-between hover:text-[#00B4FB] transition-colors text-left">
+        Acesso rápido
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </nav>
+    <div class="mt-auto">
+      <a href="tel:08006001434" class="flex items-center gap-3 text-white text-base mb-6">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        0800-600 1434
+      </a>
+      <a href="/contact" class="btn-para bg-[#00B4FB] text-white text-center font-semibold py-4 block">
+        Solicitar um orçamento
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="w-full bg-gradient-to-r from-black from-[35%] to-[#1FB2F6] pt-20 md:pt-28 lg:pt-[140px] flex flex-col justify-center">
+    <h1 class="sr-only">Mais do que vendas de software</h1>
+    <div class="mx-auto w-full max-w-[1344px]">
+
+      <!-- Carousel wrapper: rounded-[32px] + blue border overlay -->
+      <div id="hero-carousel"
+           class="relative w-full h-[350px] md:h-[420px] lg:h-[532px] rounded-3xl overflow-hidden select-none cursor-grab active:cursor-grabbing">
+
+        <!-- Slides track -->
+        <div id="slides-track"
+             class="absolute inset-0 flex h-full"
+             style="transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);">
+
+          <!-- SLIDE 1 -->
+          <div class="relative w-full h-full flex-shrink-0">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Banner_1_Clemilson_Correia_52d4d969d3.png"
+                 alt="[SUA MARCA] — Desde 2010 traduzindo tecnologia"
+                 class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[530px] lg:max-w-[700px]">
+              <h2 class="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 md:mb-6">
+                Desde 2010 traduzindo tecnologia em <span class="text-[#00B4FB]">direção, estratégia e crescimento.</span>
+              </h2>
+              <div>
+                <a href="/contact" class="inline-flex items-center gap-1 py-2 px-4 md:px-6 h-10 rounded-full border border-[#00B4FB] text-white hover:bg-[#00B4FB]/20 transition text-sm md:text-base">
+                  Entre em contato
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+            <!-- SLIDE 2 -->
+            <div class="relative w-full h-full flex-shrink-0">
+              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/banner2_6df1151f01_png_2d7a47339f.png"
+                   alt="[SUA MARCA] — Mais do que venda de software"
+                   class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"></div>
+              <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[530px] lg:max-w-[700px]">
+                <h2 class="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3 md:mb-4">
+                  Mais do que <span class="text-[#00B4FB]">venda de software.</span>
+                </h2>
+                <p class="text-white/80 text-base md:text-lg mb-5 md:mb-7">
+                  Sua parceira estratégica de transformação digital.
+                </p>
+                <div>
+                  <a href="/contact" class="inline-flex items-center gap-1 py-2 px-4 md:px-6 h-10 rounded-full border border-[#00B4FB] text-white hover:bg-[#00B4FB]/20 transition text-sm md:text-base">
+                    Entre em contato
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="relative w-full h-full flex-shrink-0">
+              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Banner_3_1_918773e7b5.png"
+                   alt="[SUA MARCA] — Simplificando processos"
+                   class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"></div>
+              <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[530px] lg:max-w-[700px]">
+                <h2 class="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3 md:mb-4">
+                  <span class="text-[#00B4FB]">Simplificando</span> processos, <span class="text-[#00B4FB]">estruturando</span> operações.
+                </h2>
+                <p class="text-white/80 text-base md:text-lg mb-5 md:mb-7">
+                  Impulsionando crescimento sustentável e estratégico.
+                </p>
+                <div>
+                  <a href="/contact" class="inline-flex items-center gap-1 py-2 px-4 md:px-6 h-10 rounded-full border border-[#00B4FB] text-white hover:bg-[#00B4FB]/20 transition text-sm md:text-base">
+                    Entre em contato
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        <!-- Blue border overlay -->
+        <div class="absolute inset-0 rounded-3xl border-2 border-[#00B4FB] pointer-events-none z-30"></div>
+
+      </div>
+    </div>
+
+    <!-- Dots + arrow — fora do carousel, dentro da seção hero -->
+    <div class="mx-auto w-full max-w-[1344px] flex flex-col items-center">
+      <div id="carousel-dots" class="my-4 md:my-6 flex items-center gap-2">
+        <button class="dot h-2 rounded-full w-[35px] bg-white" data-dot="0" aria-label="Slide 1"></button>
+        <button class="dot h-2 rounded-full w-[15px] bg-[#C7C7C7] hover:bg-[#a0a0a0]" data-dot="1" aria-label="Slide 2"></button>
+        <button class="dot h-2 rounded-full w-[15px] bg-[#C7C7C7] hover:bg-[#a0a0a0]" data-dot="2" aria-label="Slide 3"></button>
+      </div>
+      <button onclick="document.getElementById('solutions').scrollIntoView({behavior:'smooth'})"
+              class="w-12 h-12 rounded-xl border border-white/40 flex justify-center items-center text-white mb-6 cursor-pointer hover:bg-white/10 transition" aria-label="Ver mais">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTIONS SECTION ===== -->
+  <section id="solutions" class="py-10 lg:py-15 scroll-mt-[72px]">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0 flex flex-col gap-3 md:gap-4 pb-8 lg:pb-14">
+      <hgroup class="text-center flex flex-col gap-3">
+        <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37]">
+          Tecnologia certa, <span class="text-[#00B4FB]">e ponto.</span>
+        </h2>
+        <p class="text-base md:text-lg lg:text-xl text-[#535862]">
+          Ferramentas que conectam inovação e performance para a sua empresa.
+        </p>
+      </hgroup>
+    </div>
+
+    <!-- Swiper-style horizontal carousel -->
+    <div class="w-full h-[457px] lg:h-[632px]">
+      <div class="flex gap-4 h-full overflow-x-auto no-scrollbar px-4 md:px-12 lg:px-8">
+
+        <!-- Projete -->
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/projete_buysoft_1_1652c7652e.avif"
+               alt="Projete"
+               class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-4">
+              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Projete</h3>
+              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
+                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            </div>
+            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
+              Projete, modele e construa com solidez máxima, do conceito à execução final.
+            </p>
+            <a href="/catalog"
+               class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Otimize -->
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/otimize_buysoft_3bbb72994a.avif"
+               alt="Otimize"
+               class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-4">
+              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Otimize</h3>
+              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
+                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            </div>
+            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
+              Conecte equipes, dados e decisões em uma experiência simples, fluida e contínua.
+            </p>
+            <a href="/catalog"
+               class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Proteja -->
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/proteja_buysoft_1671018dd3.avif"
+               alt="Proteja"
+               class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-4">
+              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Proteja</h3>
+              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
+                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            </div>
+            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
+              Garanta segurança, conformidade e continuidade absoluta em cada operação.
+            </p>
+            <a href="/catalog"
+               class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Crie -->
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/crie_buysoft_f8f2e3e87b.avif"
+               alt="Crie"
+               class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-4">
+              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Crie</h3>
+              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
+                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            </div>
+            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
+              Transforme ideias em realidade com liberdade total, design fluido e criatividade sem limites.
+            </p>
+            <a href="/catalog"
+               class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATALOG / PRODUCTS SECTION ===== -->
+  <section class="py-10 lg:py-15 bg-white">
+    <div class="w-full flex justify-center items-center flex-col">
+
+      <div class="flex justify-center flex-col text-center pb-8 lg:pb-14 px-4 md:px-8">
+        <hgroup class="flex flex-col gap-4">
+          <h2 class="font-semibold text-[28px] md:text-4xl lg:text-5xl max-w-4xl mx-auto text-[#252B37]">
+            Sua parceira estratégica para um crescimento sustentável
+          </h2>
+          <p class="font-normal text-base md:text-lg lg:text-xl text-[#535862] max-w-4xl">
+            Gestão, produtividade, colaboração em nuvem e segurança — em um só lugar.
+          </p>
+        </hgroup>
+      </div>
+
+      <!-- Products horizontal scroll -->
+      <div class="w-full overflow-x-auto no-scrollbar">
+        <div class="flex gap-6 px-4 md:px-12 lg:px-20 pb-4" style="width: max-content;">
+
+          <!-- Canva Enterprise -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_5e0945f9a7.png" alt="Canva Enterprise" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Canva Enterprise</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Plataforma de design para equipes e grandes empresas, com controle de marca, segurança e governança.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Microsoft 365 Business Premium -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Microsoft_365_82bbaeaad7.png" alt="Microsoft 365 Business Premium" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Microsoft 365 Business Premium</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Produtividade total com apps completos, segurança avançada, automação e colaboração em nuvem.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Microsoft 365 Copilot -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/copilot_logo_7850c4bf79.png" alt="Microsoft 365 Copilot" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Microsoft 365 Copilot</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">IA integrada ao Microsoft 365 para automatizar tarefas, gerar conteúdo e aumentar a produtividade do time.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Google Workspace Standard -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Google_Workspace_e38b1d5832.webp" alt="Google Workspace Standard" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Google Workspace Standard</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Colaboração em nuvem com armazenamento ampliado, segurança e controles de administração para equipes.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Google Workspace Plus -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Google_Workspace_e38b1d5832.webp" alt="Google Workspace Plus" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Google Workspace Plus</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Recursos avançados de videoconferência, segurança aprimorada e mais controle para grandes organizações.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Acrobat Studio -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Acrobat_df9fddff2a.png" alt="Acrobat Studio" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Acrobat Studio</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Crie, edite, assine e compartilhe documentos PDF com total segurança, produtividade e controle.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Autodesk AEC Collection -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Autodesk_AEC_Collection_77bd95b213.png" alt="Autodesk AEC Collection" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Autodesk AEC Collection</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Conjunto completo de ferramentas BIM e CAD para engenharia, arquitetura e construção civil.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- SketchUp Studio -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_91bde470c1.png" alt="SketchUp Studio" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">SketchUp Studio</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Modelagem 3D profissional para arquitetura, design de interiores e projetos de construção.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Creative Cloud Pro Plus -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Creative_Cloud_ccff9002cc.png" alt="Creative Cloud Pro Plus" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Creative Cloud Pro Plus</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Acesso completo a todos os apps criativos Adobe para design, vídeo, web e fotografia profissional.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Trend Micro Worry-Free -->
+          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Trend_Micro_7dc1697733.png" alt="Trend Micro" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Worry-Free Business Security Advanced</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Segurança avançada contra ameaças para endpoints, servidores e ambientes em nuvem.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center mt-8 px-4">
+        <button onclick="window.location.href='/catalog'"
+                class="px-6 py-3 rounded-xl bg-[#0A0D12] text-white inline-flex items-center gap-2 hover:opacity-90 transition font-medium">
+          Ver mais
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== OFFICIAL PARTNERS (dark marquee) ===== -->
+  <section class="py-12 lg:py-16 bg-[#0A0D12] overflow-hidden">
+
+    <!-- Centered header -->
+    <div class="text-center mb-10 px-4">
+      <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.15em]">
+        Parceiro Oficial
+      </h2>
+    </div>
+
+    <!-- Row 1: scrolls left -->
+    <div class="relative mb-5 overflow-hidden">
+      <div class="marquee-track-left items-center">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <!-- duplicate set for seamless loop -->
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+      </div>
+    </div>
+
+    <!-- Row 2: scrolls right (opposite direction) -->
+    <div class="relative overflow-hidden">
+      <div class="marquee-track-right items-center">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <!-- duplicate set for seamless loop -->
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+      </div>
+    </div>
+
+    <!-- Centered bottom button -->
+    <div class="text-center mt-10 px-4">
+      <a href="/official-partner"
+         class="inline-flex items-center gap-2 border border-white/40 text-white rounded-full hover:bg-white/10 transition-all duration-200 text-sm font-semibold px-6 py-3">
+        Ser oficial faz diferença
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ===== CASES CAROUSEL ===== -->
+  <section class="py-10 lg:py-15">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0 mb-8">
+      <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37]">
+        Alta performance do <span class="text-[#00B4FB]">projeto à obra</span>
+      </h2>
+    </div>
+
+    <!-- Cases carousel -->
+    <div class="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 lg:px-0 lg:max-w-[1344px] lg:mx-auto">
+
+      <!-- Case 1 -->
+      <article class="reveal relative shrink-0 w-full lg:w-[calc(50%-12px)] h-[500px] lg:h-[755px] rounded-3xl overflow-hidden cursor-pointer group">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/0b4801af05ad5d55829046bffe8ee6c161eecba9_062405fa90.png"
+             alt="Case Kepler Weber"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
+        <div class="absolute bottom-10 left-10 right-10 text-white">
+          <p class="text-[#00B4FB] text-xs font-bold uppercase tracking-widest mb-3">CASE DE ENGENHARIA</p>
+          <h3 class="text-2xl lg:text-3xl font-bold mb-3 leading-snug">
+            Otimização de até 78% no tempo de configuração de projetos
+          </h3>
+          <p class="text-white/70 text-sm leading-relaxed mb-6 hidden md:block">
+            Kepler Weber — Líder em soluções pós-colheita na América Latina.
+          </p>
+          <a href="/cases"
+             class="inline-flex items-center gap-2 py-2 px-6 rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
+            Ler case
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Case 2 -->
+      <article class="reveal relative shrink-0 w-full lg:w-[calc(50%-12px)] h-[500px] lg:h-[755px] rounded-3xl overflow-hidden cursor-pointer group">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/large_b81887d67ef134bdcf78a2a71464915ba4d6c949_09f5ddff18.png"
+             alt="Case Transformação Digital"
+             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
+        <div class="absolute bottom-10 left-10 right-10 text-white">
+          <p class="text-[#00B4FB] text-xs font-bold uppercase tracking-widest mb-3">CASE DE PRODUTIVIDADE</p>
+          <h3 class="text-2xl lg:text-3xl font-bold mb-3 leading-snug">
+            Transformação digital com suporte especializado e resultados mensuráveis
+          </h3>
+          <p class="text-white/70 text-sm leading-relaxed mb-6 hidden md:block">
+            Tecnologia certa aplicada com estratégia e acompanhamento próximo.
+          </p>
+          <a href="/cases"
+             class="inline-flex items-center gap-2 py-2 px-6 rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
+            Ler case
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS / NOT JUST SALES ===== -->
+  <section class="py-14 lg:py-20 bg-[#0A0D12]">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <div>
+          <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-5">
+            Não é só vender.<br>É acompanhar de perto.
+          </h2>
+          <p class="text-[#C7C7C7] text-base md:text-lg mb-10 leading-relaxed">
+            Após a compra, nosso suporte acompanha cada etapa, com time próximo e especializado, reconhecido pelos clientes como referência.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Consultivo card -->
+            <div class="bg-[#181E2A] rounded-2xl p-6 border border-white/10">
+              <h3 class="text-white text-base font-bold mb-3">Consultivo de verdade</h3>
+              <p class="text-[#C7C7C7] text-sm leading-relaxed mb-5">
+                Antes de falar em licença, entendemos o seu negócio para aplicar a tecnologia certa, com clareza e eficiência.
+              </p>
+              <a href="#"
+                 class="text-[#00B4FB] text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                Fale com um especialista
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <!-- Proposta rápida card -->
+            <div class="bg-[#00B4FB] rounded-2xl p-6">
+              <h3 class="text-white text-base font-bold mb-3">Proposta rápida</h3>
+              <p class="text-white/80 text-sm leading-relaxed mb-5">
+                Em minutos, você recebe uma proposta clara e personalizada, pronta para decidir e colocar em prática.
+              </p>
+              <a href="/contact"
+                 class="text-white text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all border-b border-white/40 pb-0.5">
+                Solicitar um orçamento
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/large_b81887d67ef134bdcf78a2a71464915ba4d6c949_09f5ddff18.png"
+               alt="Suporte [SUA MARCA]"
+               class="w-full rounded-2xl object-cover">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="py-14 lg:py-20 bg-white">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+
+      <div class="text-center mb-10 md:mb-14">
+        <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37] mb-3 leading-tight">
+          Feedbacks de transformação e crescimento real
+        </h2>
+        <p class="text-[#535862] text-base md:text-lg">
+          Ajudamos empresas a alcançarem seus objetivos, conectando tecnologia e inteligência.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="reveal bg-[#F7F8FA] rounded-2xl p-6 border border-[#E9EAEC]">
+          <div class="flex items-center gap-3 mb-5">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/thumbnail_Kepler_80f217c6b3_png_732a843108.png"
+                 alt="Kepler Weber" class="w-11 h-11 rounded-full object-cover border-2 border-[#00B4FB]/20">
+            <div>
+              <p class="text-[#252B37] font-semibold text-sm">Ricardo Ferrari Trevisan</p>
+              <p class="text-[#535862] text-xs">Kepler Weber</p>
+            </div>
+          </div>
+          <p class="text-[#535862] text-sm leading-relaxed">
+            "Com o apoio da [SUA MARCA] e das soluções da Autodesk, conseguimos integrar nosso ERP ao software de projeto, reduzindo em 78% o tempo de inserção de parâmetros no Revit."
+          </p>
+          <div class="flex gap-1 mt-4">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+
+        <div class="reveal bg-[#F7F8FA] rounded-2xl p-6 border border-[#E9EAEC]">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-11 h-11 rounded-full bg-[#00B4FB] flex items-center justify-center text-white font-bold text-base flex-shrink-0">A</div>
+            <div>
+              <p class="text-[#252B37] font-semibold text-sm">Ana Claudia Martins</p>
+              <p class="text-[#535862] text-xs">Gerente de TI</p>
+            </div>
+          </div>
+          <p class="text-[#535862] text-sm leading-relaxed">
+            "A [SUA MARCA] nos ajudou a estruturar toda a nossa operação digital, com consultoria especializada e suporte pós-venda que realmente funciona. Recomendo sem hesitar."
+          </p>
+          <div class="flex gap-1 mt-4">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+
+        <div class="reveal bg-[#F7F8FA] rounded-2xl p-6 border border-[#E9EAEC]">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-11 h-11 rounded-full bg-[#252B37] flex items-center justify-center text-white font-bold text-base flex-shrink-0">M</div>
+            <div>
+              <p class="text-[#252B37] font-semibold text-sm">Marcos Pereira</p>
+              <p class="text-[#535862] text-xs">Diretor de Operações</p>
+            </div>
+          </div>
+          <p class="text-[#535862] text-sm leading-relaxed">
+            "Desde que começamos com a [SUA MARCA], nossa produtividade aumentou de forma consistente. A equipe é diferenciada e sempre disponível para resolver qualquer demanda."
+          </p>
+          <div class="flex gap-1 mt-4">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOMERS LOGOS ===== -->
+  <section class="py-12 lg:py-16 bg-[#F7F8FA]">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+
+      <h2 class="text-center text-[28px] md:text-4xl font-semibold text-[#252B37] mb-10 md:mb-14 leading-tight">
+        20.000 empresas.<br class="md:hidden"> Um só parceiro de transformação.
+      </h2>
+
+      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-14">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/correios_10a54f87a5_webp_40a1e8193c.webp"
+             alt="Correios" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/grupo_boticario_32c2c4453d_webp_8748e05d94.webp"
+             alt="Grupo Boticário" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/ifood_ea480a9f80_jpg_5c92c289c3.jpg"
+             alt="iFood" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/mc_donalds_logo_9f3b0d62a9_webp_480830db14.webp"
+             alt="McDonald's" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/picpay_logo_6be4567854_webp_bcdc2e3826.webp"
+             alt="PicPay" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/quinto_andar_logo_50fd575cec_webp_1f255c4b78.webp"
+             alt="QuintoAndar" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/rappi_logo_329e3f3c22_webp_f78ebceae1.webp"
+             alt="Rappi" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SERVICES / OFFERS (horizontal scroll) ===== -->
+  <section class="py-14 lg:py-20 bg-white overflow-hidden">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0 mb-8 md:mb-10">
+      <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37] mb-3">
+        Nossos serviços
+      </h2>
+      <p class="text-[#535862] text-base md:text-lg">
+        Soluções completas para proteger e potencializar sua operação digital.
+      </p>
+    </div>
+
+    <div class="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar pb-4 px-4 md:px-12 lg:px-0 lg:max-w-[1344px] lg:mx-auto snap-x snap-mandatory">
+
+      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_para_Servidores_552x714_1d1ec94f32_png_615f7d71bf.png"
+             alt="Backup de Servidor" class="service-img absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">BACKUP</p>
+          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Backup de Servidor</h3>
+          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Backup fácil, eficiente e seguro para qualquer carga de trabalho.</p>
+          <a href="/services/server-backup" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
+            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_Acronis_para_Microsoft_365_552x714_5fe9c1022e_png_4d2ab67591.png"
+             alt="Backup Microsoft 365" class="service-img absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">ATIVAÇÃO INTELIGENTE</p>
+          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Backup do Microsoft 365</h3>
+          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Backup do Microsoft 365 completo e seguro.</p>
+          <a href="/services/microsoft-365-backup" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
+            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_para_Google_Workspace_552x714_a477b0d04f_png_67f0a916f1.png"
+             alt="Backup Google Workspace" class="service-img absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">GOOGLE</p>
+          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Backup do Google Workspace</h3>
+          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Proteção definitiva para seus dados no Google Workspace.</p>
+          <a href="/services/google-workspace-backup" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
+            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Microsoft_365_para_Seguranca_378x528_393c812137_png_d4debee5a3.png"
+             alt="Microsoft 365 Segurança" class="service-img absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">PROTEÇÃO DIGITAL</p>
+          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Microsoft 365 para Segurança</h3>
+          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Segurança avançada para sua operação e arquivos na nuvem.</p>
+          <a href="/services/microsoft-365-security" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
+            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Microsoft_365_para_Produtividade_552x714_4811e1eb66_png_b82fb7684f.png"
+             alt="Microsoft 365 Produtividade" class="service-img absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">MICROSOFT 365</p>
+          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Microsoft 365 para Produtividade</h3>
+          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Máximo desempenho para seu time com fluxos simplificados.</p>
+          <a href="/services/microsoft-365-productivity" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
+            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Migracao_para_Cloud_552x714_6c3cae033e_png_5ab927dfc1.png"
+             alt="Migração para Cloud" class="service-img absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">CLOUD</p>
+          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Migração para Cloud</h3>
+          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Migração segura e eficiente para a nuvem, do planejamento à execução.</p>
+          <a href="/services/cloud-migration" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
+            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SMART SOLUTIONS ===== -->
+  <section class="py-14 lg:py-20 bg-white">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+
+      <div class="text-center mb-10 md:mb-14">
+        <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37] mb-3">
+          Explore nossas soluções inteligentes
+        </h2>
+        <p class="text-[#535862] text-base md:text-lg">
+          Apoio para extrair o máximo de valor das ferramentas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+
+        <!-- Serviços essenciais -->
+        <div class="reveal group relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_para_Servidores_552x714_1d1ec94f32_png_615f7d71bf.png"
+               alt="Serviços essenciais" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+          <div class="relative z-10 flex flex-col justify-end h-full p-7 min-h-[340px] md:min-h-[400px]">
+            <h3 class="text-white text-xl md:text-2xl font-bold mb-2">Serviços essenciais</h3>
+            <p class="text-white/70 text-sm mb-5 leading-relaxed">
+              Tire o máximo potencial das tecnologias com os serviços essenciais [SUA MARCA].
+            </p>
+            <a href="/services"
+               class="inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-[#00B4FB] transition-colors self-start">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- BIM Implementation -->
+        <div class="reveal group relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Migracao_para_Cloud_552x714_6c3cae033e_png_5ab927dfc1.png"
+               alt="Implantação BIM" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+          <div class="relative z-10 flex flex-col justify-end h-full p-7 min-h-[340px] md:min-h-[400px]">
+            <h3 class="text-white text-xl md:text-2xl font-bold mb-2">Implantação BIM</h3>
+            <p class="text-white/70 text-sm mb-5 leading-relaxed">
+              Eficiência planejada para garantir o sucesso da sua próxima obra.
+            </p>
+            <a href="/solutions/high-performance-bim-implementation"
+               class="inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-[#00B4FB] transition-colors self-start">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- aiblueprint -->
+        <div class="reveal group relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/aiblueprint_1_9c073c3a1e.avif"
+               alt="aiblueprint" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+          <div class="relative z-10 flex flex-col justify-end h-full p-7 min-h-[340px] md:min-h-[400px]">
+            <h3 class="text-white text-xl md:text-2xl font-bold mb-2">aiblueprint</h3>
+            <p class="text-white/70 text-sm mb-5 leading-relaxed">
+              Um caminho estruturado para transformar IA em resultados concretos.
+            </p>
+            <a href="/solutions/aiblueprint"
+               class="inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-[#00B4FB] transition-colors self-start">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG / NEWS ===== -->
+  <section class="py-14 lg:py-20 bg-white">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+
+      <div class="flex items-center justify-between mb-10 md:mb-12">
+        <h2 class="text-[28px] md:text-4xl font-semibold text-[#252B37]">Blog e novidades</h2>
+        <a href="/blog" class="hidden md:inline-flex items-center gap-1.5 text-[#00B4FB] text-sm font-semibold hover:underline">
+          Ver todos
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <article class="reveal group cursor-pointer">
+          <div class="rounded-2xl overflow-hidden aspect-video mb-4 bg-[#F7F8FA]">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/maringa_13384b18a0_webp_d4ec51e11f.webp"
+                 alt="Maringá Financial Times"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-widest mb-2">Negócios</p>
+          <h3 class="text-[#252B37] text-base font-semibold mb-2 leading-snug group-hover:text-[#00B4FB] transition-colors">
+            Empresas de Maringá estão em ranking do Financial Times sobre crescimento
+          </h3>
+          <a href="https://g1.globo.com/pr/parana/especial-publicitario/prefeitura-de-maringa/maringa-noticias/noticia/2022/04/08/empresas-de-maringa-estao-em-ranking-do-financial-times-sobre-crescimento.ghtml"
+             target="_blank" rel="noopener"
+             class="text-[#535862] text-xs font-medium inline-flex items-center gap-1 hover:text-[#00B4FB] transition-colors">
+            Saiba mais
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal group cursor-pointer">
+          <div class="rounded-2xl overflow-hidden aspect-video mb-4 bg-[#F7F8FA]">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/revistapegn_bsft_71feb58945.jpg"
+                 alt="Empreendedor [SUA MARCA]"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-widest mb-2">Empreendedorismo</p>
+          <h3 class="text-[#252B37] text-base font-semibold mb-2 leading-snug group-hover:text-[#00B4FB] transition-colors">
+            Ele pegou R$ 3 mil do cheque especial para montar uma empresa milionária na sala de casa
+          </h3>
+          <a href="https://revistapegn.globo.com/Tecnologia/noticia/2018/11/ele-pegou-r-3-mil-do-cheque-especial-para-montar-uma-empresa-milionaria-na-sala-de-casa.html"
+             target="_blank" rel="noopener"
+             class="text-[#535862] text-xs font-medium inline-flex items-center gap-1 hover:text-[#00B4FB] transition-colors">
+            Saiba mais
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="reveal group cursor-pointer">
+          <div class="rounded-2xl overflow-hidden aspect-video mb-4 bg-[#F7F8FA]">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/thumbnail_gazetadopovo_11zon_fa8de07a27.jpg"
+                 alt="[SUA MARCA] Itaú"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-widest mb-2">Crescimento</p>
+          <h3 class="text-[#252B37] text-base font-semibold mb-2 leading-snug group-hover:text-[#00B4FB] transition-colors">
+            [SUA MARCA] projeta R$ 100 milhões em faturamento com Itaú como parceiro
+          </h3>
+          <a href="#"
+             class="text-[#535862] text-xs font-medium inline-flex items-center gap-1 hover:text-[#00B4FB] transition-colors">
+            Saiba mais
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-8 md:hidden">
+        <a href="/blog" class="inline-flex items-center gap-1.5 text-[#00B4FB] text-sm font-semibold">
+          Ver todos
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="py-14 lg:py-24 bg-[#0A0D12] relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0A0D12] via-[#111827] to-[#0A0D12]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#00B4FB]/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="relative z-10 max-w-[800px] mx-auto px-4 md:px-12 text-center">
+      <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-5">
+        Mais estratégia. <span class="text-[#00B4FB]">Mais resultado.</span><br>Menos complicação.
+      </h2>
+      <p class="text-[#C7C7C7] text-base md:text-lg mb-10 leading-relaxed">
+        Fale com um especialista da <strong class="text-white">[SUA MARCA]</strong> e descubra como podemos transformar a tecnologia da sua empresa em vantagem competitiva real.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact"
+           class="btn-para bg-[#00B4FB] text-white font-semibold px-8 py-4 text-base hover:bg-[#0099d6] transition-colors">
+          Solicitar um orçamento
+        </a>
+        <a href="/catalog"
+           class="border-2 border-white/20 text-white font-semibold px-8 py-4 text-base hover:bg-white/10 transition-colors rounded inline-block text-center">
+          Ver catálogo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#0A0D12] border-t border-white/10 pt-14 pb-8">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 mb-12">
+
+        <!-- Col 1: Brand info -->
+        <div class="col-span-2 md:col-span-1">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
+               alt="[SUA MARCA]" class="h-7 mb-6 brightness-0 invert">
+          <p class="text-[#535862] text-xs mb-2">Atendimento por telefone:</p>
+          <a href="tel:08006001434" class="text-white text-base font-semibold hover:text-[#00B4FB] transition-colors block mb-6">
+            0800-600 1434
+          </a>
+          <div class="flex items-center gap-4">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="https://cdn-endpoint-ecommerce-buysoft-dev.azureedge.net/assets/uploads/instagram_b1e67a927d.svg"
+                   alt="Instagram" class="w-5 h-5 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img src="https://cdn-endpoint-ecommerce-buysoft-dev.azureedge.net/assets/uploads/linkedin_1fdac8c778.svg"
+                   alt="LinkedIn" class="w-5 h-5 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+              <img src="https://cdn-endpoint-ecommerce-buysoft-dev.azureedge.net/assets/uploads/youtube_c1d45a4b9f.svg"
+                   alt="YouTube" class="w-5 h-5 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Soluções -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Soluções</h4>
+          <ul class="space-y-3">
+            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Projete</a></li>
+            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Otimize</a></li>
+            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Proteja</a></li>
+            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Crie</a></li>
+            <li><a href="/solutions/aiblueprint" class="text-[#535862] text-sm hover:text-white transition-colors">aiblueprint</a></li>
+            <li><a href="/solutions/bim" class="text-[#535862] text-sm hover:text-white transition-colors">Implementação BIM</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Serviços -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Serviços</h4>
+          <ul class="space-y-3">
+            <li><a href="/services/server-backup" class="text-[#535862] text-sm hover:text-white transition-colors">Backup de Servidor</a></li>
+            <li><a href="/services/microsoft-365-backup" class="text-[#535862] text-sm hover:text-white transition-colors">Backup Microsoft 365</a></li>
+            <li><a href="/services/google-workspace-backup" class="text-[#535862] text-sm hover:text-white transition-colors">Backup Google Workspace</a></li>
+            <li><a href="/services/microsoft-365-productivity" class="text-[#535862] text-sm hover:text-white transition-colors">M365 Produtividade</a></li>
+            <li><a href="/services/microsoft-365-security" class="text-[#535862] text-sm hover:text-white transition-colors">M365 Segurança</a></li>
+            <li><a href="/services/cloud-migration" class="text-[#535862] text-sm hover:text-white transition-colors">Migração para Cloud</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Empresa -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Empresa</h4>
+          <ul class="space-y-3">
+            <li><a href="/about" class="text-[#535862] text-sm hover:text-white transition-colors">Quem somos</a></li>
+            <li><a href="/cases" class="text-[#535862] text-sm hover:text-white transition-colors">Cases de sucesso</a></li>
+            <li><a href="/blog" class="text-[#535862] text-sm hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/official-partner" class="text-[#535862] text-sm hover:text-white transition-colors">Parceiro Oficial</a></li>
+            <li><a href="/careers" class="text-[#535862] text-sm hover:text-white transition-colors">Carreiras</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Suporte -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Suporte</h4>
+          <ul class="space-y-3">
+            <li><a href="/support" class="text-[#535862] text-sm hover:text-white transition-colors">Central de ajuda</a></li>
+            <li><a href="/contact" class="text-[#535862] text-sm hover:text-white transition-colors">Fale conosco</a></li>
+            <li><a href="/privacy-policy" class="text-[#535862] text-sm hover:text-white transition-colors">Política de privacidade</a></li>
+            <li><a href="/terms-of-use" class="text-[#535862] text-sm hover:text-white transition-colors">Termos de uso</a></li>
+            <li><a href="/commercial-policy" class="text-[#535862] text-sm hover:text-white transition-colors">Política comercial</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-[#535862] text-xs">© 2026 [SUA MARCA]. Todos os direitos reservados.</p>
+
+        <!-- Country flags -->
+        <div class="flex items-center gap-3">
+          <!-- Brazil -->
+          <button class="flex items-center gap-1.5 text-white opacity-100 hover:opacity-80 transition-opacity">
+            <span class="text-lg leading-none">🇧🇷</span>
+            <span class="text-xs font-medium text-white/70">BR</span>
+          </button>
+          <!-- Mexico -->
+          <button class="flex items-center gap-1.5 opacity-40 hover:opacity-80 transition-opacity">
+            <span class="text-lg leading-none">🇲🇽</span>
+            <span class="text-xs font-medium text-white/70">MX</span>
+          </button>
+          <!-- Colombia -->
+          <button class="flex items-center gap-1.5 opacity-40 hover:opacity-80 transition-opacity">
+            <span class="text-lg leading-none">🇨🇴</span>
+            <span class="text-xs font-medium text-white/70">CO</span>
+          </button>
+        </div>
+
+        <div class="flex gap-6">
+          <a href="/privacy-policy" class="text-[#535862] text-xs hover:text-white transition-colors">Privacidade</a>
+          <a href="/terms-of-use" class="text-[#535862] text-xs hover:text-white transition-colors">Termos de uso</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ===== HERO CAROUSEL =====
+    var currentSlide = 0;
+    var TOTAL_SLIDES = 3;
+    var slidesTrack = document.getElementById('slides-track');
+    var dots = document.querySelectorAll('[data-dot]');
+
+    function goToSlide(index) {
+      currentSlide = ((index % TOTAL_SLIDES) + TOTAL_SLIDES) % TOTAL_SLIDES;
+      slidesTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+      dots.forEach(function(dot, i) {
+        if (i === currentSlide) {
+          dot.className = 'dot h-2 rounded-full w-[35px] bg-white';
+        } else {
+          dot.className = 'dot h-2 rounded-full w-[15px] bg-[#C7C7C7] hover:bg-[#a0a0a0]';
+        }
+      });
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        clearInterval(autoSlide);
+        goToSlide(parseInt(this.dataset.dot));
+        autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
+      });
+    });
+
+    var autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
+
+    // Touch/drag support
+    var carousel = document.getElementById('hero-carousel');
+    var touchStartX = 0;
+    var isDragging = false;
+
+    carousel.addEventListener('mousedown', function(e) { touchStartX = e.clientX; isDragging = true; });
+    carousel.addEventListener('mouseleave', function() { isDragging = false; });
+    carousel.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      var diff = touchStartX - e.clientX;
+      if (Math.abs(diff) > 40) {
+        clearInterval(autoSlide);
+        goToSlide(currentSlide + (diff > 0 ? 1 : -1));
+        autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
+      }
+    });
+    carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', function(e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        clearInterval(autoSlide);
+        goToSlide(currentSlide + (diff > 0 ? 1 : -1));
+        autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
+      }
+    }, { passive: true });
+
+    // ===== SCROLL REVEAL =====
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(function(el) { revealObserver.observe(el); });
+    } else {
+      revealEls.forEach(function(el) { el.classList.add('is-visible'); });
+    }
+  </script>
+
+  <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div class="px-4 py-2 rounded-full bg-white shadow-lg text-[#252B37] text-sm font-medium whitespace-nowrap" style="animation: expandBox 300ms ease-out">
+      Fale com vendas
+    </div>
+    <a href="https://wa.me/558006001434" target="_blank" rel="noopener"
+       class="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      </svg>
+    </a>
+  </div>
+
+</body>
+</html>
