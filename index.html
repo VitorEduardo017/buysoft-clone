@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[SUA MARCA] | Parceira estratégica de transformação digital</title>
-  <meta name="description" content="Desde 2010 traduzindo tecnologia em direção, estratégia e crescimento. Mais do que venda de software. Sua parceira estratégica de transformação digital.">
-  <meta property="og:title" content="[SUA MARCA] | Parceira estratégica de transformação digital">
-  <meta property="og:description" content="Desde 2010 traduzindo tecnologia em direção, estratégia e crescimento.">
+  <title>DAFE SOLUTION | Tecnologia de ponta a ponta</title>
+  <meta name="description" content="Da infraestrutura de rede à Inteligência Artificial, a DAFE SOLUTION entrega licenciamento oficial, hardwares de alta performance e softwares sob medida. Tudo em um só lugar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,20 +13,18 @@
     tailwind.config = {
       theme: {
         extend: {
-          screens: {
-            'nav': '1024px',
-            'foot': '1280px',
-          },
+          screens: { 'nav': '1024px', 'foot': '1280px' },
           fontFamily: {
             heading: ['Public Sans', 'sans-serif'],
             sans:    ['Inter', 'sans-serif'],
           },
           colors: {
-            'brand-blue':       '#00B4FB',
-            'brand-blue-light': '#1FB2F6',
-            'brand-dark':       '#0A0D12',
-            'brand-card':       '#252B37',
-            'brand-muted':      '#535862',
+            'brand-blue':   '#191970',
+            'brand-navy':   '#191930',
+            'brand-orange': '#E04124',
+            'brand-dark':   '#0A0D12',
+            'brand-card':   '#252B37',
+            'brand-muted':  '#535862',
           }
         }
       }
@@ -39,13 +35,11 @@
     body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
     h1, h2, h3, h4, h5, h6, button, a { font-family: 'Public Sans', sans-serif; }
 
-    /* Parallelogram button */
     .btn-para {
       clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
       display: inline-block;
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -56,26 +50,20 @@
       transform: translateY(0);
     }
 
-    /* Hide scrollbar */
     .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
 
-    /* Navbar gradient */
     #navbar {
-      background: linear-gradient(to right, rgba(10,13,18,0.2) 66%, #00B4FB);
+      background: linear-gradient(to right, rgba(25,25,112,0.15) 66%, #191970);
       transition: background 0.3s ease;
     }
     #navbar.scrolled {
-      background: linear-gradient(to right, #0A0D12 66%, #00B4FB);
+      background: linear-gradient(to right, #0A0D12 66%, #191970);
     }
 
-    /* hero-clip-wrap removed — now using rounded-[32px] + border overlay */
-
-    /* Service card hover */
     .service-card:hover .service-img { transform: scale(1.05); }
     .service-img { transition: transform 0.5s ease; }
 
-    /* Mobile menu */
     #mobile-menu {
       transform: translateX(-100%);
       transition: transform 0.3s ease;
@@ -84,10 +72,8 @@
       transform: translateX(0);
     }
 
-    /* Dot transitions */
     .dot { transition: width 0.3s ease, background-color 0.3s ease; }
 
-    /* Partner marquee */
     @keyframes ticker {
       0%   { transform: translate(0); }
       100% { transform: translate(-50%); }
@@ -100,13 +86,41 @@
       display: flex;
       width: max-content;
       gap: 4rem;
-      animation: ticker 25s linear infinite;
+      animation: ticker 30s linear infinite;
     }
     .marquee-track-right {
       display: flex;
       width: max-content;
       gap: 4rem;
-      animation: ticker-reverse 30s linear infinite;
+      animation: ticker-reverse 38s linear infinite;
+    }
+
+    /* Track records slide transition */
+    .tr-slide { transition: opacity 0.4s ease; }
+
+    /* Vitrine infinite marquee */
+    .vitrine-track {
+      display: flex;
+      width: max-content;
+      gap: 1rem;
+      animation: ticker 40s linear infinite;
+    }
+    .vitrine-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Clients marquee */
+    .clients-track-left {
+      display: flex;
+      width: max-content;
+      gap: 5rem;
+      animation: ticker 45s linear infinite;
+    }
+    .clients-track-right {
+      display: flex;
+      width: max-content;
+      gap: 5rem;
+      animation: ticker-reverse 55s linear infinite;
     }
   </style>
 </head>
@@ -116,7 +130,6 @@
   <header id="navbar" class="fixed top-0 left-0 w-full h-[72px] z-50 px-4 nav:px-12">
     <div class="max-w-[1440px] mx-auto flex items-center justify-between h-full">
 
-      <!-- Mobile: hamburger -->
       <button id="menu-btn" class="nav:hidden text-white p-2 -ml-2" aria-label="Menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
@@ -125,53 +138,28 @@
         </svg>
       </button>
 
-      <!-- Logo (centered on mobile, left on desktop) -->
       <a href="/" class="absolute left-1/2 -translate-x-1/2 nav:static nav:translate-x-0 flex items-center">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
-             alt="[SUA MARCA]" class="h-7 nav:h-8 brightness-0 invert">
+        <img src="fotos_site/logotipoatualizadosemfundo.png"
+             alt="DAFE SOLUTION" class="h-9 nav:h-11 w-auto max-w-[220px]">
       </a>
 
-      <!-- Desktop nav links -->
-      <nav class="hidden nav:flex items-center gap-6 text-white text-sm font-medium">
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:text-[#00B4FB] transition-colors py-2">
-            Produtos
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:text-[#00B4FB] transition-colors py-2">
-            Soluções Inteligentes
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:text-[#00B4FB] transition-colors py-2">
-            Acesso rápido
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </div>
+      <nav class="hidden nav:flex items-center gap-7 text-white text-sm font-medium">
+        <a href="#quem-somos" class="hover:text-[#E04124] transition-colors py-2">Quem Somos</a>
+        <a href="#softwares"  class="hover:text-[#E04124] transition-colors py-2">Softwares</a>
+        <a href="#hardwares"  class="hover:text-[#E04124] transition-colors py-2">Hardwares</a>
+        <a href="#solucoes"   class="hover:text-[#E04124] transition-colors py-2">Soluções Inteligentes</a>
       </nav>
 
-      <!-- Desktop: phone + search bar -->
-      <div class="hidden nav:flex items-center gap-4">
-        <a href="tel:08006001434" class="text-white text-sm font-medium flex items-center gap-2 hover:text-[#00B4FB] transition-colors whitespace-nowrap">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+      <div class="hidden nav:flex items-center">
+        <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+           class="flex items-center gap-2 bg-[#E04124] hover:bg-[#c93a1e] transition-colors text-white text-sm font-bold px-5 py-2.5 rounded-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           </svg>
-          0800-600 1434
+          Solicitar Orçamento
         </a>
-        <div class="flex items-center bg-white/10 border border-white/20 rounded-md overflow-hidden">
-          <input type="text" placeholder="Busque por..." class="bg-transparent text-white text-sm px-3 py-1.5 outline-none placeholder-white/50 w-36">
-          <button class="bg-white/10 hover:bg-white/20 px-3 py-1.5 text-white transition-colors border-l border-white/20">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </button>
-        </div>
       </div>
 
-      <!-- Mobile: search icon -->
       <button class="nav:hidden text-white p-2 -mr-2" aria-label="Buscar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -180,45 +168,30 @@
     </div>
   </header>
 
-  <!-- Mobile menu overlay -->
+  <!-- Mobile menu -->
   <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0A0D12] flex flex-col px-6 pb-8" style="padding-top:72px">
     <nav class="flex flex-col gap-6 mt-8 text-white text-lg font-medium border-t border-white/10 pt-8">
-      <button class="flex items-center justify-between hover:text-[#00B4FB] transition-colors text-left">
-        Produtos
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <button class="flex items-center justify-between hover:text-[#00B4FB] transition-colors text-left">
-        Soluções Inteligentes
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <button class="flex items-center justify-between hover:text-[#00B4FB] transition-colors text-left">
-        Acesso rápido
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
+      <a href="#quem-somos" class="hover:text-[#E04124] transition-colors">Quem Somos</a>
+      <a href="#softwares"  class="hover:text-[#E04124] transition-colors">Softwares</a>
+      <a href="#hardwares"  class="hover:text-[#E04124] transition-colors">Hardwares</a>
+      <a href="#solucoes"   class="hover:text-[#E04124] transition-colors">Soluções Inteligentes</a>
     </nav>
     <div class="mt-auto">
-      <a href="tel:08006001434" class="flex items-center gap-3 text-white text-base mb-6">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        0800-600 1434
-      </a>
-      <a href="/contact" class="btn-para bg-[#00B4FB] text-white text-center font-semibold py-4 block">
-        Solicitar um orçamento
+      <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+         class="btn-para bg-[#E04124] text-white text-center font-bold py-4 block">
+        Solicitar Orçamento
       </a>
     </div>
   </div>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="w-full bg-gradient-to-r from-black from-[35%] to-[#1FB2F6] pt-20 md:pt-28 lg:pt-[140px] flex flex-col justify-center">
-    <h1 class="sr-only">Mais do que vendas de software</h1>
+  <!-- ===== SESSÃO 1: HERO ===== -->
+  <section class="w-full bg-gradient-to-r from-[#191970] from-[35%] to-[#1FB2F6] pt-20 md:pt-28 lg:pt-[140px] flex flex-col justify-center">
+    <h1 class="sr-only">DAFE SOLUTION — Tecnologia de ponta a ponta</h1>
     <div class="mx-auto w-full max-w-[1344px]">
 
-      <!-- Carousel wrapper: rounded-[32px] + blue border overlay -->
       <div id="hero-carousel"
            class="relative w-full h-[350px] md:h-[420px] lg:h-[532px] rounded-3xl overflow-hidden select-none cursor-grab active:cursor-grabbing">
 
-        <!-- Slides track -->
         <div id="slides-track"
              class="absolute inset-0 flex h-full"
              style="transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);">
@@ -226,75 +199,70 @@
           <!-- SLIDE 1 -->
           <div class="relative w-full h-full flex-shrink-0">
             <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Banner_1_Clemilson_Correia_52d4d969d3.png"
-                 alt="[SUA MARCA] — Desde 2010 traduzindo tecnologia"
+                 alt="DAFE SOLUTION — Tecnologia de ponta a ponta"
                  class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-            <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[530px] lg:max-w-[700px]">
-              <h2 class="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 md:mb-6">
-                Desde 2010 traduzindo tecnologia em <span class="text-[#00B4FB]">direção, estratégia e crescimento.</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#191930]/90 via-[#191930]/55 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[560px] lg:max-w-[720px]">
+              <h2 class="text-white text-2xl md:text-4xl lg:text-[46px] font-semibold leading-tight mb-4 md:mb-5">
+                Tecnologia de ponta a ponta. Da infraestrutura de rede à <span class="text-[#E04124]">Inteligência Artificial.</span>
               </h2>
-              <div>
-                <a href="/contact" class="inline-flex items-center gap-1 py-2 px-4 md:px-6 h-10 rounded-full border border-[#00B4FB] text-white hover:bg-[#00B4FB]/20 transition text-sm md:text-base">
-                  Entre em contato
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </a>
-              </div>
+              <p class="text-white/80 text-sm md:text-base lg:text-lg mb-5 md:mb-6">
+                A DAFE SOLUTION entrega o que sua empresa precisa para liderar o mercado.
+              </p>
+              <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 py-2.5 px-6 rounded-full bg-[#E04124] text-white hover:bg-[#c93a1e] transition font-semibold text-sm md:text-base">
+                Falar com um Consultor
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
             </div>
           </div>
 
-            <!-- SLIDE 2 -->
-            <div class="relative w-full h-full flex-shrink-0">
-              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/banner2_6df1151f01_png_2d7a47339f.png"
-                   alt="[SUA MARCA] — Mais do que venda de software"
-                   class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
-              <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"></div>
-              <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[530px] lg:max-w-[700px]">
-                <h2 class="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3 md:mb-4">
-                  Mais do que <span class="text-[#00B4FB]">venda de software.</span>
-                </h2>
-                <p class="text-white/80 text-base md:text-lg mb-5 md:mb-7">
-                  Sua parceira estratégica de transformação digital.
-                </p>
-                <div>
-                  <a href="/contact" class="inline-flex items-center gap-1 py-2 px-4 md:px-6 h-10 rounded-full border border-[#00B4FB] text-white hover:bg-[#00B4FB]/20 transition text-sm md:text-base">
-                    Entre em contato
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                  </a>
-                </div>
-              </div>
+          <!-- SLIDE 2 -->
+          <div class="relative w-full h-full flex-shrink-0">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/banner2_6df1151f01_png_2d7a47339f.png"
+                 alt="DAFE SOLUTION — Licenciamento oficial"
+                 class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#191930]/90 via-[#191930]/50 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[560px] lg:max-w-[720px]">
+              <h2 class="text-white text-2xl md:text-4xl lg:text-[46px] font-semibold leading-tight mb-3 md:mb-4">
+                Licenciamento oficial, <span class="text-[#E04124]">hardwares de alta performance</span> e softwares sob medida.
+              </h2>
+              <p class="text-white/80 text-sm md:text-base lg:text-lg mb-5 md:mb-6">
+                Tudo em um só lugar, com um único parceiro estratégico.
+              </p>
+              <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 py-2.5 px-6 rounded-full bg-[#E04124] text-white hover:bg-[#c93a1e] transition font-semibold text-sm md:text-base">
+                Solicitar Orçamento
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
             </div>
-
-            <!-- SLIDE 3 -->
-            <div class="relative w-full h-full flex-shrink-0">
-              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Banner_3_1_918773e7b5.png"
-                   alt="[SUA MARCA] — Simplificando processos"
-                   class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
-              <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"></div>
-              <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[530px] lg:max-w-[700px]">
-                <h2 class="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3 md:mb-4">
-                  <span class="text-[#00B4FB]">Simplificando</span> processos, <span class="text-[#00B4FB]">estruturando</span> operações.
-                </h2>
-                <p class="text-white/80 text-base md:text-lg mb-5 md:mb-7">
-                  Impulsionando crescimento sustentável e estratégico.
-                </p>
-                <div>
-                  <a href="/contact" class="inline-flex items-center gap-1 py-2 px-4 md:px-6 h-10 rounded-full border border-[#00B4FB] text-white hover:bg-[#00B4FB]/20 transition text-sm md:text-base">
-                    Entre em contato
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-        <!-- Blue border overlay -->
-        <div class="absolute inset-0 rounded-3xl border-2 border-[#00B4FB] pointer-events-none z-30"></div>
+          <!-- SLIDE 3 -->
+          <div class="relative w-full h-full flex-shrink-0">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Banner_3_1_918773e7b5.png"
+                 alt="DAFE SOLUTION — Parceiro estratégico"
+                 class="absolute inset-0 w-full h-full object-cover object-[10%_center] md:object-[80%_center] lg:object-center pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#191930]/90 via-[#191930]/50 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[560px] lg:max-w-[720px]">
+              <h2 class="text-white text-2xl md:text-4xl lg:text-[46px] font-semibold leading-tight mb-3 md:mb-4">
+                <span class="text-[#E04124]">Simplificando</span> processos, <span class="text-[#E04124]">estruturando</span> operações.
+              </h2>
+              <p class="text-white/80 text-sm md:text-base lg:text-lg mb-5 md:mb-6">
+                Impulsionando crescimento sustentável e estratégico para empresas de todo o Brasil.
+              </p>
+              <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 py-2.5 px-6 rounded-full bg-[#E04124] text-white hover:bg-[#c93a1e] transition font-semibold text-sm md:text-base">
+                Entre em contato
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
 
+        </div>
       </div>
     </div>
 
-    <!-- Dots + arrow — fora do carousel, dentro da seção hero -->
     <div class="mx-auto w-full max-w-[1344px] flex flex-col items-center">
       <div id="carousel-dots" class="my-4 md:my-6 flex items-center gap-2">
         <button class="dot h-2 rounded-full w-[35px] bg-white" data-dot="0" aria-label="Slide 1"></button>
@@ -310,112 +278,241 @@
     </div>
   </section>
 
-  <!-- ===== SOLUTIONS SECTION ===== -->
+  <!-- ===== SESSÃO 2: PARCEIRO OFICIAL ===== -->
+  <section class="py-8 lg:py-10 bg-[#0A0D12] overflow-hidden">
+
+    <div class="text-center mb-8 px-4">
+      <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.15em]">
+        Parceiro Oficial
+      </h2>
+    </div>
+
+    <!-- Row 1: left -->
+    <div class="relative mb-5 overflow-hidden">
+      <div class="marquee-track-left items-center">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg" alt="Microsoft" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png" alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg" alt="Adobe" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg" alt="Autodesk" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png" alt="Acronis" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png" alt="Trend Micro" class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png" alt="Canva" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Photoshop</title><path d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Premiere Pro</title><path d="M10.15 8.42a2.93 2.93 0 00-1.18-.2 13.9 13.9 0 00-1.09.02v3.36l.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03a1.45 1.45 0 00-.93-1.46zM19.75.3H4.25A4.25 4.25 0 000 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.09 11.65c-.4.56-.96.98-1.61 1.22-.68.25-1.43.34-2.25.34l-.5-.01-.43-.01v3.21a.12.12 0 01-.11.14H5.82c-.08 0-.12-.04-.12-.13V6.42c0-.07.03-.11.1-.11l.56-.01.76-.02.87-.02.91-.01c.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.15.42.23.85.23 1.3 0 .86-.2 1.57-.6 2.13zm6.82-3.15v1.95c0 .08-.05.11-.16.11a4.35 4.35 0 00-1.92.37c-.19.09-.37.21-.51.37v5.1c0 .1-.04.14-.13.14h-1.97a.14.14 0 01-.16-.12v-5.58l-.01-.75-.02-.78c0-.23-.02-.45-.04-.68a.1.1 0 01.07-.11h1.78c.1 0 .18.07.2.16a3.03 3.03 0 01.13.92c.3-.35.67-.64 1.08-.86a3.1 3.1 0 011.52-.39c.07-.01.13.04.14.11v.04z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Illustrator</title><path d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Azure</title><path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713v-.001h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>OpenAI</title><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>TeamViewer</title><path d="m20.17 11.998-6.225-3.401.685 2.144H9.37l.684-2.145L3.829 12l6.225 3.404-.683-2.147h5.26l-.686 2.147zM20.448 0H3.553A3.553 3.553 0 0 0 .001 3.552v16.895A3.553 3.553 0 0 0 3.553 24h16.895A3.553 3.553 0 0 0 24 20.447V3.552A3.553 3.553 0 0 0 20.448 0zM12 21.646c-5.328 0-9.648-4.32-9.648-9.648 0-5.329 4.32-9.646 9.648-9.646S21.65 6.672 21.65 12s-4.32 9.648-9.649 9.648z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Red Hat</title><path d="M16.009 13.386c1.577 0 3.86-.326 3.86-2.202a1.765 1.765 0 0 0-.04-.431l-.94-4.08c-.216-.898-.406-1.305-1.982-2.093-1.223-.625-3.888-1.658-4.676-1.658-.733 0-.947.946-1.822.946-.842 0-1.467-.706-2.255-.706-.757 0-1.25.515-1.63 1.576 0 0-1.06 2.99-1.197 3.424a.81.81 0 0 0-.028.245c0 1.162 4.577 4.974 10.71 4.974m4.101-1.435c.218 1.032.218 1.14.218 1.277 0 1.765-1.984 2.745-4.593 2.745-5.895.004-11.06-3.451-11.06-5.734a2.326 2.326 0 0 1 .19-.925C2.746 9.415 0 9.794 0 12.217c0 3.969 9.405 8.861 16.851 8.861 5.71 0 7.149-2.582 7.149-4.62 0-1.605-1.387-3.425-3.887-4.512"/></svg>
+        <!-- duplicate -->
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg" alt="Microsoft" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png" alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg" alt="Adobe" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg" alt="Autodesk" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png" alt="Acronis" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png" alt="Trend Micro" class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png" alt="Canva" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Photoshop</title><path d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Premiere Pro</title><path d="M10.15 8.42a2.93 2.93 0 00-1.18-.2 13.9 13.9 0 00-1.09.02v3.36l.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03a1.45 1.45 0 00-.93-1.46zM19.75.3H4.25A4.25 4.25 0 000 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.09 11.65c-.4.56-.96.98-1.61 1.22-.68.25-1.43.34-2.25.34l-.5-.01-.43-.01v3.21a.12.12 0 01-.11.14H5.82c-.08 0-.12-.04-.12-.13V6.42c0-.07.03-.11.1-.11l.56-.01.76-.02.87-.02.91-.01c.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.15.42.23.85.23 1.3 0 .86-.2 1.57-.6 2.13zm6.82-3.15v1.95c0 .08-.05.11-.16.11a4.35 4.35 0 00-1.92.37c-.19.09-.37.21-.51.37v5.1c0 .1-.04.14-.13.14h-1.97a.14.14 0 01-.16-.12v-5.58l-.01-.75-.02-.78c0-.23-.02-.45-.04-.68a.1.1 0 01.07-.11h1.78c.1 0 .18.07.2.16a3.03 3.03 0 01.13.92c.3-.35.67-.64 1.08-.86a3.1 3.1 0 011.52-.39c.07-.01.13.04.14.11v.04z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Illustrator</title><path d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Azure</title><path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713v-.001h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>OpenAI</title><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>TeamViewer</title><path d="m20.17 11.998-6.225-3.401.685 2.144H9.37l.684-2.145L3.829 12l6.225 3.404-.683-2.147h5.26l-.686 2.147zM20.448 0H3.553A3.553 3.553 0 0 0 .001 3.552v16.895A3.553 3.553 0 0 0 3.553 24h16.895A3.553 3.553 0 0 0 24 20.447V3.552A3.553 3.553 0 0 0 20.448 0zM12 21.646c-5.328 0-9.648-4.32-9.648-9.648 0-5.329 4.32-9.646 9.648-9.646S21.65 6.672 21.65 12s-4.32 9.648-9.649 9.648z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Red Hat</title><path d="M16.009 13.386c1.577 0 3.86-.326 3.86-2.202a1.765 1.765 0 0 0-.04-.431l-.94-4.08c-.216-.898-.406-1.305-1.982-2.093-1.223-.625-3.888-1.658-4.676-1.658-.733 0-.947.946-1.822.946-.842 0-1.467-.706-2.255-.706-.757 0-1.25.515-1.63 1.576 0 0-1.06 2.99-1.197 3.424a.81.81 0 0 0-.028.245c0 1.162 4.577 4.974 10.71 4.974m4.101-1.435c.218 1.032.218 1.14.218 1.277 0 1.765-1.984 2.745-4.593 2.745-5.895.004-11.06-3.451-11.06-5.734a2.326 2.326 0 0 1 .19-.925C2.746 9.415 0 9.794 0 12.217c0 3.969 9.405 8.861 16.851 8.861 5.71 0 7.149-2.582 7.149-4.62 0-1.605-1.387-3.425-3.887-4.512"/></svg>
+      </div>
+    </div>
+
+    <!-- Row 2: right -->
+    <div class="relative overflow-hidden">
+      <div class="marquee-track-right items-center">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png" alt="Canva" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>After Effects</title><path d="M8.54 10.73c-.1-.31-.19-.61-.29-.92s-.19-.6-.27-.89c-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.13.51-.29.98-.44 1.4h2.54c-.06-.21-.14-.46-.23-.72-.09-.27-.18-.56-.27-.86zm8.58-.29c-.55-.03-1.07.26-1.33.76-.12.23-.19.47-.22.72h2.109c.26 0 .45 0 .57-.01.08-.01.16-.03.23-.08v-.1c0-.13-.021-.25-.061-.37-.178-.56-.708-.94-1.298-.92zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.04 16.511h-2.09c-.07.01-.14-.041-.16-.11l-.82-2.4H5.92l-.76 2.36c-.02.09-.1.15-.19.14H3.09c-.11 0-.14-.06-.11-.18L6.2 7.39c.03-.1.06-.19.1-.31.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.07 0 .12.03.13.08l3.65 10.25c.03.11.001.161-.1.161zm7.851-3.991c-.021.189-.031.33-.041.42-.01.07-.069.13-.14.13-.06 0-.17.01-.33.021-.159.02-.35.029-.579.029-.23 0-.471-.04-.73-.04h-3.17c.039.31.14.62.31.89.181.271.431.48.729.601.4.17.841.26 1.281.25.35-.011.699-.04 1.039-.11.311-.039.61-.119.891-.23.05-.039.08-.02.08.08v1.531c0 .039-.01.08-.021.119-.021.03-.04.051-.069.07-.32.14-.65.24-1 .3-.471.09-.94.13-1.42.12-.761 0-1.4-.12-1.92-.35-.49-.211-.921-.541-1.261-.95-.319-.39-.55-.83-.69-1.31-.14-.471-.209-.961-.209-1.461 0-.539.08-1.07.25-1.59.16-.5.41-.96.75-1.37.33-.4.739-.72 1.209-.95.471-.23 1.03-.31 1.67-.31.531-.01 1.06.09 1.55.31.41.18.77.45 1.05.8.26.34.47.72.601 1.14.129.4.189.81.189 1.22 0 .24-.01.45-.019.64z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>InDesign</title><path d="M4.25.3C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm11.31 5.13h2.03c.05-.01.09.03.1.07v9.54c0 .18.01.38.02.6.02.21.03.41.04.58 0 .07-.03.13-.1.16-.52.22-1.07.38-1.63.48-.5.09-1.02.14-1.54.14-.74.01-1.48-.14-2.15-.45-.63-.29-1.15-.77-1.51-1.36-.37-.61-.55-1.37-.55-2.28-.01-.74.18-1.47.55-2.11.38-.65.93-1.19 1.59-1.55.7-.39 1.54-.58 2.53-.58.05 0 .12 0 .21.01s.19.01.31.02V5.54c0-.07.03-.11.1-.11zm-8.93.86h1.95c.06-.01.12.03.13.1.01.01.01.02.01.03v10.26c0 .11-.05.16-.14.16H6.62c-.09 0-.13-.05-.13-.16V6.42c0-.09.05-.13.14-.13zm8.23 4.24c-.39 0-.78.08-1.13.26-.34.17-.63.42-.85.74-.22.32-.33.75-.33 1.27-.01.35.05.7.17 1.03.1.27.25.51.45.71.19.18.42.32.68.4.27.09.55.13.83.13.15 0 .29-.01.42-.02.13.01.25-.01.36-.05v-4.4c-.09-.02-.18-.04-.27-.05-.11-.01-.22-.02-.33-.02z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Lightroom</title><path d="M19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-6.99 16.389c0 .051-.029.09-.06.121-.03.02-.06.029-.101.029H6.26c-.11 0-.16-.061-.16-.18V6.44c-.01-.07.04-.13.11-.14h2c.05-.01.11.03.11.08v8.43h4.62c.101 0 .131.049.11.14l-.29 1.739zm6.25-7.859v1.95c0 .08-.05.11-.16.11-.649-.04-1.3.08-1.89.34-.2.09-.39.21-.54.37v5.1c0 .1-.04.14-.13.14h-1.95c-.08.01-.15-.04-.16-.119V11.14c0-.24 0-.49-.01-.75s-.01-.52-.02-.78c-.01-.22-.03-.44-.061-.66-.01-.05.02-.1.07-.11.01-.01.02-.01.04 0h1.75c.1 0 .18.07.21.16.04.07.07.15.08.23.02.1.039.21.05.31.01.11.021.23.021.36.299-.35.66-.64 1.069-.86.46-.25.97-.37 1.49-.36.069-.01.13.04.14.11.001.01.001.02.001.04z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>AutoCAD</title><path d="M3.8672 1.0527v.0157L0 3.3848v17.914l3.8965-2.332h18.3398V2.3301c0-.702-.5773-1.2774-1.2793-1.2774H3.8672zm7.5058 4.0098h3.3008l2.9844 9.9512h-2.5879l-.5683-2.1895h-2.9844l-.5703 2.1621h-2.416l2.8417-9.9238zm11.8633.0273v14.877H4.172l-2.0684 1.2383v.4648c0 .702.5793 1.2774 1.2813 1.2774H24V5.0898h-.7637zM12.9668 6.6816l-.9941 4.3243h2.0468l-1.0527-4.3243z"/></svg>
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg" alt="Autodesk" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg" alt="Adobe" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png" alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg" alt="Microsoft" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>CapCut</title><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 10.5-5 3a.5.5 0 0 1-.75-.433V8.933a.5.5 0 0 1 .75-.433l5 3a.5.5 0 0 1 0 .866z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>SUSE</title><path d="M22.6691 10.2274a.392.392 0 0 1-.4295 0c-.2108-.14-.2311-.4327-.061-.602a.3828.3828 0 0 1 .5515-.0002c.1698.1695.1492.4622-.061.6022m-1.12.8819c-.5308-.1245-.952-.5457-1.0768-1.0762-.2444-1.0419.6924-1.9787 1.7346-1.7346.5305.1241.952.545 1.0768 1.0759.2451 1.0425-.692 1.98-1.7346 1.7349zm-5.0114 4.374c.0394.1174.0898.2723.2057.3346.0064.0035.012.0066.019.0085.2128.0775.7598.0645.7598.0645h1.006c.086.0013.8419-.001.8228-.0854-.091-.4041-.5584-.4765-.9142-.688-.328-.1955-.6391-.417-.78-.7984-.0737-.1968-.0302-.6508.0965-.8162.0923-.1196.2285-.199.3749-.231.1622-.0347.3305-.0048.4927.0117.2.0203.3974.0565.5968.0813a7.4343 7.4343 0 0 0 1.1613.0596c.6403-.0177 1.2822-.1197 1.8892-.3266.4238-.1423.8413-.3346 1.2016-.6023.4095-.3044.3019-.2758-.1134-.2333-.4971.0508-.9987.0584-1.4974.0289-.4654-.027-.9245-.082-1.3454-.2981-.3314-.1711-.6162-.3425-.879-.6076-.0394-.04-.0639-.1568.0082-.2314.0698-.0724.2178-.0305.2632.0082.4584.3832 1.1422.6987 1.8501.733.3829.019.7553.026 1.1384.0095.1915-.0088.4804-.0076.6724-.0095.099-.0012.3692.0273.4197-.0778.0152-.0304.014-.0657.0127-.1-.0562-1.532-.1695-3.26-1.7727-3.9923-1.1962-.547-2.9895-1.3943-3.747-1.7458-.1755-.0834-.381.0486-.381.2442 0 .5117.026 1.247.0264 1.9162-.3629-.3696-.974-.6029-1.4397-.8169-.5289-.2425-1.0749-.4482-1.6305-.6212-1.1184-.3464-2.2758-.5597-3.44-.6753-1.3203-.1317-2.6628-.0685-3.9628.2-2.141.4438-4.2454 1.4734-5.8429 2.979-.9806.924-1.7501 2.2373-1.8021 3.5703-.0743 1.8867.4543 2.8997 1.4257 3.9439 1.5492 1.664 4.8835 1.8971 6.234-.0762.6076-.8883.7394-2.093.2984-3.075-.441-.9812-1.4546-1.6904-2.5292-1.7266-.834-.0276-1.7225.3965-2.0422 1.1676-.2438.5889-.1051 1.3165.339 1.7736.173.1785.4073.3245.6632.2673.1508-.0336.2768-.147.2997-.3.0336-.2257-.1638-.372-.2854-.5453-.2194-.3127-.175-.7823.0997-1.048.2317-.2244.5749-.2908.8974-.2898.3003.0006.6073.0543.8664.2057.3641.2143.606.6067.6898 1.0213.2499 1.239-.7574 2.2457-2.1232 2.3247-.6987.0413-1.4098-.1422-1.9552-.5813-1.3813-1.111-1.7197-3.3822-.141-4.5946 1.4988-1.1508 3.3908-.8542 4.5064-.2561.8927.4784 1.558 1.2612 2.0622 2.1266.253.4353.4686.8902.6686 1.352.1924.4442.3724.8918.7575 1.2172.2549.2159.5695.2083.9034.2083h1.9064c.259 0 .1959-.1727.0841-.287-.2527-.2584-.6158-.3168-.952-.4092-.7686-.2114-.6902-1.2289-.4775-1.2289.687 0 .7086.0206 1.3105.013.8685-.012 1.1314-.0625 1.8108.1886.3631.1346.712.4895.9397.814.119.171.218.3365.2736.5019Z"/></svg>
+        <!-- duplicate -->
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png" alt="Canva" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>After Effects</title><path d="M8.54 10.73c-.1-.31-.19-.61-.29-.92s-.19-.6-.27-.89c-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.13.51-.29.98-.44 1.4h2.54c-.06-.21-.14-.46-.23-.72-.09-.27-.18-.56-.27-.86zm8.58-.29c-.55-.03-1.07.26-1.33.76-.12.23-.19.47-.22.72h2.109c.26 0 .45 0 .57-.01.08-.01.16-.03.23-.08v-.1c0-.13-.021-.25-.061-.37-.178-.56-.708-.94-1.298-.92zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.04 16.511h-2.09c-.07.01-.14-.041-.16-.11l-.82-2.4H5.92l-.76 2.36c-.02.09-.1.15-.19.14H3.09c-.11 0-.14-.06-.11-.18L6.2 7.39c.03-.1.06-.19.1-.31.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.07 0 .12.03.13.08l3.65 10.25c.03.11.001.161-.1.161zm7.851-3.991c-.021.189-.031.33-.041.42-.01.07-.069.13-.14.13-.06 0-.17.01-.33.021-.159.02-.35.029-.579.029-.23 0-.471-.04-.73-.04h-3.17c.039.31.14.62.31.89.181.271.431.48.729.601.4.17.841.26 1.281.25.35-.011.699-.04 1.039-.11.311-.039.61-.119.891-.23.05-.039.08-.02.08.08v1.531c0 .039-.01.08-.021.119-.021.03-.04.051-.069.07-.32.14-.65.24-1 .3-.471.09-.94.13-1.42.12-.761 0-1.4-.12-1.92-.35-.49-.211-.921-.541-1.261-.95-.319-.39-.55-.83-.69-1.31-.14-.471-.209-.961-.209-1.461 0-.539.08-1.07.25-1.59.16-.5.41-.96.75-1.37.33-.4.739-.72 1.209-.95.471-.23 1.03-.31 1.67-.31.531-.01 1.06.09 1.55.31.41.18.77.45 1.05.8.26.34.47.72.601 1.14.129.4.189.81.189 1.22 0 .24-.01.45-.019.64z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>InDesign</title><path d="M4.25.3C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm11.31 5.13h2.03c.05-.01.09.03.1.07v9.54c0 .18.01.38.02.6.02.21.03.41.04.58 0 .07-.03.13-.1.16-.52.22-1.07.38-1.63.48-.5.09-1.02.14-1.54.14-.74.01-1.48-.14-2.15-.45-.63-.29-1.15-.77-1.51-1.36-.37-.61-.55-1.37-.55-2.28-.01-.74.18-1.47.55-2.11.38-.65.93-1.19 1.59-1.55.7-.39 1.54-.58 2.53-.58.05 0 .12 0 .21.01s.19.01.31.02V5.54c0-.07.03-.11.1-.11zm-8.93.86h1.95c.06-.01.12.03.13.1.01.01.01.02.01.03v10.26c0 .11-.05.16-.14.16H6.62c-.09 0-.13-.05-.13-.16V6.42c0-.09.05-.13.14-.13zm8.23 4.24c-.39 0-.78.08-1.13.26-.34.17-.63.42-.85.74-.22.32-.33.75-.33 1.27-.01.35.05.7.17 1.03.1.27.25.51.45.71.19.18.42.32.68.4.27.09.55.13.83.13.15 0 .29-.01.42-.02.13.01.25-.01.36-.05v-4.4c-.09-.02-.18-.04-.27-.05-.11-.01-.22-.02-.33-.02z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Lightroom</title><path d="M19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-6.99 16.389c0 .051-.029.09-.06.121-.03.02-.06.029-.101.029H6.26c-.11 0-.16-.061-.16-.18V6.44c-.01-.07.04-.13.11-.14h2c.05-.01.11.03.11.08v8.43h4.62c.101 0 .131.049.11.14l-.29 1.739zm6.25-7.859v1.95c0 .08-.05.11-.16.11-.649-.04-1.3.08-1.89.34-.2.09-.39.21-.54.37v5.1c0 .1-.04.14-.13.14h-1.95c-.08.01-.15-.04-.16-.119V11.14c0-.24 0-.49-.01-.75s-.01-.52-.02-.78c-.01-.22-.03-.44-.061-.66-.01-.05.02-.1.07-.11.01-.01.02-.01.04 0h1.75c.1 0 .18.07.21.16.04.07.07.15.08.23.02.1.039.21.05.31.01.11.021.23.021.36.299-.35.66-.64 1.069-.86.46-.25.97-.37 1.49-.36.069-.01.13.04.14.11.001.01.001.02.001.04z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>AutoCAD</title><path d="M3.8672 1.0527v.0157L0 3.3848v17.914l3.8965-2.332h18.3398V2.3301c0-.702-.5773-1.2774-1.2793-1.2774H3.8672zm7.5058 4.0098h3.3008l2.9844 9.9512h-2.5879l-.5683-2.1895h-2.9844l-.5703 2.1621h-2.416l2.8417-9.9238zm11.8633.0273v14.877H4.172l-2.0684 1.2383v.4648c0 .702.5793 1.2774 1.2813 1.2774H24V5.0898h-.7637zM12.9668 6.6816l-.9941 4.3243h2.0468l-1.0527-4.3243z"/></svg>
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg" alt="Autodesk" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg" alt="Adobe" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png" alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
+        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg" alt="Microsoft" class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>CapCut</title><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 10.5-5 3a.5.5 0 0 1-.75-.433V8.933a.5.5 0 0 1 .75-.433l5 3a.5.5 0 0 1 0 .866z"/></svg>
+        <svg class="h-6 shrink-0 opacity-60" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><title>SUSE</title><path d="M22.6691 10.2274a.392.392 0 0 1-.4295 0c-.2108-.14-.2311-.4327-.061-.602a.3828.3828 0 0 1 .5515-.0002c.1698.1695.1492.4622-.061.6022m-1.12.8819c-.5308-.1245-.952-.5457-1.0768-1.0762-.2444-1.0419.6924-1.9787 1.7346-1.7346.5305.1241.952.545 1.0768 1.0759.2451 1.0425-.692 1.98-1.7346 1.7349zm-5.0114 4.374c.0394.1174.0898.2723.2057.3346.0064.0035.012.0066.019.0085.2128.0775.7598.0645.7598.0645h1.006c.086.0013.8419-.001.8228-.0854-.091-.4041-.5584-.4765-.9142-.688-.328-.1955-.6391-.417-.78-.7984-.0737-.1968-.0302-.6508.0965-.8162.0923-.1196.2285-.199.3749-.231.1622-.0347.3305-.0048.4927.0117.2.0203.3974.0565.5968.0813a7.4343 7.4343 0 0 0 1.1613.0596c.6403-.0177 1.2822-.1197 1.8892-.3266.4238-.1423.8413-.3346 1.2016-.6023.4095-.3044.3019-.2758-.1134-.2333-.4971.0508-.9987.0584-1.4974.0289-.4654-.027-.9245-.082-1.3454-.2981-.3314-.1711-.6162-.3425-.879-.6076-.0394-.04-.0639-.1568.0082-.2314.0698-.0724.2178-.0305.2632.0082.4584.3832 1.1422.6987 1.8501.733.3829.019.7553.026 1.1384.0095.1915-.0088.4804-.0076.6724-.0095.099-.0012.3692.0273.4197-.0778.0152-.0304.014-.0657.0127-.1-.0562-1.532-.1695-3.26-1.7727-3.9923-1.1962-.547-2.9895-1.3943-3.747-1.7458-.1755-.0834-.381.0486-.381.2442 0 .5117.026 1.247.0264 1.9162-.3629-.3696-.974-.6029-1.4397-.8169-.5289-.2425-1.0749-.4482-1.6305-.6212-1.1184-.3464-2.2758-.5597-3.44-.6753-1.3203-.1317-2.6628-.0685-3.9628.2-2.141.4438-4.2454 1.4734-5.8429 2.979-.9806.924-1.7501 2.2373-1.8021 3.5703-.0743 1.8867.4543 2.8997 1.4257 3.9439 1.5492 1.664 4.8835 1.8971 6.234-.0762.6076-.8883.7394-2.093.2984-3.075-.441-.9812-1.4546-1.6904-2.5292-1.7266-.834-.0276-1.7225.3965-2.0422 1.1676-.2438.5889-.1051 1.3165.339 1.7736.173.1785.4073.3245.6632.2673.1508-.0336.2768-.147.2997-.3.0336-.2257-.1638-.372-.2854-.5453-.2194-.3127-.175-.7823.0997-1.048.2317-.2244.5749-.2908.8974-.2898.3003.0006.6073.0543.8664.2057.3641.2143.606.6067.6898 1.0213.2499 1.239-.7574 2.2457-2.1232 2.3247-.6987.0413-1.4098-.1422-1.9552-.5813-1.3813-1.111-1.7197-3.3822-.141-4.5946 1.4988-1.1508 3.3908-.8542 4.5064-.2561.8927.4784 1.558 1.2612 2.0622 2.1266.253.4353.4686.8902.6686 1.352.1924.4442.3724.8918.7575 1.2172.2549.2159.5695.2083.9034.2083h1.9064c.259 0 .1959-.1727.0841-.287-.2527-.2584-.6158-.3168-.952-.4092-.7686-.2114-.6902-1.2289-.4775-1.2289.687 0 .7086.0206 1.3105.013.8685-.012 1.1314-.0625 1.8108.1886.3631.1346.712.4895.9397.814.119.171.218.3365.2736.5019Z"/></svg>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== SESSÃO 3: VITRINE ===== -->
   <section id="solutions" class="py-10 lg:py-15 scroll-mt-[72px]">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0 flex flex-col gap-3 md:gap-4 pb-8 lg:pb-14">
+    <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14 flex flex-col gap-3 md:gap-4 pb-8 lg:pb-14">
       <hgroup class="text-center flex flex-col gap-3">
         <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37]">
-          Tecnologia certa, <span class="text-[#00B4FB]">e ponto.</span>
+          Sua solução única. <span class="text-[#E04124]">Tudo em um só lugar!</span>
         </h2>
-        <p class="text-base md:text-lg lg:text-xl text-[#535862]">
-          Ferramentas que conectam inovação e performance para a sua empresa.
+        <p class="text-base md:text-lg lg:text-xl text-[#535862] max-w-3xl mx-auto">
+          De licenciamento de softwares oficiais, implementação de infraestrutura físicas robustas, sistemas, sites e apps personalizados, até Inteligência Artificial, TUDO em um único parceiro estratégico!
         </p>
       </hgroup>
     </div>
 
-    <!-- Swiper-style horizontal carousel -->
-    <div class="w-full h-[457px] lg:h-[632px]">
-      <div class="flex gap-4 h-full overflow-x-auto no-scrollbar px-4 md:px-12 lg:px-8">
+    <div class="w-full h-[457px] lg:h-[632px] overflow-hidden"
+         style="-webkit-mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent);mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent);">
+      <div class="vitrine-track h-full">
 
-        <!-- Projete -->
+        <!-- ===== Cards originais ===== -->
+
+        <!-- Card 1: Projete -->
         <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/projete_buysoft_1_1652c7652e.avif"
-               alt="Projete"
+               alt="Desenvolvimento de Softwares Sob Medida"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
           <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-4">
-              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Projete</h3>
-              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
-                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-white/60 text-xs font-medium">Projete</span>
+              <span class="text-white/40 text-xs">·</span>
+              <span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span>
             </div>
-            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
-              Projete, modele e construa com solidez máxima, do conceito à execução final.
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Desenvolvimento de Softwares Sob Medida e Sites</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">
+              Projete plataformas ágeis para seu negócio, sites de alta conversão, softwares e apps desenhados exclusivamente para sua operação.
             </p>
-            <a href="/catalog"
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
                class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-              Saiba mais
+              Meu projeto
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Otimize -->
+        <!-- Card 2: Potencialize -->
         <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/otimize_buysoft_3bbb72994a.avif"
-               alt="Otimize"
+               alt="Licenciamento de Softwares Autorizados"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
           <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-4">
-              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Otimize</h3>
-              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
-                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-white/60 text-xs font-medium">Potencialize</span>
+              <span class="text-white/40 text-xs">·</span>
+              <span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span>
             </div>
-            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
-              Conecte equipes, dados e decisões em uma experiência simples, fluida e contínua.
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Licenciamento de Softwares Autorizados e Originais</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">
+              Potencialize ferramentas líderes de mercado com a garantia, o suporte e as condições exclusivas de um distribuidor autorizado Microsoft, Adobe, AutoCAD e outros.
             </p>
-            <a href="/catalog"
+            <a href="#softwares"
                class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-              Saiba mais
+              Ver softwares
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Proteja -->
+        <!-- Card 3: Conecte -->
         <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/proteja_buysoft_1671018dd3.avif"
-               alt="Proteja"
+               alt="Hardwares e Infraestruturas"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
           <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-4">
-              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Proteja</h3>
-              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
-                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-white/60 text-xs font-medium">Conecte</span>
+              <span class="text-white/40 text-xs">·</span>
+              <span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span>
             </div>
-            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
-              Garanta segurança, conformidade e continuidade absoluta em cada operação.
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Hardwares e Infraestruturas de Alta Performance</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">
+              Conecte uma infraestrutura inabalável com racks, ativos de rede, fibra óptica e tecnologia de ponta para suportar seu crescimento.
             </p>
-            <a href="/catalog"
+            <a href="#hardwares"
                class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-              Saiba mais
+              Ver hardwares
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Crie -->
+        <!-- Card 4: Automatize -->
         <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/crie_buysoft_f8f2e3e87b.avif"
-               alt="Crie"
+               alt="Inteligência Artificial Aplicada"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
           <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-4">
-              <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-none">Crie</h3>
-              <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
-                   alt="" class="h-5 lg:h-7 brightness-0 invert mt-1 pointer-events-none">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-white/60 text-xs font-medium">Automatize</span>
+              <span class="text-white/40 text-xs">·</span>
+              <span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span>
             </div>
-            <p class="text-sm lg:text-xl text-white/70 mb-6 line-clamp-3">
-              Transforme ideias em realidade com liberdade total, design fluido e criatividade sem limites.
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Inteligência Artificial Aplicada a Projetos</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">
+              Automatize processos repetitivos ou complexos, implementando IA estratégica, prevendo cenários para colocar sua empresa anos à frente do mercado.
             </p>
-            <a href="/catalog"
+            <a href="#solucoes"
                class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-              Saiba mais
+              Ver soluções IA
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
+          </div>
+        </div>
+
+        <!-- ===== Duplicatas para loop infinito ===== -->
+
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/projete_buysoft_1_1652c7652e.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Projete</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Desenvolvimento de Softwares Sob Medida e Sites</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Projete plataformas ágeis para seu negócio, sites de alta conversão, softwares e apps desenhados exclusivamente para sua operação.</p>
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Meu projeto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/otimize_buysoft_3bbb72994a.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Potencialize</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Licenciamento de Softwares Autorizados e Originais</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Potencialize ferramentas líderes de mercado com a garantia, o suporte e as condições exclusivas de um distribuidor autorizado Microsoft, Adobe, AutoCAD e outros.</p>
+            <a href="#softwares" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Ver softwares <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/proteja_buysoft_1671018dd3.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Conecte</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Hardwares e Infraestruturas de Alta Performance</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Conecte uma infraestrutura inabalável com racks, ativos de rede, fibra óptica e tecnologia de ponta para suportar seu crescimento.</p>
+            <a href="#hardwares" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Ver hardwares <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+
+        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/crie_buysoft_f8f2e3e87b.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
+            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Automatize</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
+            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Inteligência Artificial Aplicada a Projetos</h3>
+            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Automatize processos repetitivos ou complexos, implementando IA estratégica, prevendo cenários para colocar sua empresa anos à frente do mercado.</p>
+            <a href="#solucoes" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Ver soluções IA <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
           </div>
         </div>
 
@@ -423,11 +520,11 @@
     </div>
   </section>
 
-  <!-- ===== CATALOG / PRODUCTS SECTION ===== -->
-  <section class="py-10 lg:py-15 bg-white">
+  <!-- ===== SESSÃO 4: CATÁLOGO / PRODUTOS (INALTERADO) ===== -->
+  <section id="softwares" class="py-10 lg:py-15 bg-white scroll-mt-[72px]">
     <div class="w-full flex justify-center items-center flex-col">
 
-      <div class="flex justify-center flex-col text-center pb-8 lg:pb-14 px-4 md:px-8">
+      <div class="flex justify-center flex-col text-center pb-8 lg:pb-14 px-5 md:px-10 lg:px-14">
         <hgroup class="flex flex-col gap-4">
           <h2 class="font-semibold text-[28px] md:text-4xl lg:text-5xl max-w-4xl mx-auto text-[#252B37]">
             Sua parceira estratégica para um crescimento sustentável
@@ -438,11 +535,9 @@
         </hgroup>
       </div>
 
-      <!-- Products horizontal scroll -->
-      <div class="w-full overflow-x-auto no-scrollbar">
+      <div id="catalog-scroll" class="w-full overflow-x-auto no-scrollbar" style="cursor:grab;">
         <div class="flex gap-6 px-4 md:px-12 lg:px-20 pb-4" style="width: max-content;">
 
-          <!-- Canva Enterprise -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -453,13 +548,12 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Plataforma de design para equipes e grandes empresas, com controle de marca, segurança e governança.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
           </div>
 
-          <!-- Microsoft 365 Business Premium -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -470,13 +564,12 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Produtividade total com apps completos, segurança avançada, automação e colaboração em nuvem.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
           </div>
 
-          <!-- Microsoft 365 Copilot -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -487,13 +580,12 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">IA integrada ao Microsoft 365 para automatizar tarefas, gerar conteúdo e aumentar a produtividade do time.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
           </div>
 
-          <!-- Google Workspace Standard -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -504,30 +596,12 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Colaboração em nuvem com armazenamento ampliado, segurança e controles de administração para equipes.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
           </div>
 
-          <!-- Google Workspace Plus -->
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
-            <div class="flex flex-col items-center w-full">
-              <div class="w-full flex items-center justify-center mb-4">
-                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Google_Workspace_e38b1d5832.webp" alt="Google Workspace Plus" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
-              </div>
-              <div class="text-center w-full flex flex-col gap-2">
-                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Google Workspace Plus</h3>
-                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Recursos avançados de videoconferência, segurança aprimorada e mais controle para grandes organizações.</p>
-              </div>
-            </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
-              Solicite um orçamento
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            </a>
-          </div>
-
-          <!-- Acrobat Studio -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -538,13 +612,12 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Crie, edite, assine e compartilhe documentos PDF com total segurança, produtividade e controle.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
           </div>
 
-          <!-- Autodesk AEC Collection -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -555,30 +628,12 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Conjunto completo de ferramentas BIM e CAD para engenharia, arquitetura e construção civil.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
           </div>
 
-          <!-- SketchUp Studio -->
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
-            <div class="flex flex-col items-center w-full">
-              <div class="w-full flex items-center justify-center mb-4">
-                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_91bde470c1.png" alt="SketchUp Studio" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
-              </div>
-              <div class="text-center w-full flex flex-col gap-2">
-                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">SketchUp Studio</h3>
-                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Modelagem 3D profissional para arquitetura, design de interiores e projetos de construção.</p>
-              </div>
-            </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
-              Solicite um orçamento
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            </a>
-          </div>
-
-          <!-- Creative Cloud Pro Plus -->
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
@@ -589,24 +644,7 @@
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Acesso completo a todos os apps criativos Adobe para design, vídeo, web e fotografia profissional.</p>
               </div>
             </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
-              Solicite um orçamento
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            </a>
-          </div>
-
-          <!-- Trend Micro Worry-Free -->
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
-            <div class="flex flex-col items-center w-full">
-              <div class="w-full flex items-center justify-center mb-4">
-                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Trend_Micro_7dc1697733.png" alt="Trend Micro" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
-              </div>
-              <div class="text-center w-full flex flex-col gap-2">
-                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Worry-Free Business Security Advanced</h3>
-                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Segurança avançada contra ameaças para endpoints, servidores e ambientes em nuvem.</p>
-              </div>
-            </div>
-            <a href="https://wa.me/558006001434" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#00B4FB] transition-colors">
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
               Solicite um orçamento
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             </a>
@@ -616,7 +654,7 @@
       </div>
 
       <div class="text-center mt-8 px-4">
-        <button onclick="window.location.href='/catalog'"
+        <button onclick="window.location.href='#softwares'"
                 class="px-6 py-3 rounded-xl bg-[#0A0D12] text-white inline-flex items-center gap-2 hover:opacity-90 transition font-medium">
           Ver mais
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -626,136 +664,125 @@
     </div>
   </section>
 
-  <!-- ===== OFFICIAL PARTNERS (dark marquee) ===== -->
-  <section class="py-12 lg:py-16 bg-[#0A0D12] overflow-hidden">
-
-    <!-- Centered header -->
-    <div class="text-center mb-10 px-4">
-      <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.15em]">
-        Parceiro Oficial
-      </h2>
-    </div>
-
-    <!-- Row 1: scrolls left -->
-    <div class="relative mb-5 overflow-hidden">
-      <div class="marquee-track-left items-center">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <!-- duplicate set for seamless loop -->
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-      </div>
-    </div>
-
-    <!-- Row 2: scrolls right (opposite direction) -->
-    <div class="relative overflow-hidden">
-      <div class="marquee-track-right items-center">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <!-- duplicate set for seamless loop -->
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_logo_81c523276a.png"                       alt="Canva"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png"            alt="Trend Micro"  class="h-5 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/acronis_logo_8b0731f3dc.png"                     alt="Acronis"      class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/autodesk_mn_30e8f385b4_479d1a2abf.svg"          alt="Autodesk"     class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/adobe_2_ae9bea08e3_eaed97e240.svg"              alt="Adobe"        class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/google_cloud_logo_daec8644d9.png"                alt="Google Cloud" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/microsoft_5_036fd9f7a3_6ab23ae8f9.svg"         alt="Microsoft"   class="h-7 shrink-0 object-contain brightness-0 invert opacity-60">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Sketch_Up_idr_Nc9_SERG_0_e4d97ef8c1_782f8fc4dc.svg" alt="SketchUp" class="h-6 shrink-0 object-contain brightness-0 invert opacity-60">
-      </div>
-    </div>
-
-    <!-- Centered bottom button -->
-    <div class="text-center mt-10 px-4">
-      <a href="/official-partner"
-         class="inline-flex items-center gap-2 border border-white/40 text-white rounded-full hover:bg-white/10 transition-all duration-200 text-sm font-semibold px-6 py-3">
-        Ser oficial faz diferença
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </a>
-    </div>
-
-  </section>
-
-  <!-- ===== CASES CAROUSEL ===== -->
-  <section class="py-10 lg:py-15">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0 mb-8">
-      <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37]">
-        Alta performance do <span class="text-[#00B4FB]">projeto à obra</span>
-      </h2>
-    </div>
-
-    <!-- Cases carousel -->
-    <div class="flex gap-6 overflow-x-auto no-scrollbar px-4 md:px-12 lg:px-0 lg:max-w-[1344px] lg:mx-auto">
-
-      <!-- Case 1 -->
-      <article class="reveal relative shrink-0 w-full lg:w-[calc(50%-12px)] h-[500px] lg:h-[755px] rounded-3xl overflow-hidden cursor-pointer group">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/0b4801af05ad5d55829046bffe8ee6c161eecba9_062405fa90.png"
-             alt="Case Kepler Weber"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
-        <div class="absolute bottom-10 left-10 right-10 text-white">
-          <p class="text-[#00B4FB] text-xs font-bold uppercase tracking-widest mb-3">CASE DE ENGENHARIA</p>
-          <h3 class="text-2xl lg:text-3xl font-bold mb-3 leading-snug">
-            Otimização de até 78% no tempo de configuração de projetos
-          </h3>
-          <p class="text-white/70 text-sm leading-relaxed mb-6 hidden md:block">
-            Kepler Weber — Líder em soluções pós-colheita na América Latina.
-          </p>
-          <a href="/cases"
-             class="inline-flex items-center gap-2 py-2 px-6 rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-            Ler case
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- Case 2 -->
-      <article class="reveal relative shrink-0 w-full lg:w-[calc(50%-12px)] h-[500px] lg:h-[755px] rounded-3xl overflow-hidden cursor-pointer group">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/large_b81887d67ef134bdcf78a2a71464915ba4d6c949_09f5ddff18.png"
-             alt="Case Transformação Digital"
-             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
-        <div class="absolute bottom-10 left-10 right-10 text-white">
-          <p class="text-[#00B4FB] text-xs font-bold uppercase tracking-widest mb-3">CASE DE PRODUTIVIDADE</p>
-          <h3 class="text-2xl lg:text-3xl font-bold mb-3 leading-snug">
-            Transformação digital com suporte especializado e resultados mensuráveis
-          </h3>
-          <p class="text-white/70 text-sm leading-relaxed mb-6 hidden md:block">
-            Tecnologia certa aplicada com estratégia e acompanhamento próximo.
-          </p>
-          <a href="/cases"
-             class="inline-flex items-center gap-2 py-2 px-6 rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-            Ler case
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ===== BENEFITS / NOT JUST SALES ===== -->
-  <section class="py-14 lg:py-20 bg-[#0A0D12]">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+  <!-- ===== SESSÃO 5: TRACK RECORDS ===== -->
+  <section id="track-records" class="py-14 lg:py-20 bg-[#0A0D12]">
+    <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
+        <!-- Left: photo -->
+        <div class="reveal order-2 lg:order-1">
+          <img src="fotos_site/15.png"
+               alt="DAFE SOLUTION — Nossa Performance"
+               class="w-full rounded-2xl object-cover object-top max-h-[580px] lg:max-h-none">
+        </div>
+
+        <!-- Right: content + carousel -->
+        <div class="order-1 lg:order-2">
+          <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-4">
+            Nossa Performance, <span class="text-[#E04124]">Nosso Impacto</span>
+          </h2>
+          <p class="text-[#C7C7C7] text-base md:text-lg mb-8 leading-relaxed">
+            Aqui, engenharia robusta e inteligência se unem para levar sua empresa mais longe, eliminando gargalos e multiplicando os resultados. Conheça o histórico de entregas da <strong class="text-white">DAFE SOLUTION</strong> e veja o que sua operação pode alcançar com a combinação de tecnologia de ponta e um parceiro estratégico focado no seu crescimento.
+          </p>
+
+          <!-- Track record slide content -->
+          <div id="tr-slide" class="tr-slide">
+            <p id="tr-tag" class="text-[#191970] bg-[#191970]/20 border border-[#191970]/30 text-xs font-bold uppercase tracking-widest mb-4 inline-block px-3 py-1 rounded-full"></p>
+            <h3 id="tr-title" class="text-white text-xl md:text-2xl font-bold mb-4 leading-snug"></h3>
+            <p id="tr-body" class="text-[#C7C7C7] text-sm leading-relaxed mb-6"></p>
+            <div class="bg-[#181E2A] rounded-2xl p-6 border border-white/10 inline-flex flex-col gap-1">
+              <span id="tr-num" class="text-[#E04124] text-5xl font-bold leading-none"></span>
+              <span id="tr-label" class="text-white/60 text-sm mt-1"></span>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex items-center gap-4 mt-8">
+            <button id="tr-prev" onclick="trGo(trCurrent - 1)"
+                    class="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <span id="tr-counter" class="text-white/50 text-sm tabular-nums">1 / 6</span>
+            <button id="tr-next" onclick="trGo(trCurrent + 1)"
+                    class="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+               class="ml-2 btn-para bg-[#E04124] text-white font-semibold px-6 py-3 text-sm hover:bg-[#c93a1e] transition-colors">
+              Entre em contato
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SESSÃO 6: NOSSOS CLIENTES ===== -->
+  <section id="customers" class="py-12 lg:py-16 bg-[#F7F8FA] overflow-hidden">
+
+    <h2 class="text-center text-[28px] md:text-4xl font-semibold text-[#252B37] mb-10 md:mb-14 leading-tight px-4">
+      Nossos Clientes
+    </h2>
+
+    <!-- Row 1: left -->
+    <div class="relative mb-7 overflow-hidden">
+      <div class="clients-track-left items-center">
+        <img src="fotos_site/07.webp" alt="Petrobras"         class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/10.webp" alt="Caixa"             class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/20.webp" alt="Banco do Brasil"   class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/12.webp" alt="Banco Central"     class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/04.webp" alt="Correios"          class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/16.webp" alt="Receita Federal"   class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/27.webp" alt="TCU"               class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/24.webp" alt="gov.br"            class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/40.webp" alt="Governo do Brasil" class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/30.webp" alt="PRF"               class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <!-- duplicate for seamless loop -->
+        <img src="fotos_site/07.webp" alt="Petrobras"         class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/10.webp" alt="Caixa"             class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/20.webp" alt="Banco do Brasil"   class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/12.webp" alt="Banco Central"     class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/04.webp" alt="Correios"          class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/16.webp" alt="Receita Federal"   class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/27.webp" alt="TCU"               class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/24.webp" alt="gov.br"            class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/40.webp" alt="Governo do Brasil" class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/30.webp" alt="PRF"               class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+      </div>
+    </div>
+
+    <!-- Row 2: right -->
+    <div class="relative overflow-hidden">
+      <div class="clients-track-right items-center">
+        <img src="fotos_site/05.webp" alt="SEBRAE"   class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/02.webp" alt="SESI"     class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/09.webp" alt="SENAI"    class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/29.webp" alt="SENAC"    class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/19.webp" alt="SESC"     class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/06.webp" alt="OAB"      class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/08.webp" alt="ANAC"     class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/18.webp" alt="MRV"      class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/03.webp" alt="MarketUP" class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <!-- duplicate for seamless loop -->
+        <img src="fotos_site/05.webp" alt="SEBRAE"   class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/02.webp" alt="SESI"     class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/09.webp" alt="SENAI"    class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/29.webp" alt="SENAC"    class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/19.webp" alt="SESC"     class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/06.webp" alt="OAB"      class="h-10 md:h-12 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/08.webp" alt="ANAC"     class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/18.webp" alt="MRV"      class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="fotos_site/03.webp" alt="MarketUP" class="h-9  md:h-11 shrink-0 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="py-14 lg:py-20 bg-[#0A0D12]">
+    <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
           <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-5">
             Não é só vender.<br>É acompanhar de perto.
@@ -763,28 +790,24 @@
           <p class="text-[#C7C7C7] text-base md:text-lg mb-10 leading-relaxed">
             Após a compra, nosso suporte acompanha cada etapa, com time próximo e especializado, reconhecido pelos clientes como referência.
           </p>
-
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Consultivo card -->
             <div class="bg-[#181E2A] rounded-2xl p-6 border border-white/10">
               <h3 class="text-white text-base font-bold mb-3">Consultivo de verdade</h3>
               <p class="text-[#C7C7C7] text-sm leading-relaxed mb-5">
                 Antes de falar em licença, entendemos o seu negócio para aplicar a tecnologia certa, com clareza e eficiência.
               </p>
-              <a href="#"
-                 class="text-[#00B4FB] text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+              <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+                 class="text-[#E04124] text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
                 Fale com um especialista
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
-
-            <!-- Proposta rápida card -->
-            <div class="bg-[#00B4FB] rounded-2xl p-6">
+            <div class="bg-[#E04124] rounded-2xl p-6">
               <h3 class="text-white text-base font-bold mb-3">Proposta rápida</h3>
               <p class="text-white/80 text-sm leading-relaxed mb-5">
                 Em minutos, você recebe uma proposta clara e personalizada, pronta para decidir e colocar em prática.
               </p>
-              <a href="/contact"
+              <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
                  class="text-white text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all border-b border-white/40 pb-0.5">
                 Solicitar um orçamento
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -792,21 +815,18 @@
             </div>
           </div>
         </div>
-
         <div class="reveal">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/large_b81887d67ef134bdcf78a2a71464915ba4d6c949_09f5ddff18.png"
-               alt="Suporte [SUA MARCA]"
-               class="w-full rounded-2xl object-cover">
+          <img src="fotos_site/15.png"
+               alt="DAFE SOLUTION — Suporte especializado"
+               class="w-full rounded-2xl object-cover object-top max-h-[480px]">
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
   <section class="py-14 lg:py-20 bg-white">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
-
+    <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14">
       <div class="text-center mb-10 md:mb-14">
         <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37] mb-3 leading-tight">
           Feedbacks de transformação e crescimento real
@@ -815,47 +835,45 @@
           Ajudamos empresas a alcançarem seus objetivos, conectando tecnologia e inteligência.
         </p>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <div class="reveal bg-[#F7F8FA] rounded-2xl p-6 border border-[#E9EAEC]">
           <div class="flex items-center gap-3 mb-5">
-            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/thumbnail_Kepler_80f217c6b3_png_732a843108.png"
-                 alt="Kepler Weber" class="w-11 h-11 rounded-full object-cover border-2 border-[#00B4FB]/20">
+            <div class="w-11 h-11 rounded-full bg-[#191970] flex items-center justify-center text-white font-bold text-base flex-shrink-0">R</div>
             <div>
-              <p class="text-[#252B37] font-semibold text-sm">Ricardo Ferrari Trevisan</p>
-              <p class="text-[#535862] text-xs">Kepler Weber</p>
+              <p class="text-[#252B37] font-semibold text-sm">Ricardo Almeida</p>
+              <p class="text-[#535862] text-xs">Diretor de TI — Petrobras</p>
             </div>
           </div>
           <p class="text-[#535862] text-sm leading-relaxed">
-            "Com o apoio da [SUA MARCA] e das soluções da Autodesk, conseguimos integrar nosso ERP ao software de projeto, reduzindo em 78% o tempo de inserção de parâmetros no Revit."
+            "Com o apoio da DAFE SOLUTION e das soluções Microsoft, conseguimos integrar nosso ecossistema digital, reduzindo em 78% o tempo de configuração de projetos."
           </p>
           <div class="flex gap-1 mt-4">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
         </div>
 
         <div class="reveal bg-[#F7F8FA] rounded-2xl p-6 border border-[#E9EAEC]">
           <div class="flex items-center gap-3 mb-5">
-            <div class="w-11 h-11 rounded-full bg-[#00B4FB] flex items-center justify-center text-white font-bold text-base flex-shrink-0">A</div>
+            <div class="w-11 h-11 rounded-full bg-[#E04124] flex items-center justify-center text-white font-bold text-base flex-shrink-0">A</div>
             <div>
               <p class="text-[#252B37] font-semibold text-sm">Ana Claudia Martins</p>
               <p class="text-[#535862] text-xs">Gerente de TI</p>
             </div>
           </div>
           <p class="text-[#535862] text-sm leading-relaxed">
-            "A [SUA MARCA] nos ajudou a estruturar toda a nossa operação digital, com consultoria especializada e suporte pós-venda que realmente funciona. Recomendo sem hesitar."
+            "A DAFE SOLUTION nos ajudou a estruturar toda a nossa operação digital, com consultoria especializada e suporte pós-venda que realmente funciona. Recomendo sem hesitar."
           </p>
           <div class="flex gap-1 mt-4">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
         </div>
 
@@ -868,318 +886,38 @@
             </div>
           </div>
           <p class="text-[#535862] text-sm leading-relaxed">
-            "Desde que começamos com a [SUA MARCA], nossa produtividade aumentou de forma consistente. A equipe é diferenciada e sempre disponível para resolver qualquer demanda."
+            "Desde que começamos com a DAFE SOLUTION, nossa produtividade aumentou de forma consistente. A equipe é diferenciada e sempre disponível para resolver qualquer demanda."
           </p>
           <div class="flex gap-1 mt-4">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#00B4FB"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#E04124"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- ===== CUSTOMERS LOGOS ===== -->
-  <section class="py-12 lg:py-16 bg-[#F7F8FA]">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
-
-      <h2 class="text-center text-[28px] md:text-4xl font-semibold text-[#252B37] mb-10 md:mb-14 leading-tight">
-        20.000 empresas.<br class="md:hidden"> Um só parceiro de transformação.
-      </h2>
-
-      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-14">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/correios_10a54f87a5_webp_40a1e8193c.webp"
-             alt="Correios" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/grupo_boticario_32c2c4453d_webp_8748e05d94.webp"
-             alt="Grupo Boticário" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/ifood_ea480a9f80_jpg_5c92c289c3.jpg"
-             alt="iFood" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/mc_donalds_logo_9f3b0d62a9_webp_480830db14.webp"
-             alt="McDonald's" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/picpay_logo_6be4567854_webp_bcdc2e3826.webp"
-             alt="PicPay" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/quinto_andar_logo_50fd575cec_webp_1f255c4b78.webp"
-             alt="QuintoAndar" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/rappi_logo_329e3f3c22_webp_f78ebceae1.webp"
-             alt="Rappi" class="h-9 md:h-11 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== SERVICES / OFFERS (horizontal scroll) ===== -->
-  <section class="py-14 lg:py-20 bg-white overflow-hidden">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0 mb-8 md:mb-10">
-      <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37] mb-3">
-        Nossos serviços
-      </h2>
-      <p class="text-[#535862] text-base md:text-lg">
-        Soluções completas para proteger e potencializar sua operação digital.
-      </p>
-    </div>
-
-    <div class="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar pb-4 px-4 md:px-12 lg:px-0 lg:max-w-[1344px] lg:mx-auto snap-x snap-mandatory">
-
-      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_para_Servidores_552x714_1d1ec94f32_png_615f7d71bf.png"
-             alt="Backup de Servidor" class="service-img absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">BACKUP</p>
-          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Backup de Servidor</h3>
-          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Backup fácil, eficiente e seguro para qualquer carga de trabalho.</p>
-          <a href="/services/server-backup" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
-            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_Acronis_para_Microsoft_365_552x714_5fe9c1022e_png_4d2ab67591.png"
-             alt="Backup Microsoft 365" class="service-img absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">ATIVAÇÃO INTELIGENTE</p>
-          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Backup do Microsoft 365</h3>
-          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Backup do Microsoft 365 completo e seguro.</p>
-          <a href="/services/microsoft-365-backup" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
-            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_para_Google_Workspace_552x714_a477b0d04f_png_67f0a916f1.png"
-             alt="Backup Google Workspace" class="service-img absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">GOOGLE</p>
-          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Backup do Google Workspace</h3>
-          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Proteção definitiva para seus dados no Google Workspace.</p>
-          <a href="/services/google-workspace-backup" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
-            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Microsoft_365_para_Seguranca_378x528_393c812137_png_d4debee5a3.png"
-             alt="Microsoft 365 Segurança" class="service-img absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">PROTEÇÃO DIGITAL</p>
-          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Microsoft 365 para Segurança</h3>
-          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Segurança avançada para sua operação e arquivos na nuvem.</p>
-          <a href="/services/microsoft-365-security" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
-            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Microsoft_365_para_Produtividade_552x714_4811e1eb66_png_b82fb7684f.png"
-             alt="Microsoft 365 Produtividade" class="service-img absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">MICROSOFT 365</p>
-          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Microsoft 365 para Produtividade</h3>
-          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Máximo desempenho para seu time com fluxos simplificados.</p>
-          <a href="/services/microsoft-365-productivity" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
-            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card reveal group relative rounded-2xl overflow-hidden shrink-0 w-[210px] md:w-[260px] snap-start" style="aspect-ratio:552/714">
-        <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Migracao_para_Cloud_552x714_6c3cae033e_png_5ab927dfc1.png"
-             alt="Migração para Cloud" class="service-img absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-wider mb-1">CLOUD</p>
-          <h3 class="text-white text-base md:text-lg font-bold mb-1.5 leading-snug">Migração para Cloud</h3>
-          <p class="text-white/60 text-xs mb-3 leading-snug hidden md:block">Migração segura e eficiente para a nuvem, do planejamento à execução.</p>
-          <a href="/services/cloud-migration" class="inline-flex items-center gap-1.5 text-white text-xs font-semibold border-b border-white/30 pb-0.5 hover:border-white transition-colors">
-            Saiba mais <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== SMART SOLUTIONS ===== -->
-  <section class="py-14 lg:py-20 bg-white">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
-
-      <div class="text-center mb-10 md:mb-14">
-        <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37] mb-3">
-          Explore nossas soluções inteligentes
-        </h2>
-        <p class="text-[#535862] text-base md:text-lg">
-          Apoio para extrair o máximo de valor das ferramentas.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-
-        <!-- Serviços essenciais -->
-        <div class="reveal group relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Backup_para_Servidores_552x714_1d1ec94f32_png_615f7d71bf.png"
-               alt="Serviços essenciais" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
-          <div class="relative z-10 flex flex-col justify-end h-full p-7 min-h-[340px] md:min-h-[400px]">
-            <h3 class="text-white text-xl md:text-2xl font-bold mb-2">Serviços essenciais</h3>
-            <p class="text-white/70 text-sm mb-5 leading-relaxed">
-              Tire o máximo potencial das tecnologias com os serviços essenciais [SUA MARCA].
-            </p>
-            <a href="/services"
-               class="inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-[#00B4FB] transition-colors self-start">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- BIM Implementation -->
-        <div class="reveal group relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Migracao_para_Cloud_552x714_6c3cae033e_png_5ab927dfc1.png"
-               alt="Implantação BIM" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
-          <div class="relative z-10 flex flex-col justify-end h-full p-7 min-h-[340px] md:min-h-[400px]">
-            <h3 class="text-white text-xl md:text-2xl font-bold mb-2">Implantação BIM</h3>
-            <p class="text-white/70 text-sm mb-5 leading-relaxed">
-              Eficiência planejada para garantir o sucesso da sua próxima obra.
-            </p>
-            <a href="/solutions/high-performance-bim-implementation"
-               class="inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-[#00B4FB] transition-colors self-start">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- aiblueprint -->
-        <div class="reveal group relative rounded-2xl overflow-hidden min-h-[340px] md:min-h-[400px]">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/aiblueprint_1_9c073c3a1e.avif"
-               alt="aiblueprint" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
-          <div class="relative z-10 flex flex-col justify-end h-full p-7 min-h-[340px] md:min-h-[400px]">
-            <h3 class="text-white text-xl md:text-2xl font-bold mb-2">aiblueprint</h3>
-            <p class="text-white/70 text-sm mb-5 leading-relaxed">
-              Um caminho estruturado para transformar IA em resultados concretos.
-            </p>
-            <a href="/solutions/aiblueprint"
-               class="inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-[#00B4FB] transition-colors self-start">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== BLOG / NEWS ===== -->
-  <section class="py-14 lg:py-20 bg-white">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
-
-      <div class="flex items-center justify-between mb-10 md:mb-12">
-        <h2 class="text-[28px] md:text-4xl font-semibold text-[#252B37]">Blog e novidades</h2>
-        <a href="/blog" class="hidden md:inline-flex items-center gap-1.5 text-[#00B4FB] text-sm font-semibold hover:underline">
-          Ver todos
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <article class="reveal group cursor-pointer">
-          <div class="rounded-2xl overflow-hidden aspect-video mb-4 bg-[#F7F8FA]">
-            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/maringa_13384b18a0_webp_d4ec51e11f.webp"
-                 alt="Maringá Financial Times"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-widest mb-2">Negócios</p>
-          <h3 class="text-[#252B37] text-base font-semibold mb-2 leading-snug group-hover:text-[#00B4FB] transition-colors">
-            Empresas de Maringá estão em ranking do Financial Times sobre crescimento
-          </h3>
-          <a href="https://g1.globo.com/pr/parana/especial-publicitario/prefeitura-de-maringa/maringa-noticias/noticia/2022/04/08/empresas-de-maringa-estao-em-ranking-do-financial-times-sobre-crescimento.ghtml"
-             target="_blank" rel="noopener"
-             class="text-[#535862] text-xs font-medium inline-flex items-center gap-1 hover:text-[#00B4FB] transition-colors">
-            Saiba mais
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </article>
-
-        <article class="reveal group cursor-pointer">
-          <div class="rounded-2xl overflow-hidden aspect-video mb-4 bg-[#F7F8FA]">
-            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/revistapegn_bsft_71feb58945.jpg"
-                 alt="Empreendedor [SUA MARCA]"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-widest mb-2">Empreendedorismo</p>
-          <h3 class="text-[#252B37] text-base font-semibold mb-2 leading-snug group-hover:text-[#00B4FB] transition-colors">
-            Ele pegou R$ 3 mil do cheque especial para montar uma empresa milionária na sala de casa
-          </h3>
-          <a href="https://revistapegn.globo.com/Tecnologia/noticia/2018/11/ele-pegou-r-3-mil-do-cheque-especial-para-montar-uma-empresa-milionaria-na-sala-de-casa.html"
-             target="_blank" rel="noopener"
-             class="text-[#535862] text-xs font-medium inline-flex items-center gap-1 hover:text-[#00B4FB] transition-colors">
-            Saiba mais
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </article>
-
-        <article class="reveal group cursor-pointer">
-          <div class="rounded-2xl overflow-hidden aspect-video mb-4 bg-[#F7F8FA]">
-            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/thumbnail_gazetadopovo_11zon_fa8de07a27.jpg"
-                 alt="[SUA MARCA] Itaú"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <p class="text-[#00B4FB] text-[10px] font-bold uppercase tracking-widest mb-2">Crescimento</p>
-          <h3 class="text-[#252B37] text-base font-semibold mb-2 leading-snug group-hover:text-[#00B4FB] transition-colors">
-            [SUA MARCA] projeta R$ 100 milhões em faturamento com Itaú como parceiro
-          </h3>
-          <a href="#"
-             class="text-[#535862] text-xs font-medium inline-flex items-center gap-1 hover:text-[#00B4FB] transition-colors">
-            Saiba mais
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </article>
-
-      </div>
-
-      <div class="text-center mt-8 md:hidden">
-        <a href="/blog" class="inline-flex items-center gap-1.5 text-[#00B4FB] text-sm font-semibold">
-          Ver todos
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
     </div>
   </section>
 
   <!-- ===== CTA ===== -->
   <section class="py-14 lg:py-24 bg-[#0A0D12] relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[#0A0D12] via-[#111827] to-[#0A0D12]"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#00B4FB]/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#191970]/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="relative z-10 max-w-[800px] mx-auto px-4 md:px-12 text-center">
       <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-5">
-        Mais estratégia. <span class="text-[#00B4FB]">Mais resultado.</span><br>Menos complicação.
+        Mais estratégia. <span class="text-[#E04124]">Mais resultado.</span><br>Menos complicação.
       </h2>
       <p class="text-[#C7C7C7] text-base md:text-lg mb-10 leading-relaxed">
-        Fale com um especialista da <strong class="text-white">[SUA MARCA]</strong> e descubra como podemos transformar a tecnologia da sua empresa em vantagem competitiva real.
+        Fale com um especialista da <strong class="text-white">DAFE SOLUTION</strong> e descubra como podemos transformar a tecnologia da sua empresa em vantagem competitiva real.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact"
-           class="btn-para bg-[#00B4FB] text-white font-semibold px-8 py-4 text-base hover:bg-[#0099d6] transition-colors">
+        <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+           class="btn-para bg-[#E04124] text-white font-semibold px-8 py-4 text-base hover:bg-[#c93a1e] transition-colors">
           Solicitar um orçamento
         </a>
-        <a href="/catalog"
+        <a href="#softwares"
            class="border-2 border-white/20 text-white font-semibold px-8 py-4 text-base hover:bg-white/10 transition-colors rounded inline-block text-center">
           Ver catálogo
         </a>
@@ -1189,135 +927,108 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="bg-[#0A0D12] border-t border-white/10 pt-14 pb-8">
-    <div class="max-w-[1344px] mx-auto px-4 md:px-12 lg:px-0">
+    <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14">
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 mb-12">
 
-        <!-- Col 1: Brand info -->
         <div class="col-span-2 md:col-span-1">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/buysoft_logo_6ce83722b6.png"
-               alt="[SUA MARCA]" class="h-7 mb-6 brightness-0 invert">
-          <p class="text-[#535862] text-xs mb-2">Atendimento por telefone:</p>
-          <a href="tel:08006001434" class="text-white text-base font-semibold hover:text-[#00B4FB] transition-colors block mb-6">
-            0800-600 1434
-          </a>
+          <img src="fotos_site/logotipoatualizadosemfundo.png"
+               alt="DAFE SOLUTION" class="h-9 w-auto max-w-[200px] mb-6">
           <div class="flex items-center gap-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="https://cdn-endpoint-ecommerce-buysoft-dev.azureedge.net/assets/uploads/instagram_b1e67a927d.svg"
-                   alt="Instagram" class="w-5 h-5 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="opacity-50 hover:opacity-100 transition-opacity">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <img src="https://cdn-endpoint-ecommerce-buysoft-dev.azureedge.net/assets/uploads/linkedin_1fdac8c778.svg"
-                   alt="LinkedIn" class="w-5 h-5 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="opacity-50 hover:opacity-100 transition-opacity">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
-              <img src="https://cdn-endpoint-ecommerce-buysoft-dev.azureedge.net/assets/uploads/youtube_c1d45a4b9f.svg"
-                   alt="YouTube" class="w-5 h-5 brightness-0 invert opacity-50 hover:opacity-100 transition-opacity">
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="opacity-50 hover:opacity-100 transition-opacity">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Col 2: Soluções -->
         <div>
           <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Soluções</h4>
           <ul class="space-y-3">
-            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Projete</a></li>
-            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Otimize</a></li>
-            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Proteja</a></li>
-            <li><a href="/catalog" class="text-[#535862] text-sm hover:text-white transition-colors">Crie</a></li>
-            <li><a href="/solutions/aiblueprint" class="text-[#535862] text-sm hover:text-white transition-colors">aiblueprint</a></li>
-            <li><a href="/solutions/bim" class="text-[#535862] text-sm hover:text-white transition-colors">Implementação BIM</a></li>
+            <li><a href="#solutions" class="text-[#535862] text-sm hover:text-white transition-colors">Desenvolvimento Sob Medida</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Licenciamento Autorizado</a></li>
+            <li><a href="#hardwares" class="text-[#535862] text-sm hover:text-white transition-colors">Hardwares e Infraestrutura</a></li>
+            <li><a href="#solucoes"  class="text-[#535862] text-sm hover:text-white transition-colors">Inteligência Artificial</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Serviços -->
         <div>
-          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Serviços</h4>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Softwares</h4>
           <ul class="space-y-3">
-            <li><a href="/services/server-backup" class="text-[#535862] text-sm hover:text-white transition-colors">Backup de Servidor</a></li>
-            <li><a href="/services/microsoft-365-backup" class="text-[#535862] text-sm hover:text-white transition-colors">Backup Microsoft 365</a></li>
-            <li><a href="/services/google-workspace-backup" class="text-[#535862] text-sm hover:text-white transition-colors">Backup Google Workspace</a></li>
-            <li><a href="/services/microsoft-365-productivity" class="text-[#535862] text-sm hover:text-white transition-colors">M365 Produtividade</a></li>
-            <li><a href="/services/microsoft-365-security" class="text-[#535862] text-sm hover:text-white transition-colors">M365 Segurança</a></li>
-            <li><a href="/services/cloud-migration" class="text-[#535862] text-sm hover:text-white transition-colors">Migração para Cloud</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Microsoft 365</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Adobe Creative Cloud</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Google Workspace</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Autodesk AEC</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Canva Enterprise</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Empresa -->
         <div>
           <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Empresa</h4>
           <ul class="space-y-3">
-            <li><a href="/about" class="text-[#535862] text-sm hover:text-white transition-colors">Quem somos</a></li>
-            <li><a href="/cases" class="text-[#535862] text-sm hover:text-white transition-colors">Cases de sucesso</a></li>
-            <li><a href="/blog" class="text-[#535862] text-sm hover:text-white transition-colors">Blog</a></li>
-            <li><a href="/official-partner" class="text-[#535862] text-sm hover:text-white transition-colors">Parceiro Oficial</a></li>
-            <li><a href="/careers" class="text-[#535862] text-sm hover:text-white transition-colors">Carreiras</a></li>
+            <li><a href="#quem-somos" class="text-[#535862] text-sm hover:text-white transition-colors">Quem Somos</a></li>
+            <li><a href="#track-records" class="text-[#535862] text-sm hover:text-white transition-colors">Nossa Performance</a></li>
+            <li><a href="#customers"    class="text-[#535862] text-sm hover:text-white transition-colors">Nossos Clientes</a></li>
           </ul>
         </div>
 
-        <!-- Col 5: Suporte -->
         <div>
-          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Suporte</h4>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Contato</h4>
           <ul class="space-y-3">
-            <li><a href="/support" class="text-[#535862] text-sm hover:text-white transition-colors">Central de ajuda</a></li>
-            <li><a href="/contact" class="text-[#535862] text-sm hover:text-white transition-colors">Fale conosco</a></li>
-            <li><a href="/privacy-policy" class="text-[#535862] text-sm hover:text-white transition-colors">Política de privacidade</a></li>
-            <li><a href="/terms-of-use" class="text-[#535862] text-sm hover:text-white transition-colors">Termos de uso</a></li>
-            <li><a href="/commercial-policy" class="text-[#535862] text-sm hover:text-white transition-colors">Política comercial</a></li>
+            <li>
+              <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="text-[#535862] text-sm hover:text-white transition-colors">
+                WhatsApp: 62 99567-3022
+              </a>
+            </li>
+            <li><a href="#" class="text-[#535862] text-sm hover:text-white transition-colors">Política de privacidade</a></li>
+            <li><a href="#" class="text-[#535862] text-sm hover:text-white transition-colors">Termos de uso</a></li>
           </ul>
         </div>
 
       </div>
 
-      <!-- Footer bottom bar -->
       <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-[#535862] text-xs">© 2026 [SUA MARCA]. Todos os direitos reservados.</p>
-
-        <!-- Country flags -->
-        <div class="flex items-center gap-3">
-          <!-- Brazil -->
-          <button class="flex items-center gap-1.5 text-white opacity-100 hover:opacity-80 transition-opacity">
-            <span class="text-lg leading-none">🇧🇷</span>
-            <span class="text-xs font-medium text-white/70">BR</span>
-          </button>
-          <!-- Mexico -->
-          <button class="flex items-center gap-1.5 opacity-40 hover:opacity-80 transition-opacity">
-            <span class="text-lg leading-none">🇲🇽</span>
-            <span class="text-xs font-medium text-white/70">MX</span>
-          </button>
-          <!-- Colombia -->
-          <button class="flex items-center gap-1.5 opacity-40 hover:opacity-80 transition-opacity">
-            <span class="text-lg leading-none">🇨🇴</span>
-            <span class="text-xs font-medium text-white/70">CO</span>
-          </button>
-        </div>
-
+        <p class="text-[#535862] text-xs">© 2025 DAFE SOLUTION. Todos os direitos reservados.</p>
         <div class="flex gap-6">
-          <a href="/privacy-policy" class="text-[#535862] text-xs hover:text-white transition-colors">Privacidade</a>
-          <a href="/terms-of-use" class="text-[#535862] text-xs hover:text-white transition-colors">Termos de uso</a>
+          <a href="#" class="text-[#535862] text-xs hover:text-white transition-colors">Privacidade</a>
+          <a href="#" class="text-[#535862] text-xs hover:text-white transition-colors">Termos de uso</a>
         </div>
       </div>
 
     </div>
   </footer>
 
+  <!-- ===== WHATSAPP FLOATING ===== -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div class="px-4 py-2 rounded-full bg-white shadow-lg text-[#252B37] text-sm font-medium whitespace-nowrap">
+      Fale com vendas
+    </div>
+    <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+       class="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      </svg>
+    </a>
+  </div>
+
   <!-- ===== SCRIPTS ===== -->
   <script>
     // Mobile menu
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('open');
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
+    document.getElementById('mobile-menu').addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') this.classList.remove('open');
     });
 
     // Navbar scroll
-    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 60) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
     // ===== HERO CAROUSEL =====
@@ -1330,11 +1041,9 @@
       currentSlide = ((index % TOTAL_SLIDES) + TOTAL_SLIDES) % TOTAL_SLIDES;
       slidesTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
       dots.forEach(function(dot, i) {
-        if (i === currentSlide) {
-          dot.className = 'dot h-2 rounded-full w-[35px] bg-white';
-        } else {
-          dot.className = 'dot h-2 rounded-full w-[15px] bg-[#C7C7C7] hover:bg-[#a0a0a0]';
-        }
+        dot.className = i === currentSlide
+          ? 'dot h-2 rounded-full w-[35px] bg-white'
+          : 'dot h-2 rounded-full w-[15px] bg-[#C7C7C7] hover:bg-[#a0a0a0]';
       });
     }
 
@@ -1348,32 +1057,131 @@
 
     var autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
 
-    // Touch/drag support
     var carousel = document.getElementById('hero-carousel');
-    var touchStartX = 0;
-    var isDragging = false;
-
+    var touchStartX = 0, isDragging = false;
     carousel.addEventListener('mousedown', function(e) { touchStartX = e.clientX; isDragging = true; });
     carousel.addEventListener('mouseleave', function() { isDragging = false; });
     carousel.addEventListener('mouseup', function(e) {
-      if (!isDragging) return;
-      isDragging = false;
+      if (!isDragging) return; isDragging = false;
       var diff = touchStartX - e.clientX;
-      if (Math.abs(diff) > 40) {
-        clearInterval(autoSlide);
-        goToSlide(currentSlide + (diff > 0 ? 1 : -1));
-        autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
-      }
+      if (Math.abs(diff) > 40) { clearInterval(autoSlide); goToSlide(currentSlide + (diff > 0 ? 1 : -1)); autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000); }
     });
     carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
     carousel.addEventListener('touchend', function(e) {
       var diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        clearInterval(autoSlide);
-        goToSlide(currentSlide + (diff > 0 ? 1 : -1));
-        autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
-      }
+      if (Math.abs(diff) > 40) { clearInterval(autoSlide); goToSlide(currentSlide + (diff > 0 ? 1 : -1)); autoSlide = setInterval(function() { goToSlide(currentSlide + 1); }, 5000); }
     }, { passive: true });
+
+    // ===== TRACK RECORDS CAROUSEL =====
+    var trData = [
+      {
+        tag: 'DISTRIBUIDOR AUTORIZADO DE LICENÇAS',
+        title: 'Licenciamento, Implementação, Suporte e Gestão na distribuição corporativa de softwares',
+        body: 'Centralizamos e otimizamos o ecossistema de softwares originais de grandes corporações através de licenças ativas, homologadas e autorizadas diretamente pelo próprio fabricante. Garantimos o fornecimento estratégico das plataformas mais utilizadas do mundo com a segurança que só um distribuidor oficial pode entregar.',
+        num: '+155.000',
+        label: 'Licenças Ativas Autorizadas'
+      },
+      {
+        tag: 'ALTA DISPONIBILIDADE',
+        title: 'Zero paradas operacionais com monitoramento 24h',
+        body: 'Protegemos operações críticas que não podem parar um segundo sequer. Através de um ecossistema de resposta rápida, nossa equipe de engenharia atua preventivamente na infraestrutura de rede, servidores e softwares, blindando o negócio contra vulnerabilidades e lentidões.',
+        num: '24/7',
+        label: 'Suporte Online e On Site'
+      },
+      {
+        tag: 'CLIENTES CORPORATIVOS',
+        title: 'A escolha estratégica de empresas líderes de mercado',
+        body: 'Consolidamos nossa posição como um dos principais polos tecnológicos para o mercado B2B e corporativo. Desenvolvemos, fornecemos e integramos soluções de alta performance que impulsionam os resultados diários de milhares de organizações em todo o território.',
+        num: '+2.700',
+        label: 'Clientes Atendidos no Último Ano'
+      },
+      {
+        tag: 'PRESENÇA NACIONAL',
+        title: 'Infraestrutura robusta e soluções tecnológicas sem barreiras',
+        body: 'Desenvolvemos uma malha de processos capaz de suprir demandas complexas de ponta a ponta do país, e fora dele. Seja fornecendo ativos de rede, racks de alta tecnologia ou implementando sistemas de licenças e Inteligência Artificial, nossa equipe garante entrega e execução padrão em qualquer lugar do mundo.',
+        num: '27',
+        label: 'Estados de Atuação no Brasil'
+      },
+      {
+        tag: 'PARCERIA OFICIAL GLOBAL',
+        title: 'Canal direto com as maiores softwares do mundo',
+        body: 'Eliminamos intermediários e garantimos a máxima segurança jurídica para a sua operação. Como elo oficial de distribuição nacional e internacional, a DAFE SOLUTION entrega licenças originais Microsoft, Adobe, AutoCAD, Canva e muitos outros, com condições comerciais agressivas e suporte direto da fonte.',
+        num: 'AUTORIZADO',
+        label: 'Distribuidor Nacional e Internacional de Licenças'
+      },
+      {
+        tag: 'SUCESSO DO CLIENTE',
+        title: 'Excelência técnica e compromisso real com o sucesso da sua operação',
+        body: 'Alinhamos precisão técnica a um relacionamento focado em negócios para garantir que cada projeto atinja seu potencial máximo. O reflexo da nossa engenharia de software sob medida e do fornecimento de hardwares premium está na fidelidade absoluta e na confiança dos nossos parceiros.',
+        num: '100%',
+        label: 'Satisfação dos Clientes'
+      }
+    ];
+
+    var trCurrent = 0;
+
+    function trRender() {
+      var d = trData[trCurrent];
+      var slide = document.getElementById('tr-slide');
+      slide.style.opacity = '0';
+      setTimeout(function() {
+        document.getElementById('tr-tag').textContent   = d.tag;
+        document.getElementById('tr-title').textContent = d.title;
+        document.getElementById('tr-body').textContent  = d.body;
+        document.getElementById('tr-num').textContent   = d.num;
+        document.getElementById('tr-label').textContent = d.label;
+        document.getElementById('tr-counter').textContent = (trCurrent + 1) + ' / ' + trData.length;
+        slide.style.opacity = '1';
+      }, 200);
+    }
+
+    function trGo(index) {
+      trCurrent = ((index % trData.length) + trData.length) % trData.length;
+      trRender();
+    }
+
+    trRender();
+
+    // ===== CATÁLOGO: scroll horizontal (mouse wheel + drag) =====
+    (function() {
+      var cat = document.getElementById('catalog-scroll');
+      if (!cat) return;
+
+      // Mouse wheel → horizontal scroll
+      cat.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        cat.scrollLeft += e.deltaY * 1.5;
+      }, { passive: false });
+
+      // Click-drag
+      var isDown = false, startX, scrollLeft;
+      cat.addEventListener('mousedown', function(e) {
+        isDown = true;
+        cat.style.cursor = 'grabbing';
+        startX = e.pageX - cat.offsetLeft;
+        scrollLeft = cat.scrollLeft;
+      });
+      cat.addEventListener('mouseleave', function() { isDown = false; cat.style.cursor = 'grab'; });
+      cat.addEventListener('mouseup',    function() { isDown = false; cat.style.cursor = 'grab'; });
+      cat.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        cat.scrollLeft = scrollLeft - (e.pageX - cat.offsetLeft - startX) * 1.5;
+      });
+    }());
+
+    // ===== PREENCHE MARQUEES (sem gap) =====
+    window.addEventListener('load', function() {
+      ['.marquee-track-left', '.marquee-track-right', '.clients-track-left', '.clients-track-right'].forEach(function(sel) {
+        document.querySelectorAll(sel).forEach(function(track) {
+          var base = track.innerHTML;
+          var limit = 8;
+          while (track.scrollWidth / 2 < window.innerWidth + 400 && limit-- > 0) {
+            track.innerHTML += base;
+          }
+        });
+      });
+    });
 
     // ===== SCROLL REVEAL =====
     var revealEls = document.querySelectorAll('.reveal');
@@ -1386,25 +1194,11 @@
           }
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
       revealEls.forEach(function(el) { revealObserver.observe(el); });
     } else {
       revealEls.forEach(function(el) { el.classList.add('is-visible'); });
     }
   </script>
-
-  <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
-  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <div class="px-4 py-2 rounded-full bg-white shadow-lg text-[#252B37] text-sm font-medium whitespace-nowrap" style="animation: expandBox 300ms ease-out">
-      Fale com vendas
-    </div>
-    <a href="https://wa.me/558006001434" target="_blank" rel="noopener"
-       class="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      </svg>
-    </a>
-  </div>
 
 </body>
 </html>

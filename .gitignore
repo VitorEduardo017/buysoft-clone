@@ -1,7 +1,10 @@
 node_modules/
-*.png
-*.jpg
-*.jpeg
 .env
 .env.local
 .vercel
+
+# Screenshots de referência (raiz)
+buysoft-*.png
+buysoft-*.jpg
+clone-*.png
+clone-*.jpg
