@@ -118,16 +118,11 @@
     }
     .marquee-enter:nth-child(2).is-in { transition-delay: 0.15s; }
 
-    /* ── Nossos Clientes: group hover blur + link overlay ── */
+    /* ── Nossos Clientes: group hover blur + link overlay (só em mouse/desktop) ── */
     #customers { position: relative; cursor: default; }
     #customers .clients-track-left,
     #customers .clients-track-right {
       transition: opacity 0.45s ease, filter 0.45s ease;
-    }
-    #customers:hover .clients-track-left,
-    #customers:hover .clients-track-right {
-      opacity: 0.25;
-      filter: blur(4px);
     }
     .marquee-hover-overlay {
       position: absolute; inset: 0; z-index: 20;
@@ -135,11 +130,13 @@
       opacity: 0; pointer-events: none;
       transition: opacity 0.4s ease;
     }
-    #customers:hover .marquee-hover-overlay { opacity: 1; pointer-events: auto; }
-
-    /* ── Parceiro Oficial: hover slow animation ── */
-    .partners-hover:hover .marquee-track-left  { animation-play-state: paused; }
-    .partners-hover:hover .marquee-track-right { animation-play-state: paused; }
+    @media (hover: hover) and (pointer: fine) {
+      #customers:hover .clients-track-left,
+      #customers:hover .clients-track-right { opacity: 0.25; filter: blur(4px); }
+      #customers:hover .marquee-hover-overlay { opacity: 1; pointer-events: auto; }
+      .partners-hover:hover .marquee-track-left  { animation-play-state: paused; }
+      .partners-hover:hover .marquee-track-right { animation-play-state: paused; }
+    }
 
     /* ── Char fade-in (blur → sharp) ── */
     .char-anim .char {
