@@ -794,48 +794,57 @@
         </p>
       </div>
 
-      <!-- Mobile: carrossel com peek | Desktop: grid 2 colunas -->
-      <div class="overflow-x-auto no-scrollbar md:overflow-visible" style="touch-action:pan-x;"
-           id="benefits-scroll">
-        <div class="flex gap-4 px-[9vw] md:px-10 lg:px-14 pb-2
-                    md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 lg:gap-16 md:items-center">
-
-          <!-- Card 1: Consultivo -->
-          <div class="shrink-0 w-[80vw] md:w-auto md:shrink bg-[#181E2A] rounded-2xl p-6 border border-white/10
-                      scroll-snap-align-center">
+      <!-- Mobile: carrossel infinito com peek -->
+      <div class="md:hidden overflow-x-auto no-scrollbar" id="benefits-scroll" style="touch-action:pan-x;">
+        <div class="flex gap-4 px-[9vw] pb-2">
+          <div class="shrink-0 w-[80vw] bg-[#181E2A] rounded-2xl p-6 border border-white/10 scroll-snap-align-center">
             <h3 class="text-white text-base font-bold mb-3">Consultivo de verdade</h3>
-            <p class="text-[#C7C7C7] text-sm leading-relaxed mb-5">
-              Antes de falar em licença, entendemos o seu negócio para aplicar a tecnologia certa, com clareza e eficiência.
-            </p>
+            <p class="text-[#C7C7C7] text-sm leading-relaxed mb-5">Antes de falar em licença, entendemos o seu negócio para aplicar a tecnologia certa, com clareza e eficiência.</p>
             <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
-               class="text-[#E04124] text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+               class="text-[#E04124] text-sm font-semibold inline-flex items-center gap-1.5">
               Fale com um especialista
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
-
-          <!-- Card 2: Proposta rápida -->
-          <div class="shrink-0 w-[80vw] md:w-auto md:shrink bg-[#E04124] rounded-2xl p-6
-                      scroll-snap-align-center">
+          <div class="shrink-0 w-[80vw] bg-[#E04124] rounded-2xl p-6 scroll-snap-align-center">
             <h3 class="text-white text-base font-bold mb-3">Proposta rápida</h3>
-            <p class="text-white/80 text-sm leading-relaxed mb-5">
-              Em minutos, você recebe uma proposta clara e personalizada, pronta para decidir e colocar em prática.
-            </p>
+            <p class="text-white/80 text-sm leading-relaxed mb-5">Em minutos, você recebe uma proposta clara e personalizada, pronta para decidir e colocar em prática.</p>
             <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
-               class="text-white text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all border-b border-white/40 pb-0.5">
+               class="text-white text-sm font-semibold inline-flex items-center gap-1.5 border-b border-white/40 pb-0.5">
               Solicitar um orçamento
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
-
-          <!-- Card 3: Foto do time -->
-          <div class="shrink-0 w-[80vw] md:w-auto md:shrink reveal lg:col-span-1 md:col-span-2
-                      scroll-snap-align-center">
-            <img src="fotos_site/fotodotime.png"
-                 alt="DAFE SOLUTION — Time especializado"
-                 class="w-full rounded-2xl object-cover object-top max-h-[300px] md:max-h-[480px]">
+          <div class="shrink-0 w-[80vw] scroll-snap-align-center">
+            <img src="fotos_site/fotodotime.png" alt="DAFE SOLUTION — Time especializado"
+                 class="w-full rounded-2xl object-cover object-center h-[280px]">
           </div>
+        </div>
+      </div>
 
+      <!-- Desktop: grid normal -->
+      <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 items-center px-10 lg:px-14">
+        <div class="bg-[#181E2A] rounded-2xl p-6 border border-white/10">
+          <h3 class="text-white text-base font-bold mb-3">Consultivo de verdade</h3>
+          <p class="text-[#C7C7C7] text-sm leading-relaxed mb-5">Antes de falar em licença, entendemos o seu negócio para aplicar a tecnologia certa, com clareza e eficiência.</p>
+          <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+             class="text-[#E04124] text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            Fale com um especialista
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="bg-[#E04124] rounded-2xl p-6">
+          <h3 class="text-white text-base font-bold mb-3">Proposta rápida</h3>
+          <p class="text-white/80 text-sm leading-relaxed mb-5">Em minutos, você recebe uma proposta clara e personalizada, pronta para decidir e colocar em prática.</p>
+          <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+             class="text-white text-sm font-semibold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all border-b border-white/40 pb-0.5">
+            Solicitar um orçamento
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="reveal md:col-span-2 lg:col-span-1">
+          <img src="fotos_site/fotodotime.png" alt="DAFE SOLUTION — Time especializado"
+               class="w-full rounded-2xl object-cover object-top max-h-[480px]">
         </div>
       </div>
 
@@ -1185,7 +1194,7 @@
       var inner = c.querySelector('div');
       var base = inner.innerHTML;
       inner.innerHTML = base + base + base;
-      if (id === 'catalog-scroll') inner.style.width = 'max-content';
+      inner.style.width = 'max-content';
 
       var sw = function() { return inner.scrollWidth / 3; };
       c.scrollLeft = sw();
@@ -1221,6 +1230,9 @@
 
     // ===== CATÁLOGO: scroll manual infinito =====
     makeInfiniteScroll('catalog-scroll');
+
+    // ===== BENEFITS: scroll infinito apenas no mobile =====
+    makeInfiniteScroll('benefits-scroll');
 
 
     // ===== PREENCHE MARQUEES (sem gap) =====
