@@ -98,6 +98,14 @@
     /* Track records slide transition */
     .tr-slide { transition: opacity 0.4s ease; }
 
+    /* Peek effect — vitrine e catálogo no mobile */
+    @media (max-width: 639px) {
+      #vitrine-scroll  { scroll-snap-type: x proximity; }
+      #vitrine-scroll  .group    { scroll-snap-align: center; }
+      #catalog-scroll  { scroll-snap-type: x proximity; }
+      #catalog-scroll  .shrink-0 { scroll-snap-align: center; }
+    }
+
     /* Clients marquee */
     .clients-track-left {
       display: flex;
@@ -364,12 +372,12 @@
     </div>
 
     <div id="vitrine-scroll" class="w-full h-[457px] md:h-[530px] lg:h-[632px] overflow-x-auto no-scrollbar md:cursor-grab" style="touch-action:pan-x;">
-      <div class="flex gap-4 h-full px-4 md:px-8 lg:px-14" style="width:max-content;">
+      <div class="flex gap-4 h-full px-[9vw] sm:px-4 md:px-8 lg:px-14" style="width:max-content;">
 
         <!-- ===== Cards originais ===== -->
 
         <!-- Card 1: Projete -->
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+        <div class="group relative shrink-0 w-[82vw] sm:w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/projete_buysoft_1_1652c7652e.avif"
                alt="Desenvolvimento de Softwares Sob Medida"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -393,7 +401,7 @@
         </div>
 
         <!-- Card 2: Potencialize -->
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+        <div class="group relative shrink-0 w-[82vw] sm:w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/otimize_buysoft_3bbb72994a.avif"
                alt="Licenciamento de Softwares Autorizados"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -417,7 +425,7 @@
         </div>
 
         <!-- Card 3: Conecte -->
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+        <div class="group relative shrink-0 w-[82vw] sm:w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/proteja_buysoft_1671018dd3.avif"
                alt="Hardwares e Infraestruturas"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -441,7 +449,7 @@
         </div>
 
         <!-- Card 4: Automatize -->
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
+        <div class="group relative shrink-0 w-[82vw] sm:w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer">
           <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/crie_buysoft_f8f2e3e87b.avif"
                alt="Inteligência Artificial Aplicada"
                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -485,9 +493,9 @@
       </div>
 
       <div id="catalog-scroll" class="w-full overflow-x-auto no-scrollbar md:cursor-grab" style="touch-action:pan-x;">
-        <div class="flex gap-6 px-4 md:px-12 lg:px-20 pb-4" style="width: max-content;">
+        <div class="flex gap-5 px-[9vw] sm:px-4 md:px-12 lg:px-20 pb-4" style="width: max-content;">
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Canva_5e0945f9a7.png" alt="Canva Enterprise" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -503,7 +511,7 @@
             </a>
           </div>
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Microsoft_365_82bbaeaad7.png" alt="Microsoft 365 Business Premium" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -519,7 +527,7 @@
             </a>
           </div>
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/copilot_logo_7850c4bf79.png" alt="Microsoft 365 Copilot" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -535,7 +543,7 @@
             </a>
           </div>
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Google_Workspace_e38b1d5832.webp" alt="Google Workspace Standard" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -551,7 +559,7 @@
             </a>
           </div>
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Acrobat_df9fddff2a.png" alt="Acrobat Studio" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -567,7 +575,7 @@
             </a>
           </div>
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Autodesk_AEC_Collection_77bd95b213.png" alt="Autodesk AEC Collection" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -583,7 +591,7 @@
             </a>
           </div>
 
-          <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
             <div class="flex flex-col items-center w-full">
               <div class="w-full flex items-center justify-center mb-4">
                 <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Creative_Cloud_ccff9002cc.png" alt="Creative Cloud Pro Plus" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
@@ -591,6 +599,40 @@
               <div class="text-center w-full flex flex-col gap-2">
                 <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Creative Cloud Pro Plus</h3>
                 <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Acesso completo a todos os apps criativos Adobe para design, vídeo, web e fotografia profissional.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Google Workspace Plus -->
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Google_Workspace_e38b1d5832.webp" alt="Google Workspace Plus" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Google Workspace Plus</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Recursos avançados de videoconferência em HD, armazenamento ampliado e controles de segurança superiores.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
+              Solicite um orçamento
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </a>
+          </div>
+
+          <!-- Trend Micro Worry-Free -->
+          <div class="shrink-0 w-[76vw] sm:w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <div class="flex flex-col items-center w-full">
+              <div class="w-full flex items-center justify-center mb-4">
+                <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/trendmicro_ba7ac0ce77_a9dd12c174.png" alt="Trend Micro Worry-Free" class="object-contain max-h-[64px] lg:max-h-[88px] w-auto">
+              </div>
+              <div class="text-center w-full flex flex-col gap-2">
+                <h3 class="text-[18px] lg:text-[24px] font-semibold text-[#252B37]">Worry-Free Business Security Advanced</h3>
+                <p class="text-[14px] lg:text-[16px] font-normal text-[#535862] line-clamp-3">Segurança completa para endpoints e e-mails contra phishings, malwares e ataques direcionados.</p>
               </div>
             </div>
             <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="self-center mt-6 inline-flex items-center gap-2 text-sm text-[#252B37] font-medium hover:text-[#E04124] transition-colors">
