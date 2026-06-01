@@ -98,6 +98,38 @@
     /* Track records slide transition */
     .tr-slide { transition: opacity 0.4s ease; }
 
+    /* ── Char fade-in (blur → sharp) ── */
+    .char-anim .char {
+      display: inline;
+      opacity: 0;
+      filter: blur(5px);
+      animation: charFadeIn 0.55s ease forwards;
+    }
+    @keyframes charFadeIn {
+      from { opacity: 0.5; filter: blur(5px); }
+      to   { opacity: 1;   filter: blur(0);   }
+    }
+
+    /* ── Slot machine word rotator ── */
+    .slot-container {
+      display: inline-block;
+      position: relative;
+      perspective: 800px;
+      transform-style: preserve-3d;
+    }
+    .slot-word { white-space: nowrap; backface-visibility: hidden; }
+    .slot-word.slot-active { display: inline-block; }
+    .slot-word.slot-exit {
+      position: absolute; top: 0; left: 0; display: inline-block;
+      animation: slotExit 0.42s ease-in forwards;
+    }
+    .slot-word.slot-enter {
+      position: absolute; top: 0; left: 0; display: inline-block;
+      animation: slotEnter 0.42s ease-out forwards;
+    }
+    @keyframes slotExit  { from { transform: rotateX(0deg);   opacity: 1; } to { transform: rotateX(-90deg); opacity: 0; } }
+    @keyframes slotEnter { from { transform: rotateX(90deg);  opacity: 0; } to { transform: rotateX(0deg);   opacity: 1; } }
+
     /* Peek effect — vitrine, catálogo e benefits no mobile */
     @media (max-width: 767px) {
       #vitrine-scroll  { scroll-snap-type: x proximity; }
@@ -208,7 +240,8 @@
             <div class="absolute inset-0 bg-gradient-to-r from-[#191930]/90 via-[#191930]/55 to-transparent"></div>
             <div class="relative z-10 h-full flex flex-col items-center md:items-start text-center md:text-left justify-center px-4 md:pl-12 lg:pl-[88px] max-w-full md:max-w-[560px] lg:max-w-[720px]">
               <h2 class="text-white text-2xl md:text-4xl lg:text-[46px] font-semibold leading-tight mb-4 md:mb-5">
-                Tecnologia de ponta a ponta. Da infraestrutura de rede à <span class="text-[#E04124]">Inteligência Artificial.</span>
+                Tecnologia de ponta a ponta.<br>Da infraestrutura de rede à<br>
+                <span class="text-[#E04124]"><span id="slot-rotator" class="slot-container"><span class="slot-word slot-active">Inteligência Artificial</span></span>.</span>
               </h2>
               <p class="text-white/80 text-sm md:text-base lg:text-lg mb-5 md:mb-6">
                 A DAFE SOLUTION entrega o que sua empresa precisa para liderar o mercado.
@@ -1162,8 +1195,28 @@
     ];
 
     var trCurrent = 0;
+    var trFirstSeen = false;
 
-    function trRender() {
+    // ── Count-up animation ──
+    function countUp(el, finalText, duration) {
+      if (!el) return;
+      var txt = String(finalText);
+      var m = txt.match(/^([^0-9]*)([0-9][0-9.]*)(.*)/);
+      if (!m) { el.textContent = txt; return; }
+      var prefix = m[1], numVal = parseInt(m[2].replace(/\./g, ''), 10), suffix = m[3];
+      if (isNaN(numVal)) { el.textContent = txt; return; }
+      var t0 = null;
+      function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+      (function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / duration, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + fmt(Math.floor(numVal * e)) + suffix;
+        if (p < 1) requestAnimationFrame(step); else el.textContent = txt;
+      })(performance.now());
+    }
+
+    function trRender(animate) {
       var d = trData[trCurrent];
       var slide = document.getElementById('tr-slide');
       slide.style.opacity = '0';
@@ -1171,21 +1224,123 @@
         document.getElementById('tr-tag').textContent       = d.tag;
         document.getElementById('tr-title').textContent     = d.title;
         document.getElementById('tr-body').textContent      = d.body;
-        document.getElementById('tr-num').textContent       = d.num;
         document.getElementById('tr-label').textContent     = d.label;
-        document.getElementById('tr-num-mob').textContent   = d.num;
         document.getElementById('tr-label-mob').textContent = d.label;
         document.getElementById('tr-counter').textContent   = (trCurrent + 1) + ' / ' + trData.length;
         slide.style.opacity = '1';
+        if (animate) {
+          countUp(document.getElementById('tr-num'),     d.num, 1000);
+          countUp(document.getElementById('tr-num-mob'), d.num, 1000);
+        } else {
+          document.getElementById('tr-num').textContent     = d.num;
+          document.getElementById('tr-num-mob').textContent = d.num;
+        }
       }, 200);
     }
 
     function trGo(index) {
       trCurrent = ((index % trData.length) + trData.length) % trData.length;
-      trRender();
+      trRender(trFirstSeen);
     }
 
-    trRender();
+    trRender(false);
+
+    // Count-up dispara quando a seção entra na viewport
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !trFirstSeen) {
+          trFirstSeen = true;
+          countUp(document.getElementById('tr-num'),     trData[trCurrent].num, 1200);
+          countUp(document.getElementById('tr-num-mob'), trData[trCurrent].num, 1200);
+        }
+      }, { threshold: 0.4 }).observe(document.getElementById('track-records'));
+    }
+
+    // ── Char fade-in (blur → sharp, 0.02s por char) ──
+    function wrapChars(el) {
+      if (!el || el.dataset.wrapped) return;
+      el.dataset.wrapped = '1';
+      el.classList.add('char-anim');
+      var delay = 0;
+      function process(node) {
+        if (node.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          Array.from(node.textContent).forEach(function(ch) {
+            var s = document.createElement('span');
+            s.className = 'char';
+            s.style.animationDelay = (delay++ * 0.02) + 's';
+            s.textContent = ch;
+            frag.appendChild(s);
+          });
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1) {
+          Array.from(node.childNodes).forEach(process);
+        }
+      }
+      process(el);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var charObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { wrapChars(entry.target); charObs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('h2').forEach(function(el) {
+        if (!el.closest('#hero-carousel')) charObs.observe(el);
+      });
+    }
+
+    // ── Slot machine word rotator (hero) ──
+    var slotWords = ['Inteligência Artificial', 'Alta Performance', 'Inovação Digital', 'Resultados Reais', 'Tecnologia Avançada'];
+    var slotIdx = 0;
+    var slotEl = document.getElementById('slot-rotator');
+    if (slotEl) {
+      var firstWord = slotEl.querySelector('.slot-active');
+      if (firstWord) slotEl.style.minWidth = firstWord.offsetWidth + 'px';
+      setInterval(function() {
+        var oldWord = slotEl.querySelector('.slot-active');
+        slotIdx = (slotIdx + 1) % slotWords.length;
+        var newWord = document.createElement('span');
+        newWord.className = 'slot-word slot-enter';
+        newWord.textContent = slotWords[slotIdx];
+        slotEl.appendChild(newWord);
+        if (oldWord) {
+          oldWord.className = 'slot-word slot-exit';
+          oldWord.addEventListener('animationend', function() { if (oldWord.parentNode) oldWord.remove(); }, { once: true });
+        }
+        newWord.addEventListener('animationend', function() {
+          newWord.className = 'slot-word slot-active';
+          slotEl.style.minWidth = newWord.offsetWidth + 'px';
+        }, { once: true });
+      }, 2800);
+    }
+
+    // ── Hover glow nos botões CTA (DAFE colors: orange + navy) ──
+    (function() {
+      document.querySelectorAll('a[href*="wa.me"], a.btn-para, .btn-para').forEach(function(btn) {
+        var listening = false, last = 0;
+        btn.style.position = 'relative';
+        btn.style.overflow  = 'hidden';
+        btn.addEventListener('pointerenter', function() { listening = true; });
+        btn.addEventListener('pointerleave', function() { listening = false; });
+        btn.addEventListener('pointermove', function(e) {
+          if (!listening || Date.now() - last < 80) return;
+          last = Date.now();
+          var r = btn.getBoundingClientRect();
+          var c = document.createElement('div');
+          c.style.cssText = 'position:absolute;width:48px;height:48px;border-radius:50%;' +
+            'transform:translate(-50%,-50%);pointer-events:none;z-index:1;' +
+            'background:radial-gradient(circle,rgba(224,65,36,0.55),rgba(25,25,112,0.25));' +
+            'filter:blur(14px);opacity:0;transition:opacity 0.15s ease;' +
+            'left:' + (e.clientX - r.left) + 'px;top:' + (e.clientY - r.top) + 'px;';
+          btn.appendChild(c);
+          requestAnimationFrame(function() { c.style.opacity = '1'; });
+          setTimeout(function() { c.style.transition = 'opacity 1.1s'; c.style.opacity = '0'; }, 150);
+          setTimeout(function() { if (c.parentNode) c.remove(); }, 1300);
+        });
+      });
+    }());
 
     // ===== HELPER: infinite scroll manual (vitrine + catálogo) =====
     function makeInfiniteScroll(id) {
