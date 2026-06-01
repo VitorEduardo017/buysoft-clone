@@ -98,17 +98,6 @@
     /* Track records slide transition */
     .tr-slide { transition: opacity 0.4s ease; }
 
-    /* Vitrine infinite marquee */
-    .vitrine-track {
-      display: flex;
-      width: max-content;
-      gap: 1rem;
-      animation: ticker 40s linear infinite;
-    }
-    .vitrine-track:hover {
-      animation-play-state: paused;
-    }
-
     /* Clients marquee */
     .clients-track-left {
       display: flex;
@@ -131,10 +120,14 @@
     <div class="max-w-[1440px] mx-auto flex items-center justify-between h-full">
 
       <button id="menu-btn" class="nav:hidden text-white p-2 -ml-2" aria-label="Menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
           <line x1="3" y1="12" x2="21" y2="12"/>
           <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+          <line x1="4" y1="4" x2="20" y2="20"/>
+          <line x1="20" y1="4" x2="4" y2="20"/>
         </svg>
       </button>
 
@@ -144,10 +137,10 @@
       </a>
 
       <nav class="hidden nav:flex items-center gap-7 text-white text-sm font-medium">
-        <a href="#quem-somos" class="hover:text-[#E04124] transition-colors py-2">Quem Somos</a>
-        <a href="#softwares"  class="hover:text-[#E04124] transition-colors py-2">Softwares</a>
-        <a href="#hardwares"  class="hover:text-[#E04124] transition-colors py-2">Hardwares</a>
-        <a href="#solucoes"   class="hover:text-[#E04124] transition-colors py-2">Soluções Inteligentes</a>
+        <a href="#quem-somos"    class="hover:text-[#E04124] transition-colors py-2">Quem Somos</a>
+        <a href="#softwares"     class="hover:text-[#E04124] transition-colors py-2">Softwares</a>
+        <a href="#softwares"     class="hover:text-[#E04124] transition-colors py-2">Hardwares</a>
+        <a href="#solucoes"      class="hover:text-[#E04124] transition-colors py-2">Soluções Inteligentes</a>
       </nav>
 
       <div class="hidden nav:flex items-center">
@@ -160,11 +153,12 @@
         </a>
       </div>
 
-      <button class="nav:hidden text-white p-2 -mr-2" aria-label="Buscar">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+         class="nav:hidden flex items-center justify-center w-9 h-9 rounded-full bg-[#25D366] -mr-1 shrink-0" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         </svg>
-      </button>
+      </a>
     </div>
   </header>
 
@@ -173,7 +167,7 @@
     <nav class="flex flex-col gap-6 mt-8 text-white text-lg font-medium border-t border-white/10 pt-8">
       <a href="#quem-somos" class="hover:text-[#E04124] transition-colors">Quem Somos</a>
       <a href="#softwares"  class="hover:text-[#E04124] transition-colors">Softwares</a>
-      <a href="#hardwares"  class="hover:text-[#E04124] transition-colors">Hardwares</a>
+      <a href="#softwares"  class="hover:text-[#E04124] transition-colors">Hardwares</a>
       <a href="#solucoes"   class="hover:text-[#E04124] transition-colors">Soluções Inteligentes</a>
     </nav>
     <div class="mt-auto">
@@ -190,7 +184,7 @@
     <div class="mx-auto w-full max-w-[1344px]">
 
       <div id="hero-carousel"
-           class="relative w-full h-[350px] md:h-[420px] lg:h-[532px] rounded-3xl overflow-hidden select-none cursor-grab active:cursor-grabbing">
+           class="relative w-full h-[350px] md:h-[420px] lg:h-[532px] rounded-3xl overflow-hidden select-none cursor-grab active:cursor-grabbing" style="touch-action:pan-y;">
 
         <div id="slides-track"
              class="absolute inset-0 flex h-full"
@@ -356,7 +350,8 @@
   </section>
 
   <!-- ===== SESSÃO 3: VITRINE ===== -->
-  <section id="solutions" class="py-10 lg:py-15 scroll-mt-[72px]">
+  <span id="solucoes"></span>
+  <section id="solutions" class="py-10 lg:py-16 scroll-mt-[72px]">
     <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14 flex flex-col gap-3 md:gap-4 pb-8 lg:pb-14">
       <hgroup class="text-center flex flex-col gap-3">
         <h2 class="text-[28px] md:text-4xl lg:text-5xl font-semibold text-[#252B37]">
@@ -368,9 +363,8 @@
       </hgroup>
     </div>
 
-    <div class="w-full h-[457px] lg:h-[632px] overflow-hidden"
-         style="-webkit-mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent);mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent);">
-      <div class="vitrine-track h-full">
+    <div id="vitrine-scroll" class="w-full h-[457px] md:h-[530px] lg:h-[632px] overflow-x-auto no-scrollbar md:cursor-grab" style="touch-action:pan-x;">
+      <div class="flex gap-4 h-full px-4 md:px-8 lg:px-14" style="width:max-content;">
 
         <!-- ===== Cards originais ===== -->
 
@@ -438,9 +432,9 @@
             <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">
               Conecte uma infraestrutura inabalável com racks, ativos de rede, fibra óptica e tecnologia de ponta para suportar seu crescimento.
             </p>
-            <a href="#hardwares"
+            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
                class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">
-              Ver hardwares
+              Solicitar projeto
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
             </a>
           </div>
@@ -470,58 +464,13 @@
           </div>
         </div>
 
-        <!-- ===== Duplicatas para loop infinito ===== -->
-
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/projete_buysoft_1_1652c7652e.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
-          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Projete</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
-            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Desenvolvimento de Softwares Sob Medida e Sites</h3>
-            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Projete plataformas ágeis para seu negócio, sites de alta conversão, softwares e apps desenhados exclusivamente para sua operação.</p>
-            <a href="https://wa.me/5562995673022" target="_blank" rel="noopener" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Meu projeto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
-        </div>
-
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/otimize_buysoft_3bbb72994a.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
-          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Potencialize</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
-            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Licenciamento de Softwares Autorizados e Originais</h3>
-            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Potencialize ferramentas líderes de mercado com a garantia, o suporte e as condições exclusivas de um distribuidor autorizado Microsoft, Adobe, AutoCAD e outros.</p>
-            <a href="#softwares" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Ver softwares <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
-        </div>
-
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/proteja_buysoft_1671018dd3.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
-          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Conecte</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
-            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Hardwares e Infraestruturas de Alta Performance</h3>
-            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Conecte uma infraestrutura inabalável com racks, ativos de rede, fibra óptica e tecnologia de ponta para suportar seu crescimento.</p>
-            <a href="#hardwares" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Ver hardwares <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
-        </div>
-
-        <div class="group relative shrink-0 w-[327px] lg:w-[553px] h-full overflow-hidden rounded-2xl bg-[#252B37] cursor-pointer" aria-hidden="true">
-          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/crie_buysoft_f8f2e3e87b.avif" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
-          <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-14">
-            <div class="flex items-center gap-2 mb-2"><span class="text-white/60 text-xs font-medium">Automatize</span><span class="text-white/40 text-xs">·</span><span class="text-[#E04124] text-xs font-bold">DAFE</span><span class="text-white text-xs font-bold">SOLUTION</span></div>
-            <h3 class="text-2xl lg:text-[34px] font-bold text-white leading-tight mb-3">Inteligência Artificial Aplicada a Projetos</h3>
-            <p class="text-sm lg:text-base text-white/70 mb-6 line-clamp-3">Automatize processos repetitivos ou complexos, implementando IA estratégica, prevendo cenários para colocar sua empresa anos à frente do mercado.</p>
-            <a href="#solucoes" class="inline-flex items-center gap-1 py-2 px-6 h-10 w-fit rounded-full border border-white/60 text-white hover:bg-white/10 transition text-sm">Ver soluções IA <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
-        </div>
 
       </div>
     </div>
   </section>
 
   <!-- ===== SESSÃO 4: CATÁLOGO / PRODUTOS (INALTERADO) ===== -->
-  <section id="softwares" class="py-10 lg:py-15 bg-white scroll-mt-[72px]">
+  <section id="softwares" class="py-10 lg:py-16 bg-white scroll-mt-[72px]">
     <div class="w-full flex justify-center items-center flex-col">
 
       <div class="flex justify-center flex-col text-center pb-8 lg:pb-14 px-5 md:px-10 lg:px-14">
@@ -535,7 +484,7 @@
         </hgroup>
       </div>
 
-      <div id="catalog-scroll" class="w-full overflow-x-auto no-scrollbar" style="cursor:grab;">
+      <div id="catalog-scroll" class="w-full overflow-x-auto no-scrollbar md:cursor-grab" style="touch-action:pan-x;">
         <div class="flex gap-6 px-4 md:px-12 lg:px-20 pb-4" style="width: max-content;">
 
           <div class="shrink-0 w-[280px] lg:w-[320px] bg-[#F9FAFB] border border-[#E9EAEB] rounded-3xl px-8 lg:px-11 pt-5 lg:pt-8 pb-6 lg:pb-8 flex flex-col justify-between transition-transform duration-300 hover:scale-105 cursor-pointer">
@@ -654,17 +603,18 @@
       </div>
 
       <div class="text-center mt-8 px-4">
-        <button onclick="window.location.href='#softwares'"
-                class="px-6 py-3 rounded-xl bg-[#0A0D12] text-white inline-flex items-center gap-2 hover:opacity-90 transition font-medium">
-          Ver mais
+        <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
+           class="px-6 py-3 rounded-xl bg-[#0A0D12] text-white inline-flex items-center gap-2 hover:opacity-90 transition font-medium">
+          Solicitar orçamento
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </button>
+        </a>
       </div>
 
     </div>
   </section>
 
   <!-- ===== SESSÃO 5: TRACK RECORDS ===== -->
+  <span id="quem-somos"></span>
   <section id="track-records" class="py-14 lg:py-20 bg-[#0A0D12]">
     <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -687,7 +637,7 @@
 
           <!-- Track record slide content -->
           <div id="tr-slide" class="tr-slide">
-            <p id="tr-tag" class="text-[#191970] bg-[#191970]/20 border border-[#191970]/30 text-xs font-bold uppercase tracking-widest mb-4 inline-block px-3 py-1 rounded-full"></p>
+            <p id="tr-tag" class="text-[#E04124] bg-[#E04124]/15 border border-[#E04124]/40 text-xs font-bold uppercase tracking-widest mb-4 inline-block px-3 py-1 rounded-full"></p>
             <h3 id="tr-title" class="text-white text-xl md:text-2xl font-bold mb-4 leading-snug"></h3>
             <p id="tr-body" class="text-[#C7C7C7] text-sm leading-relaxed mb-6"></p>
             <div class="bg-[#181E2A] rounded-2xl p-6 border border-white/10 inline-flex flex-col gap-1">
@@ -697,18 +647,18 @@
           </div>
 
           <!-- Navigation -->
-          <div class="flex items-center gap-4 mt-8">
+          <div class="flex flex-wrap items-center gap-3 mt-8">
             <button id="tr-prev" onclick="trGo(trCurrent - 1)"
-                    class="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition">
+                    class="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition shrink-0">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-            <span id="tr-counter" class="text-white/50 text-sm tabular-nums">1 / 6</span>
+            <span id="tr-counter" class="text-white/50 text-sm tabular-nums shrink-0">1 / 6</span>
             <button id="tr-next" onclick="trGo(trCurrent + 1)"
-                    class="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition">
+                    class="w-11 h-11 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition shrink-0">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
             <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
-               class="ml-2 btn-para bg-[#E04124] text-white font-semibold px-6 py-3 text-sm hover:bg-[#c93a1e] transition-colors">
+               class="btn-para bg-[#E04124] text-white font-semibold px-6 py-3 text-sm hover:bg-[#c93a1e] transition-colors">
               Entre em contato
             </a>
           </div>
@@ -952,7 +902,7 @@
           <ul class="space-y-3">
             <li><a href="#solutions" class="text-[#535862] text-sm hover:text-white transition-colors">Desenvolvimento Sob Medida</a></li>
             <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Licenciamento Autorizado</a></li>
-            <li><a href="#hardwares" class="text-[#535862] text-sm hover:text-white transition-colors">Hardwares e Infraestrutura</a></li>
+            <li><a href="#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Hardwares e Infraestrutura</a></li>
             <li><a href="#solucoes"  class="text-[#535862] text-sm hover:text-white transition-colors">Inteligência Artificial</a></li>
           </ul>
         </div>
@@ -1005,7 +955,7 @@
 
   <!-- ===== WHATSAPP FLOATING ===== -->
   <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <div class="px-4 py-2 rounded-full bg-white shadow-lg text-[#252B37] text-sm font-medium whitespace-nowrap">
+    <div class="hidden sm:block px-4 py-2 rounded-full bg-white shadow-lg text-[#252B37] text-sm font-medium whitespace-nowrap">
       Fale com vendas
     </div>
     <a href="https://wa.me/5562995673022" target="_blank" rel="noopener"
@@ -1019,11 +969,27 @@
   <!-- ===== SCRIPTS ===== -->
   <script>
     // Mobile menu
-    document.getElementById('menu-btn').addEventListener('click', function() {
-      document.getElementById('mobile-menu').classList.toggle('open');
-    });
-    document.getElementById('mobile-menu').addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') this.classList.remove('open');
+    var menuBtn = document.getElementById('menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var iconOpen = document.getElementById('menu-icon-open');
+    var iconClose = document.getElementById('menu-icon-close');
+
+    function toggleMenu(forceClose) {
+      var isOpen = mobileMenu.classList.contains('open');
+      if (forceClose || isOpen) {
+        mobileMenu.classList.remove('open');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      } else {
+        mobileMenu.classList.add('open');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      }
+    }
+
+    menuBtn.addEventListener('click', function() { toggleMenu(); });
+    mobileMenu.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') toggleMenu(true);
     });
 
     // Navbar scroll
@@ -1142,33 +1108,50 @@
 
     trRender();
 
-    // ===== CATÁLOGO: scroll horizontal (mouse wheel + drag) =====
-    (function() {
-      var cat = document.getElementById('catalog-scroll');
-      if (!cat) return;
+    // ===== HELPER: infinite scroll manual (vitrine + catálogo) =====
+    function makeInfiniteScroll(id) {
+      var c = document.getElementById(id);
+      if (!c) return;
+      var inner = c.querySelector('div');
+      var base = inner.innerHTML;
+      inner.innerHTML = base + base + base;
+      if (id === 'catalog-scroll') inner.style.width = 'max-content';
 
-      // Mouse wheel → horizontal scroll
-      cat.addEventListener('wheel', function(e) {
+      var sw = function() { return inner.scrollWidth / 3; };
+      c.scrollLeft = sw();
+
+      c.addEventListener('scroll', function() {
+        var s = sw();
+        if (c.scrollLeft > s * 2 - 20) c.scrollLeft -= s;
+        else if (c.scrollLeft < 20)    c.scrollLeft += s;
+      }, { passive: true });
+
+      c.addEventListener('wheel', function(e) {
         e.preventDefault();
-        cat.scrollLeft += e.deltaY * 1.5;
+        c.scrollLeft += e.deltaY * 1.5;
       }, { passive: false });
 
-      // Click-drag
-      var isDown = false, startX, scrollLeft;
-      cat.addEventListener('mousedown', function(e) {
-        isDown = true;
-        cat.style.cursor = 'grabbing';
-        startX = e.pageX - cat.offsetLeft;
-        scrollLeft = cat.scrollLeft;
+      // Mouse drag (desktop only)
+      var down = false, sx, sl;
+      c.addEventListener('mousedown', function(e) {
+        down = true; c.style.cursor = 'grabbing';
+        sx = e.pageX - c.offsetLeft; sl = c.scrollLeft;
       });
-      cat.addEventListener('mouseleave', function() { isDown = false; cat.style.cursor = 'grab'; });
-      cat.addEventListener('mouseup',    function() { isDown = false; cat.style.cursor = 'grab'; });
-      cat.addEventListener('mousemove', function(e) {
-        if (!isDown) return;
+      c.addEventListener('mouseleave', function() { down = false; c.style.cursor = ''; });
+      c.addEventListener('mouseup',    function() { down = false; c.style.cursor = ''; });
+      c.addEventListener('mousemove',  function(e) {
+        if (!down) return;
         e.preventDefault();
-        cat.scrollLeft = scrollLeft - (e.pageX - cat.offsetLeft - startX) * 1.5;
+        c.scrollLeft = sl - (e.pageX - c.offsetLeft - sx) * 1.5;
       });
-    }());
+    }
+
+    // ===== VITRINE: scroll manual infinito =====
+    makeInfiniteScroll('vitrine-scroll');
+
+    // ===== CATÁLOGO: scroll manual infinito =====
+    makeInfiniteScroll('catalog-scroll');
+
 
     // ===== PREENCHE MARQUEES (sem gap) =====
     window.addEventListener('load', function() {
