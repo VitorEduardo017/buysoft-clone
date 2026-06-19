@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Softwares | DAFE SOLUTION</title>
+  <meta name="description" content="Catálogo de softwares DAFE SOLUTION. Microsoft, Adobe, Autodesk, Google, SketchUp, Trend Micro, Canva e Acronis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          screens: { nav: '1024px' },
+          fontFamily: { heading: ['Public Sans','sans-serif'], sans: ['Inter','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    h1,h2,h3,h4,h5,h6,button,a { font-family: 'Public Sans', sans-serif; }
+    #navbar { background: linear-gradient(to right,rgba(10,13,18,0.85) 35%,#f8f9fa); transition: background 0.3s; }
+    #navbar.scrolled { background: linear-gradient(to right,#0A0D12 35%,#f8f9fa); }
+    #mobile-menu { transform: translateX(-100%); transition: transform 0.3s ease; }
+    #mobile-menu.open { transform: translateX(0); }
+    .product-card { transition: box-shadow 0.2s, transform 0.2s; }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.11); transform: translateY(-2px); }
+    .checkbox-custom { accent-color: #E04124; width: 15px; height: 15px; cursor: pointer; flex-shrink: 0; }
+    #mobile-filter-overlay { display: none; }
+    #mobile-filter-overlay.open { display: flex; }
+    .page-btn { min-width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid #E5E7EB; transition: all 0.15s; }
+    .page-btn:hover:not(.active):not(:disabled) { background: #f3f4f6; }
+    .page-btn.active { background: #0A0D12; color: white; border-color: #0A0D12; }
+    .page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .brand-pill { padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); cursor: pointer; transition: all 0.15s; white-space: nowrap; background: transparent; }
+    .brand-pill:hover { background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.5); }
+    .brand-pill.active { background: rgba(224,65,36,0.2); border-color: #E04124; color: #ff7a60; }
+    .porte-btn { padding: 7px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; border: 1px solid #E5E7EB; cursor: pointer; transition: all 0.15s; background: white; color: #535862; text-align: left; }
+    .porte-btn:hover { border-color: #0A0D12; color: #0A0D12; }
+    .porte-btn.active { background: #0A0D12; color: white; border-color: #0A0D12; }
+    #autocomplete-dropdown { max-height: 280px; overflow-y: auto; }
+    .suggestion-item:hover, .suggestion-item.focused { background: #F3F4F6; }
+    .plans-expanded { animation: slideDown 0.18s ease; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-[#F0F2F5] text-[#0A0D12]">
+
+  <!-- NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full h-[80px] z-50 px-4 nav:px-12">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between h-full">
+      <button id="menu-btn" class="nav:hidden text-white p-2 -ml-2" aria-label="Menu">
+        <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+      <a href="index.html" class="absolute left-1/2 -translate-x-1/2 nav:static nav:translate-x-0 flex items-center no-underline">
+        <img src="fotos_site/logotipoatualizadosemfundo_semlinha.png" alt="DAFE SOLUTION" class="h-16 nav:h-[68px] w-auto max-w-[280px] block">
+      </a>
+      <nav class="hidden nav:flex items-center gap-7 text-white text-sm font-medium">
+        <a href="index.html#quem-somos" class="hover:text-[#E04124] transition-colors py-2">Quem Somos</a>
+        <a href="softwares.html" class="text-[#E04124] py-2 border-b border-[#E04124]">Softwares</a>
+        <a href="index.html#softwares" class="hover:text-[#E04124] transition-colors py-2">Hardwares</a>
+        <a href="index.html#solucoes" class="hover:text-[#E04124] transition-colors py-2">Soluções Inteligentes</a>
+      </nav>
+      <div class="hidden nav:flex items-center">
+        <a href="https://wa.me/qr/CJD3UOF3XJ2PH1" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#E04124] hover:bg-[#c93a1e] text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          Solicitar Orçamento
+        </a>
+      </div>
+      <a href="https://wa.me/qr/CJD3UOF3XJ2PH1" target="_blank" rel="noopener" class="nav:hidden flex items-center justify-center w-9 h-9 rounded-full bg-[#25D366] -mr-1 shrink-0" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0A0D12] flex flex-col px-6 pb-8" style="padding-top:80px">
+    <nav class="flex flex-col gap-6 mt-8 text-white text-lg font-medium border-t border-white/10 pt-8">
+      <a href="index.html#quem-somos" class="hover:text-[#E04124] transition-colors">Quem Somos</a>
+      <a href="softwares.html" class="text-[#E04124]">Softwares</a>
+      <a href="index.html#softwares" class="hover:text-[#E04124] transition-colors">Hardwares</a>
+      <a href="index.html#solucoes" class="hover:text-[#E04124] transition-colors">Soluções Inteligentes</a>
+    </nav>
+    <div class="mt-auto">
+      <a href="https://wa.me/qr/CJD3UOF3XJ2PH1" target="_blank" rel="noopener" class="bg-[#E04124] text-white text-center font-bold py-4 block rounded-lg">Solicitar Orçamento</a>
+    </div>
+  </div>
+
+  <!-- HERO — Search focused -->
+  <section class="pt-[80px] bg-[#0A0D12]">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-8 lg:px-14 pt-8 pb-10 md:pt-10 md:pb-12">
+      <p class="text-white/40 text-xs mb-3"><a href="index.html" class="hover:text-white/70 transition-colors">Início</a> <span class="mx-1">›</span> Softwares</p>
+      <div id="hero-context-msg" style="display:none" class="mb-3 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5">
+        <div class="w-2 h-2 rounded-full bg-[#E04124] flex-shrink-0"></div>
+        <span id="hero-context-text" class="text-white/90 text-xs font-medium"></span>
+        <button onclick="clearAllFilters()" class="text-white/50 hover:text-white ml-1 transition-colors leading-none text-base">&times;</button>
+      </div>
+      <h1 class="text-white text-3xl md:text-[38px] font-bold mb-1.5 leading-tight">Encontre o software ideal</h1>
+      <p class="text-white/55 text-sm mb-6">Distribuidor autorizado Microsoft, Adobe, Autodesk, Google e mais. Licenças originais sempre atualizadas.</p>
+      <div class="relative max-w-2xl">
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-[#9CA3AF] pointer-events-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="hero-search" type="text" autocomplete="off" placeholder="Busque por produto ou fabricante..."
+          class="w-full py-3.5 pl-11 pr-4 rounded-xl text-[14px] bg-white text-[#0A0D12] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E04124]/40 shadow-md">
+        <div id="autocomplete-dropdown" class="absolute top-full left-0 right-0 bg-white rounded-xl shadow-2xl mt-2 z-50 border border-[#E5E7EB] overflow-hidden hidden">
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-5" id="brand-pills">
+        <button class="brand-pill" data-brand="microsoft">Microsoft</button>
+        <button class="brand-pill" data-brand="adobe">Adobe</button>
+        <button class="brand-pill" data-brand="autodesk">Autodesk</button>
+        <button class="brand-pill" data-brand="google">Google</button>
+        <button class="brand-pill" data-brand="sketchup">SketchUp</button>
+        <button class="brand-pill" data-brand="trendmicro">Trend Micro</button>
+        <button class="brand-pill" data-brand="canva">Canva</button>
+        <button class="brand-pill" data-brand="acronis">Acronis</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="bg-[#F0F2F5] pb-16">
+    <div class="max-w-[1344px] mx-auto px-4 md:px-8 lg:px-14">
+      <div class="flex gap-8">
+
+        <!-- SIDEBAR -->
+        <aside class="w-[210px] flex-shrink-0 pt-8 hidden lg:block">
+          <div class="mb-6">
+            <h3 class="font-semibold text-sm text-[#0A0D12] mb-3">Porte da empresa</h3>
+            <div class="flex flex-col gap-2">
+              <button class="porte-btn" data-porte="pme">PME</button>
+              <button class="porte-btn" data-porte="enterprise">Empresarial</button>
+            </div>
+          </div>
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-3 cursor-pointer select-none" id="toggle-categoria">
+              <h3 class="font-semibold text-sm text-[#0A0D12]">Categoria</h3>
+              <svg id="arrow-categoria" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#535862" stroke-width="2" stroke-linecap="round" style="transition:transform 0.2s"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div id="categoria-list" class="space-y-2.5"></div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-3 cursor-pointer select-none" id="toggle-marca">
+              <h3 class="font-semibold text-sm text-[#0A0D12]">Marca</h3>
+              <svg id="arrow-marca" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#535862" stroke-width="2" stroke-linecap="round" style="transition:transform 0.2s"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
+            <div id="marca-list" class="space-y-2.5"></div>
+          </div>
+        </aside>
+
+        <!-- LISTING -->
+        <div class="flex-1 min-w-0 pt-6 md:pt-8">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <div class="flex items-center gap-3">
+              <button id="mobile-filter-btn" class="lg:hidden inline-flex items-center gap-1.5 border border-[#E5E7EB] bg-white rounded-lg px-3 py-2 text-sm font-medium text-[#0A0D12]">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+                Filtros
+                <span id="filter-count-badge" class="hidden bg-[#E04124] text-white text-[10px] font-bold rounded-full w-4 h-4 inline-flex items-center justify-center"></span>
+              </button>
+              <p id="product-count" class="text-sm text-[#535862]">41 famílias</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <select id="sort-select" class="border border-[#E5E7EB] bg-white rounded-lg px-3 py-2 text-sm text-[#0A0D12] focus:outline-none cursor-pointer">
+                <option value="relevance">Relevância</option>
+                <option value="az">Nome A-Z</option>
+                <option value="za">Nome Z-A</option>
+              </select>
+              <button id="clear-filters" class="text-[#E04124] text-sm font-medium hidden hover:underline whitespace-nowrap">Limpar filtros</button>
+            </div>
+          </div>
+          <div id="top-pagination-info" class="text-xs text-[#9CA3AF] mb-4 hidden">
+            Mostrando <span id="range-start">1</span>–<span id="range-end">18</span> de <span id="range-total">41</span> resultados
+          </div>
+          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+          <div id="empty-state" class="hidden py-24 text-center">
+            <svg class="mx-auto mb-4 text-[#D1D5DB]" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p class="text-[#6B7280] text-sm">Nenhum resultado para os filtros selecionados.</p>
+            <button onclick="clearAllFilters()" class="mt-4 text-[#E04124] text-sm font-medium hover:underline">Limpar filtros</button>
+          </div>
+          <div id="pagination" class="flex items-center justify-center gap-1.5 mt-10 flex-wrap"></div>
+          <p class="text-center text-xs text-[#9CA3AF] mt-6">* Valores sujeitos a alterações. Solicite um orçamento para a proposta mais atualizada.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MOBILE FILTER OVERLAY -->
+  <div id="mobile-filter-overlay" class="fixed inset-0 z-50 items-end justify-center bg-black/50">
+    <div class="bg-white w-full max-h-[85vh] rounded-t-2xl overflow-y-auto p-6 pb-8">
+      <div class="flex items-center justify-between mb-5">
+        <h3 class="font-bold text-base">Filtros</h3>
+        <button id="close-filter-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></button>
+      </div>
+      <div class="mb-5">
+        <h4 class="font-semibold text-sm mb-3">Porte da empresa</h4>
+        <div class="flex gap-2">
+          <button class="porte-btn" data-porte="pme">PME</button>
+          <button class="porte-btn" data-porte="enterprise">Empresarial</button>
+        </div>
+      </div>
+      <div class="mb-5">
+        <h4 class="font-semibold text-sm mb-3">Categoria</h4>
+        <div id="categoria-list-mob" class="grid grid-cols-2 gap-2.5"></div>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-3">Marca</h4>
+        <div id="marca-list-mob" class="grid grid-cols-2 gap-2"></div>
+      </div>
+      <button onclick="clearAllFilters(); closeOverlay();" class="mt-6 w-full py-3 text-sm text-[#E04124] font-medium border border-[#E5E7EB] rounded-lg">Limpar filtros</button>
+      <button id="apply-filter-btn" class="mt-2 w-full py-3 text-sm text-white font-medium bg-[#0A0D12] rounded-lg">Ver resultados</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A0D12] border-t border-white/10 pt-14 pb-8">
+    <div class="max-w-[1344px] mx-auto px-5 md:px-10 lg:px-14">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 mb-12">
+        <div class="col-span-2 md:col-span-1">
+          <img src="fotos_site/logotipoatualizadosemfundo_semlinha.png" alt="DAFE SOLUTION" class="h-16 w-auto max-w-[280px] mb-6 block">
+          <div class="flex items-center gap-4">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="opacity-50 hover:opacity-100 transition-opacity" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="opacity-50 hover:opacity-100 transition-opacity" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="opacity-50 hover:opacity-100 transition-opacity" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Soluções</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html#solutions" class="text-[#535862] text-sm hover:text-white transition-colors">Desenvolvimento Sob Medida</a></li>
+            <li><a href="softwares.html" class="text-[#535862] text-sm hover:text-white transition-colors">Licenciamento Autorizado</a></li>
+            <li><a href="index.html#softwares" class="text-[#535862] text-sm hover:text-white transition-colors">Hardwares e Infraestrutura</a></li>
+            <li><a href="index.html#solucoes" class="text-[#535862] text-sm hover:text-white transition-colors">Inteligência Artificial</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Softwares</h4>
+          <ul class="space-y-3">
+            <li><a href="softwares.html?marca=microsoft" class="text-[#535862] text-sm hover:text-white transition-colors">Microsoft 365</a></li>
+            <li><a href="softwares.html?marca=adobe" class="text-[#535862] text-sm hover:text-white transition-colors">Adobe Creative Cloud</a></li>
+            <li><a href="softwares.html?marca=google" class="text-[#535862] text-sm hover:text-white transition-colors">Google Workspace</a></li>
+            <li><a href="softwares.html?marca=autodesk" class="text-[#535862] text-sm hover:text-white transition-colors">Autodesk AEC</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Empresa</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html#quem-somos" class="text-[#535862] text-sm hover:text-white transition-colors">Quem Somos</a></li>
+            <li><a href="index.html#track-records" class="text-[#535862] text-sm hover:text-white transition-colors">Nossa Performance</a></li>
+            <li><a href="index.html#customers" class="text-[#535862] text-sm hover:text-white transition-colors">Nossos Clientes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Contato</h4>
+          <ul class="space-y-3">
+            <li><a href="https://wa.me/qr/CJD3UOF3XJ2PH1" target="_blank" rel="noopener" class="text-[#535862] text-sm hover:text-white transition-colors">WhatsApp: 62 99567-3022</a></li>
+            <li><a href="#" class="text-[#535862] text-sm hover:text-white transition-colors">Política de privacidade</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-[#535862] text-xs">© 2025 DAFE SOLUTION. Todos os direitos reservados.</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-[#535862] text-xs hover:text-white transition-colors">Privacidade</a>
+          <a href="#" class="text-[#535862] text-xs hover:text-white transition-colors">Termos de uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div class="hidden sm:block px-4 py-2 rounded-full bg-white shadow-lg text-[#252B37] text-sm font-medium">Fale com vendas</div>
+    <a href="https://wa.me/qr/CJD3UOF3XJ2PH1" target="_blank" rel="noopener" class="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+      <svg width="30" height="30" viewBox="0 0 175.216 175.552" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M87.3 0C39.2 0 0 39.1 0 87.2c0 15.6 4.1 30.1 11.3 42.6L0 175.6l47.5-12.1A87.26 87.26 0 0 0 87.3 174.4c48.1 0 87.3-39.1 87.3-87.2S135.4 0 87.3 0zm0 159.9c-13.5 0-26.2-3.7-37.1-10.2l-2.7-1.6-27.7 7.3 7.3-26.9-1.7-2.8C18 115.6 14 101.7 14 87.2 14 46.9 47 14 87.3 14c19.6 0 38 7.6 51.8 21.4 13.8 13.8 21.4 32.2 21.4 51.8-.1 40.4-33.1 72.7-73.2 72.7z"/><path d="M126.9 105.8c-2.2-1.1-12.9-6.4-14.9-7.1-2-.7-3.5-1.1-4.9 1.1-1.5 2.2-5.6 7.1-6.9 8.5-1.3 1.4-2.5 1.6-4.7.5-2.2-1.1-9.2-3.4-17.5-10.8-6.5-5.8-10.9-12.9-12.1-15.1-1.3-2.2-.1-3.4 1-4.5 1-.9 2.2-2.5 3.3-3.8 1.1-1.3 1.5-2.2 2.2-3.6.7-1.5.4-2.7-.2-3.8-.5-1.1-4.9-11.8-6.7-16.2-1.8-4.2-3.6-3.7-4.9-3.7-1.3-.1-2.7-.1-4.2-.1-1.5 0-3.8.5-5.8 2.7-2 2.2-7.6 7.4-7.6 18.1s7.8 21 8.9 22.5c1.1 1.5 15.3 23.4 37.3 32.8 5.2 2.2 9.3 3.6 12.4 4.6 5.2 1.7 9.9 1.4 13.7.8 4.2-.6 12.9-5.3 14.7-10.4 1.8-5.1 1.8-9.4 1.3-10.3-.6-.9-2-1.5-4.2-2.4z"/></svg>
+    </a>
+  </div>
+
+<script>
+var navbar=document.getElementById('navbar');
+window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.scrollY>30);});
+var menuBtn=document.getElementById('menu-btn'),mobileMenu=document.getElementById('mobile-menu');
+menuBtn.addEventListener('click',function(){var o=mobileMenu.classList.toggle('open');document.getElementById('menu-icon-open').classList.toggle('hidden',o);document.getElementById('menu-icon-close').classList.toggle('hidden',!o);});
+function closeOverlay(){document.getElementById('mobile-filter-overlay').classList.remove('open');}
+document.getElementById('mobile-filter-btn').addEventListener('click',function(){document.getElementById('mobile-filter-overlay').classList.add('open');});
+document.getElementById('close-filter-overlay').addEventListener('click',closeOverlay);
+document.getElementById('apply-filter-btn').addEventListener('click',closeOverlay);
+['marca','categoria'].forEach(function(id){document.getElementById('toggle-'+id).addEventListener('click',function(){var list=document.getElementById(id+'-list'),arrow=document.getElementById('arrow-'+id),hidden=list.style.display==='none';list.style.display=hidden?'':'none';arrow.style.transform=hidden?'':'rotate(180deg)';});});
+
+var WA='<svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.5 22l4.832-1.268A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4.472 13.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>';
+
+var ICONS={microsoft:'<svg viewBox="0 0 23 23" style="width:30px;height:30px"><path fill="#f25022" d="M0 0h11v11H0z"/><path fill="#7fba00" d="M12 0h11v11H12z"/><path fill="#00a4ef" d="M0 12h11v11H0z"/><path fill="#ffb900" d="M12 12h11v11H12z"/></svg>',adobe_acrobat:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#FF0000"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">A</text></svg>',adobe_cc:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><defs><linearGradient id="ccg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="50%" stop-color="#FFD700"/><stop offset="100%" stop-color="#4ECDC4"/></linearGradient></defs><rect width="64" height="64" rx="13" fill="url(#ccg)"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="white">CC</text></svg>',adobe_ex:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><defs><linearGradient id="exg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E040FB"/><stop offset="100%" stop-color="#FF6B6B"/></linearGradient></defs><rect width="64" height="64" rx="13" fill="url(#exg)"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="white">Ex</text></svg>',adobe_photo:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#001E36"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#31A8FF">Ps</text></svg>',adobe_video:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#00005B"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#9999FF">Pr</text></svg>',adobe_design:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#FF7C00"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#1B0D00">Ai</text></svg>',adobe_xd:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#2D0149"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#FF61F6">Xd</text></svg>',adobe_stock:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#004B4B"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#4AFFD4">St</text></svg>',adobe_su:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#2D0D00"/><text x="32" y="43" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#FF8B5E">Su</text></svg>',autodesk:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#E86C1A"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">A</text></svg>',sketchup:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#0C7B9E"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">S</text></svg>',trendmicro:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#D71920"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="white">TM</text></svg>',google:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#fff"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="30" font-weight="900" fill="#4285F4">G</text></svg>',gemini:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><defs><linearGradient id="gmg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4285F4"/><stop offset="100%" stop-color="#9C27B0"/></linearGradient></defs><rect width="64" height="64" rx="13" fill="url(#gmg)"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="white">Ge</text></svg>',canva:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#7D2AE7"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">C</text></svg>',acronis:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#00ADEF"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">A</text></svg>',ms_365:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#0078D4"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="white">365</text></svg>',ms_windows:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#0078D4"/><g transform="translate(14,14)"><svg viewBox="0 0 23 23" width="36" height="36"><path fill="#f25022" d="M0 0h11v11H0z"/><path fill="#7fba00" d="M12 0h11v11H12z"/><path fill="#00a4ef" d="M0 12h11v11H0z"/><path fill="#ffb900" d="M12 12h11v11H12z"/></svg></g></svg>',ms_sql:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#C43C1E"/><text x="32" y="38" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" fill="white">SQL</text><text x="32" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Server</text></svg>',ms_vs:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#7B2FBE"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="24" font-weight="900" fill="white">VS</text></svg>',ms_teams:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#6264A7"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">T</text></svg>',ms_exchange:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#0F6CBD"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="24" font-weight="900" fill="white">Ex</text></svg>',ms_sharepoint:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#038387"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">S</text></svg>',ms_visio:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#3955A3"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">V</text></svg>',ms_project:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#31752F"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="white">P</text></svg>',ms_powerbi:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><rect width="64" height="64" rx="13" fill="#F2C811"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="#2C2C2C">BI</text></svg>',ms_copilot:'<svg viewBox="0 0 64 64" style="width:32px;height:32px"><defs><linearGradient id="cpg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0078D4"/><stop offset="100%" stop-color="#6B2EFF"/></linearGradient></defs><rect width="64" height="64" rx="13" fill="url(#cpg)"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="white">AI</text></svg>'};
+var ICO={ms365b:{slug:'microsoft',bg:'#EBF4FF',color:'0078D4',fb:'365'},ms365e:{slug:'microsoft',bg:'#EEF5FF',color:'0078D4',fb:'365'},ms365f:{slug:'microsoft',bg:'#F0FFF4',color:'107C41',fb:'F3'},ms365cop:{slug:'microsoft',bg:'#EEF5FF',color:'0078D4',fb:'AI'},mswin11:{slug:'windows',bg:'#F0F7FF',color:'0078D4',fb:'Win'},mswinsrv:{slug:'windows',bg:'#F0F7FF',color:'0050B3',fb:'Srv'},mssql:{slug:'microsoftsqlserver',bg:'#EBF4FF',color:'0064A8',fb:'SQL'},msvs:{slug:'visualstudio',bg:'#F5F0FF',color:'7B2FBE',fb:'VS'},msteams:{slug:'microsoftteams',bg:'#EEEEFF',color:'6264A7',fb:'Tm'},msexchange:{slug:'microsoftoutlook',bg:'#EBF4FF',color:'0F6CBD',fb:'Ex'},msodsp:{slug:'microsoftonedrive',bg:'#EBF4FF',color:'0364B8',fb:'OD'},msvisio:{slug:'microsoft',bg:'#ECF0FF',color:'3955A3',fb:'Vs'},msproject:{slug:'microsoft',bg:'#F0FFF0',color:'217346',fb:'Pj'},mspowerbi:{slug:'microsoftpowerbi',bg:'#FFFDE8',color:'A07700',fb:'BI'},mslicensing:{slug:'microsoft',bg:'#F5F5F5',color:'595959',fb:'MS'},adobeacrobat:{slug:'adobeacrobat',bg:'#CC0000',color:'ffffff',fb:'Ac'},adobecc:{slug:'adobecreativecloud',bg:'#1A1A1A',color:'DA1F26',fb:'Cc'},adobeexpress:{slug:'adobe',bg:'#FF0000',color:'ffffff',fb:'Ex'},adobephoto:{slug:'adobephotoshop',bg:'#001E36',color:'31A8FF',fb:'Ps'},adobevideo:{slug:'adobepremierepro',bg:'#00005B',color:'9999FF',fb:'Pr'},adobedesign:{slug:'adobeillustrator',bg:'#330E00',color:'FF9A00',fb:'Ai'},adobeweb:{slug:'adobexd',bg:'#2D0149',color:'FF61F6',fb:'Xd'},adobestock:{slug:'adobe',bg:'#1A1A1A',color:'ED2224',fb:'St'},adobesu:{slug:'adobe',bg:'#2D0D00',color:'FF6B35',fb:'Su'},autocad:{slug:'autocad',bg:'#FFF4EC',color:'E51937',fb:'AC'},revit:{slug:'autodesk',bg:'#FFF4EC',color:'E86C1A',fb:'Rv'},bimcollab:{slug:'autodesk',bg:'#FFF4EC',color:'E86C1A',fb:'Bm'},autodesk_build:{slug:'autodesk',bg:'#FFF4EC',color:'E86C1A',fb:'Bd'},aeccol:{slug:'autodesk',bg:'#FFF4EC',color:'E86C1A',fb:'AE'},fusion:{slug:'autodesk',bg:'#FFF4EC',color:'E86C1A',fb:'F3'},media3d:{slug:'autodesk',bg:'#FFF4EC',color:'E86C1A',fb:'3D'},autodeskmisc:{slug:'autodesk',bg:'#F5F5F5',color:'E86C1A',fb:'AD'},sketchup:{slug:'sketchup',bg:'#EBF5FF',color:'005F9E',fb:'SK'},wfbs:{slug:'trendmicro',bg:'#FFF0F0',color:'D71920',fb:'TM'},cloudappsec:{slug:'trendmicro',bg:'#FFF0F0',color:'D71920',fb:'CA'},gworkspace:{slug:'googleworkspace',bg:'#EBF4FF',color:'4285F4',fb:'GW'},gemini:{slug:'google',bg:'#F5F0FF',color:'7C4DFF',fb:'Ge'},canva:{slug:'canva',bg:'#F5F0FF',color:'7D2AE7',fb:'Ca'},acronis:{slug:'acronis',bg:'#FFF4EC',color:'EF6421',fb:'Ac'}};
+var TL={basic:'Básico',standard:'Padrão',advanced:'Avançado',enterprise:'Enterprise'};
+var TS={basic:'background:#DBEAFE;color:#1D4ED8',standard:'background:#F3F4F6;color:#374151',advanced:'background:#FEF3C7;color:#B45309',enterprise:'background:#EDE9FE;color:#6D28D9'};
+
+var FAMILIES=[
+{id:'ms365b',name:'Microsoft 365 Business',brand:'microsoft',cats:['produtividade','colaboracao'],porte:'pme',icon:'ms_365',tier:'standard',desc:'Suite Office completa com Teams, Exchange e segurança para PMEs em crescimento.',plans:[{name:'Microsoft 365 Business Basic',tier:'basic'},{name:'Microsoft 365 Apps for Business',tier:'standard'},{name:'Microsoft 365 Business Standard',tier:'standard'},{name:'Microsoft 365 Business Premium',tier:'advanced'}]},
+{id:'ms365e',name:'Microsoft 365 Enterprise',brand:'microsoft',cats:['produtividade','colaboracao','seguranca'],porte:'enterprise',icon:'ms_365',tier:'enterprise',desc:'Produtividade, conformidade e segurança em escala para grandes organizações.',plans:[{name:'Microsoft 365 Enterprise E1',tier:'basic'},{name:'Office 365 E1 (sem Teams)',tier:'basic'},{name:'Microsoft 365 Enterprise E3',tier:'standard'},{name:'Office 365 E3 (sem Teams)',tier:'standard'},{name:'Microsoft 365 Apps for Enterprise',tier:'standard'},{name:'Microsoft 365 Enterprise E5',tier:'advanced'},{name:'Office 365 E5 (sem Teams)',tier:'advanced'}]},
+{id:'ms365f',name:'Microsoft 365 Frontline',brand:'microsoft',cats:['produtividade','colaboracao'],porte:'pme',icon:'ms_365',tier:'basic',desc:'Apps e segurança para trabalhadores de linha de frente e equipes industriais.',plans:[{name:'Microsoft 365 F3',tier:'standard'},{name:'Microsoft 365 F3 para Indústria',tier:'standard'}]},
+{id:'ms365cop',name:'Microsoft Copilot',brand:'microsoft',cats:['ia','produtividade'],porte:'enterprise',icon:'ms_copilot',tier:'enterprise',desc:'IA generativa integrada ao ecossistema Microsoft para máxima produtividade.',plans:[{name:'Microsoft 365 Copilot',tier:'enterprise'},{name:'Microsoft Copilot Studio',tier:'enterprise'},{name:'Teams Premium',tier:'advanced'}]},
+{id:'mswin11',name:'Windows 11',brand:'microsoft',cats:['licencas','seguranca'],porte:'both',icon:'ms_windows',tier:'standard',desc:'Sistema operacional profissional e educacional com segurança corporativa avançada.',plans:[{name:'Windows 11 Pro',tier:'standard'},{name:'Windows 11 Enterprise E3',tier:'advanced'},{name:'Windows 11 Enterprise E5',tier:'enterprise'},{name:'Windows 11 Education',tier:'basic'}]},
+{id:'mswinsrv',name:'Windows Server',brand:'microsoft',cats:['licencas','nuvem'],porte:'enterprise',icon:'ms_windows',tier:'enterprise',desc:'Infraestrutura de servidor com virtualização, nuvem híbrida e alta disponibilidade.',plans:[{name:'Windows Server Standard',tier:'standard'},{name:'Windows Server Datacenter',tier:'enterprise'},{name:'Windows Server 2025',tier:'enterprise'}]},
+{id:'mssql',name:'SQL Server',brand:'microsoft',cats:['produtividade','licencas'],porte:'enterprise',icon:'ms_sql',tier:'enterprise',desc:'Banco de dados relacional de alto desempenho com IA integrada e escalabilidade.',plans:[{name:'SQL Server Developer',tier:'basic'},{name:'SQL Server Standard',tier:'standard'},{name:'SQL Server 2025',tier:'advanced'},{name:'SQL Server Enterprise',tier:'enterprise'}]},
+{id:'msvs',name:'Visual Studio',brand:'microsoft',cats:['produtividade'],porte:'both',icon:'ms_vs',tier:'standard',desc:'IDE líder para desenvolvimento de aplicações Windows, web e mobile.',plans:[{name:'Visual Studio Professional',tier:'standard'},{name:'Visual Studio Enterprise',tier:'enterprise'}]},
+{id:'msteams',name:'Microsoft Teams',brand:'microsoft',cats:['colaboracao','comunicacao'],porte:'both',icon:'ms_teams',tier:'standard',desc:'Plataforma unificada de chat, reuniões, chamadas e colaboração em equipe.',plans:[{name:'Microsoft Teams Essentials',tier:'basic'},{name:'Microsoft Teams Enterprise',tier:'standard'}]},
+{id:'msexchange',name:'Exchange Online',brand:'microsoft',cats:['comunicacao'],porte:'both',icon:'ms_exchange',tier:'standard',desc:'Email profissional na nuvem com caixa postal generosa, arquivamento e conformidade.',plans:[{name:'Exchange Online Kiosk',tier:'basic'},{name:'Exchange Online Plan 1',tier:'standard'},{name:'Exchange Online Plan 2',tier:'advanced'}]},
+{id:'msodsp',name:'OneDrive & SharePoint',brand:'microsoft',cats:['armazenamento','colaboracao','nuvem'],porte:'both',icon:'ms_sharepoint',tier:'standard',desc:'Armazenamento em nuvem e intranet colaborativa para equipes de todos os portes.',plans:[{name:'OneDrive for Business Plan 1',tier:'basic'},{name:'OneDrive for Business Plan 2',tier:'standard'},{name:'SharePoint Plan 1',tier:'basic'},{name:'SharePoint Plan 2',tier:'standard'}]},
+{id:'msvisio',name:'Visio Online',brand:'microsoft',cats:['produtividade','projetos'],porte:'both',icon:'ms_visio',tier:'standard',desc:'Criação de diagramas, fluxogramas e mapas de processos na nuvem.',plans:[{name:'Visio Plan 1',tier:'basic'},{name:'Visio Plan 2',tier:'standard'}]},
+{id:'msproject',name:'Project & Planner',brand:'microsoft',cats:['projetos'],porte:'both',icon:'ms_project',tier:'standard',desc:'Gerenciamento de projetos do simples ao portfólio enterprise com BI integrado.',plans:[{name:'Planner Plan 1',tier:'basic'},{name:'Project Online Essentials',tier:'basic'},{name:'Planner and Project Plan 3',tier:'standard'},{name:'Planner and Project Plan 5',tier:'advanced'}]},
+{id:'mspowerbi',name:'Power BI',brand:'microsoft',cats:['dados'],porte:'both',icon:'ms_powerbi',tier:'standard',desc:'Análise de dados, dashboards interativos e relatórios para toda a organização.',plans:[{name:'Power BI Pro',tier:'standard'},{name:'Power BI Premium Per User',tier:'enterprise'}]},
+{id:'mslicensing',name:'Licenciamento Microsoft',brand:'microsoft',cats:['licencas'],porte:'both',icon:'microsoft',tier:'basic',desc:'Gestão centralizada e simplificada de licenças Microsoft para toda a organização.',plans:[]},
+{id:'adobeacrobat',name:'Adobe Acrobat & Sign',brand:'adobe',cats:['produtividade'],porte:'both',icon:'adobe_acrobat',tier:'standard',desc:'Criação, edição, proteção e assinatura de PDFs com IA para equipes e enterprises.',plans:[{name:'Acrobat Standard',tier:'basic'},{name:'Acrobat Pro',tier:'standard'},{name:'Acrobat Studio',tier:'advanced'},{name:'Adobe Sign',tier:'standard'},{name:'Acrobat Sign Solutions',tier:'enterprise'}]},
+{id:'adobecc',name:'Creative Cloud',brand:'adobe',cats:['design'],porte:'both',icon:'adobe_cc',tier:'standard',desc:'Mais de 20 apps criativos da Adobe com IA generativa, nuvem e colaboração.',plans:[{name:'Creative Cloud Pro',tier:'standard'},{name:'Creative Cloud Pro Plus',tier:'advanced'},{name:'Creative Cloud Enterprise',tier:'enterprise'},{name:'Licenciamento Adobe',tier:'basic'}]},
+{id:'adobeexpress',name:'Adobe Express',brand:'adobe',cats:['design'],porte:'both',icon:'adobe_ex',tier:'basic',desc:'Criação rápida de conteúdo visual com templates de marca e IA generativa.',plans:[{name:'Adobe Express para Equipes',tier:'basic'},{name:'Adobe Express para Corporações',tier:'standard'}]},
+{id:'adobephoto',name:'Adobe Photo & Lightroom',brand:'adobe',cats:['design'],porte:'pme',icon:'adobe_photo',tier:'basic',desc:'Edição e organização de fotos profissional com IA para fotógrafos e times criativos.',plans:[{name:'Adobe Photoshop',tier:'standard'},{name:'Adobe Lightroom',tier:'basic'},{name:'Plano de Fotografia CC',tier:'basic'}]},
+{id:'adobevideo',name:'Adobe Vídeo & Áudio',brand:'adobe',cats:['design'],porte:'pme',icon:'adobe_video',tier:'standard',desc:'Suite completa para edição de vídeo, motion graphics, animação e áudio profissional.',plans:[{name:'Adobe Premiere Pro',tier:'standard'},{name:'After Effects',tier:'standard'},{name:'Adobe Audition',tier:'basic'},{name:'Adobe Animate',tier:'basic'}]},
+{id:'adobedesign',name:'Adobe Design & Print',brand:'adobe',cats:['design'],porte:'pme',icon:'adobe_design',tier:'standard',desc:'Ferramentas vetoriais e de diagramação profissional para materiais impressos e digitais.',plans:[{name:'Adobe Illustrator',tier:'standard'},{name:'Adobe InDesign',tier:'standard'},{name:'Adobe InCopy',tier:'basic'}]},
+{id:'adobeweb',name:'Adobe Web & UX',brand:'adobe',cats:['design'],porte:'pme',icon:'adobe_xd',tier:'standard',desc:'Ferramentas para design de interfaces, prototipagem e desenvolvimento web.',plans:[{name:'Adobe XD',tier:'standard'},{name:'Adobe Dreamweaver',tier:'basic'}]},
+{id:'adobestock',name:'Adobe Stock',brand:'adobe',cats:['design'],porte:'both',icon:'adobe_stock',tier:'basic',desc:'Biblioteca com milhões de imagens, vídeos, vetores e modelos 3D licenciados.',plans:[]},
+{id:'adobesu',name:'Substance 3D',brand:'adobe',cats:['design'],porte:'enterprise',icon:'adobe_su',tier:'enterprise',desc:'Suite completa para criação, texturização e renderização de ativos 3D profissionais.',plans:[]},
+{id:'autocad',name:'AutoCAD',brand:'autodesk',cats:['arquitetura'],porte:'both',icon:'autodesk',tier:'standard',desc:'O software líder mundial para desenho técnico 2D e modelagem 3D com precisão.',plans:[{name:'AutoCAD LT',tier:'basic'},{name:'AutoCAD',tier:'standard'}]},
+{id:'revit',name:'Revit (BIM)',brand:'autodesk',cats:['arquitetura'],porte:'both',icon:'autodesk',tier:'standard',desc:'BIM completo para arquitetura, estrutura e MEP em ambiente colaborativo na nuvem.',plans:[{name:'Autodesk Revit LT',tier:'basic'},{name:'Autodesk Revit',tier:'enterprise'}]},
+{id:'bimcollab',name:'BIM Collaborate',brand:'autodesk',cats:['arquitetura','colaboracao'],porte:'enterprise',icon:'autodesk',tier:'advanced',desc:'Coordenação e coautoria de projetos BIM na nuvem para equipes distribuídas.',plans:[{name:'BIM Collaborate',tier:'standard'},{name:'BIM Collaborate Pro',tier:'advanced'}]},
+{id:'autodesk_build',name:'Autodesk Build & Docs',brand:'autodesk',cats:['arquitetura','projetos','armazenamento'],porte:'enterprise',icon:'autodesk',tier:'enterprise',desc:'Plataforma integrada de gestão de obras, documentos e projetos de construção.',plans:[{name:'Autodesk Docs',tier:'basic'},{name:'Autodesk Build',tier:'enterprise'},{name:'Autodesk Construction Cloud',tier:'enterprise'}]},
+{id:'aeccol',name:'AEC Collection',brand:'autodesk',cats:['arquitetura'],porte:'enterprise',icon:'autodesk',tier:'enterprise',desc:'Suite completa AEC com AutoCAD, Revit, Civil 3D e mais de 30 ferramentas integradas.',plans:[{name:'Autodesk AEC Collection',tier:'enterprise'},{name:'Civil 3D',tier:'advanced'},{name:'InfraWorks',tier:'advanced'},{name:'Navisworks',tier:'standard'}]},
+{id:'fusion',name:'Fusion 360 & Inventor',brand:'autodesk',cats:['arquitetura','design'],porte:'both',icon:'autodesk',tier:'standard',desc:'Design mecânico 3D, simulação, manufatura e colaboração na nuvem.',plans:[{name:'Fusion 360',tier:'standard'},{name:'Autodesk Inventor',tier:'standard'},{name:'Product Design & Manufacturing Collection',tier:'enterprise'}]},
+{id:'media3d',name:'3DS Max & Animação',brand:'autodesk',cats:['design'],porte:'both',icon:'autodesk',tier:'standard',desc:'Modelagem, animação e renderização 3D para games, arquitetura e efeitos visuais.',plans:[{name:'3DS Max',tier:'standard'},{name:'Media & Entertainment Collection',tier:'enterprise'}]},
+{id:'autodeskmisc',name:'Autodesk Premium & Licenças',brand:'autodesk',cats:['licencas','nuvem'],porte:'enterprise',icon:'autodesk',tier:'basic',desc:'Plano Premium, licenciamento centralizado e gestão do ecossistema Autodesk.',plans:[{name:'Autodesk Plano Premium',tier:'advanced'},{name:'Licenciamento Autodesk',tier:'basic'}]},
+{id:'sketchup',name:'SketchUp',brand:'sketchup',cats:['arquitetura','design'],porte:'both',icon:'sketchup',tier:'standard',desc:'Modelagem 3D intuitiva para arquitetura, design de interiores e paisagismo.',plans:[{name:'SketchUp Go',tier:'basic'},{name:'SketchUp para Universidades',tier:'basic'},{name:'SketchUp Pro',tier:'standard'},{name:'SketchUp Pro Advanced Workflows',tier:'advanced'},{name:'SketchUp Studio',tier:'enterprise'},{name:'Sketchup Sefaira',tier:'advanced'}]},
+{id:'wfbs',name:'Worry-Free Business Security',brand:'trendmicro',cats:['seguranca'],porte:'both',icon:'trendmicro',tier:'standard',desc:'Proteção endpoint multicamada para PMEs e grandes empresas contra ameaças avançadas.',plans:[{name:'Worry-Free Business Security Services',tier:'basic'},{name:'Worry-Free Business Security Services Advanced',tier:'standard'},{name:'Worry-Free Business Security Services + EDR',tier:'advanced'},{name:'Worry-Free XDR',tier:'enterprise'}]},
+{id:'cloudappsec',name:'Cloud App Security',brand:'trendmicro',cats:['seguranca','nuvem'],porte:'both',icon:'trendmicro',tier:'standard',desc:'Proteção para Microsoft 365 e Google Workspace contra ameaças avançadas e phishing.',plans:[]},
+{id:'gworkspace',name:'Google Workspace',brand:'google',cats:['colaboracao','nuvem','comunicacao'],porte:'both',icon:'google',tier:'standard',desc:'Gmail, Drive, Meet e todos os apps Google para equipes produtivas de qualquer porte.',plans:[{name:'Google Workspace Starter',tier:'basic'},{name:'Google Workspace Standard',tier:'standard'},{name:'Google Workspace Plus',tier:'advanced'},{name:'Google Workspace Enterprise',tier:'enterprise'}]},
+{id:'gemini',name:'Gemini Enterprise',brand:'google',cats:['ia','colaboracao'],porte:'enterprise',icon:'gemini',tier:'enterprise',desc:'IA generativa do Google integrada ao Workspace para máxima produtividade e criatividade.',plans:[]},
+{id:'canva',name:'Canva',brand:'canva',cats:['design'],porte:'both',icon:'canva',tier:'standard',desc:'Design em escala corporativa com IA generativa, gestão de marca e colaboração.',plans:[{name:'Canva Pro+',tier:'standard'},{name:'Canva Enterprise',tier:'enterprise'}]},
+{id:'acronis',name:'Acronis Backup',brand:'acronis',cats:['armazenamento','seguranca','nuvem'],porte:'both',icon:'acronis',tier:'standard',desc:'Backup e recuperação granular para Microsoft 365, Google Workspace e servidores.',plans:[{name:'Backup para Microsoft 365',tier:'standard'},{name:'Backup para Google Workspace',tier:'standard'},{name:'Backup para Servidores',tier:'advanced'}]},
+];
+
+var BRANDS=[{id:'microsoft',label:'Microsoft',count:15},{id:'adobe',label:'Adobe',count:9},{id:'autodesk',label:'Autodesk',count:8},{id:'sketchup',label:'SketchUp',count:1},{id:'trendmicro',label:'Trend Micro',count:2},{id:'google',label:'Google',count:2},{id:'canva',label:'Canva',count:1},{id:'acronis',label:'Acronis',count:1}];
+var CATS=[{id:'arquitetura',label:'Arquitetura e construção'},{id:'produtividade',label:'Produtividade'},{id:'colaboracao',label:'Colaboração'},{id:'armazenamento',label:'Armazenamento'},{id:'projetos',label:'Projetos e tarefas'},{id:'dados',label:'Análise de dados'},{id:'design',label:'Design'},{id:'ia',label:'IA e automação'},{id:'seguranca',label:'Segurança'},{id:'licencas',label:'Licenças'},{id:'nuvem',label:'Nuvem'},{id:'comunicacao',label:'Comunicação'}];
+
+var SEARCH_TERMS=[];
+FAMILIES.forEach(function(f){SEARCH_TERMS.push({label:f.name,brand:f.brand});f.plans.forEach(function(p){SEARCH_TERMS.push({label:p.name,brand:f.brand});});});
+
+var PER_PAGE=18,currentPage=1,activeBrands={},activeCats={},activePorte=null,searchQuery='',activeSort='relevance';
+
+function buildFilters(){
+  ['marca-list','marca-list-mob'].forEach(function(lid){var el=document.getElementById(lid);if(!el)return;el.innerHTML=BRANDS.map(function(b){return'<label class="flex items-center gap-2.5 cursor-pointer group"><input type="checkbox" class="checkbox-custom" data-type="brand" data-id="'+b.id+'"><span class="text-sm text-[#535862] group-hover:text-[#0A0D12] transition-colors">'+b.label+' <span class="text-[#AAAAAA] text-xs">('+b.count+')</span></span></label>';}).join('');});
+  ['categoria-list','categoria-list-mob'].forEach(function(lid){var el=document.getElementById(lid);if(!el)return;el.innerHTML=CATS.map(function(c){return'<label class="flex items-center gap-2.5 cursor-pointer group"><input type="checkbox" class="checkbox-custom" data-type="cat" data-id="'+c.id+'"><span class="text-sm text-[#535862] group-hover:text-[#0A0D12] transition-colors">'+c.label+'</span></label>';}).join('');});
+  document.querySelectorAll('input[data-type="brand"]').forEach(function(cb){cb.addEventListener('change',function(){var id=this.getAttribute('data-id');if(this.checked)activeBrands[id]=true;else delete activeBrands[id];syncCb('brand',id,this.checked);currentPage=1;render();updateURL();});});
+  document.querySelectorAll('input[data-type="cat"]').forEach(function(cb){cb.addEventListener('change',function(){var id=this.getAttribute('data-id');if(this.checked)activeCats[id]=true;else delete activeCats[id];syncCb('cat',id,this.checked);currentPage=1;render();updateURL();});});
+  document.querySelectorAll('.porte-btn').forEach(function(btn){btn.addEventListener('click',function(){var p=this.getAttribute('data-porte');activePorte=(activePorte===p)?null:p;document.querySelectorAll('.porte-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-porte')===activePorte);});currentPage=1;render();updateURL();});});
+  document.querySelectorAll('.brand-pill').forEach(function(btn){btn.addEventListener('click',function(){var b=this.getAttribute('data-brand'),was=!!activeBrands[b];activeBrands={};document.querySelectorAll('input[data-type="brand"]').forEach(function(cb){cb.checked=false;});document.querySelectorAll('.brand-pill').forEach(function(x){x.classList.remove('active');});if(!was){activeBrands[b]=true;document.querySelectorAll('input[data-type="brand"][data-id="'+b+'"]').forEach(function(cb){cb.checked=true;});btn.classList.add('active');}currentPage=1;render();updateURL();});});
+}
+function syncCb(type,id,checked){document.querySelectorAll('input[data-type="'+type+'"][data-id="'+id+'"]').forEach(function(cb){cb.checked=checked;});}
+
+function getFiltered(){
+  var brands=Object.keys(activeBrands),cats=Object.keys(activeCats),q=searchQuery;
+  var r=FAMILIES.filter(function(f){
+    if(brands.length&&!activeBrands[f.brand])return false;
+    if(cats.length&&!cats.some(function(c){return f.cats.indexOf(c)!==-1;}))return false;
+    if(activePorte&&f.porte!=='both'&&f.porte!==activePorte)return false;
+    if(q){var hay=(f.name+' '+f.desc+' '+f.plans.map(function(p){return p.name;}).join(' ')).toLowerCase();if(hay.indexOf(q)===-1)return false;}
+    return true;
+  });
+  if(activeSort==='az')r.sort(function(a,b){return a.name.localeCompare(b.name,'pt');});
+  else if(activeSort==='za')r.sort(function(a,b){return b.name.localeCompare(a.name,'pt');});
+  return r;
+}
+
+function togglePlans(id){
+  var el=document.getElementById('plans-'+id),ar=document.getElementById('parrow-'+id);
+  if(!el)return;var open=el.style.display!=='none';el.style.display=open?'none':'block';if(ar)ar.style.transform=open?'':'rotate(180deg)';
+}
+
+function renderCard(f){
+  var ico=ICO[f.id]||{slug:'microsoft',bg:'#F5F5F5',color:'737373',fb:'??'};var icoUrl='https://cdn.simpleicons.org/'+ico.slug+'/'+ico.color;var fb=ico.fb||f.brand.substring(0,2).toUpperCase();var fs=fb.length>2?'10':'13';var icon='<img src="'+icoUrl+'" width="30" height="30" alt="" loading="eager" draggable="false" style="display:block" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'"><span style="font:700 '+fs+'px/1 Arial,sans-serif;color:#'+ico.color+';display:none;letter-spacing:-0.5px">'+fb+'</span>';
+  var tbadge=f.tier&&TL[f.tier]?'<span style="'+TS[f.tier]+';font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px">'+TL[f.tier]+'</span>':'';
+  var pbadge=f.porte==='pme'?'<span style="background:#DCFCE7;color:#15803D;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px">PME</span>':f.porte==='enterprise'?'<span style="background:#EDE9FE;color:#6D28D9;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px">Enterprise</span>':'';
+  var psec='';
+  if(f.plans&&f.plans.length>0){
+    var rows=f.plans.map(function(p){
+      var wa=encodeURIComponent('Olá! Tenho interesse no produto: '+p.name);
+      var pt=p.tier&&TL[p.tier]?'<span style="'+TS[p.tier]+';font-size:9px;font-weight:700;padding:1px 6px;border-radius:999px;flex-shrink:0">'+TL[p.tier]+'</span>':'';
+      return'<div class="flex items-center justify-between gap-2 py-1.5 border-b border-[#F3F4F6] last:border-0"><div class="flex items-center gap-1.5 min-w-0">'+pt+'<span class="text-[12px] font-medium text-[#374151] truncate">'+p.name+'</span></div><a href="https://wa.me/qr/CJD3UOF3XJ2PH1?text='+wa+'" target="_blank" rel="noopener" class="flex-shrink-0 text-[11px] font-bold text-white bg-[#0A0D12] hover:bg-[#E04124] px-2.5 py-1 rounded-lg transition-colors flex items-center gap-1">'+WA+'Orçar</a></div>';
+    }).join('');
+    psec='<div class="mt-3"><button onclick="togglePlans(\''+f.id+'\')" class="w-full flex items-center justify-between text-[12px] font-semibold text-[#6B7280] hover:text-[#0A0D12] transition-colors mb-2"><span>'+f.plans.length+' planos disponíveis</span><svg id="parrow-'+f.id+'" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.2s"><polyline points="6 9 12 15 18 9"/></svg></button><div id="plans-'+f.id+'" style="display:none" class="plans-expanded">'+rows+'</div></div>';
+  }
+  var mainWa=f.plans&&f.plans.length>0?encodeURIComponent('Olá! Tenho interesse na família: '+f.name+'. Gostaria de informações sobre os planos.'):encodeURIComponent('Olá! Tenho interesse no produto: '+f.name);
+  return'<div class="product-card bg-white border border-[#E5E7EB] rounded-2xl p-5 flex flex-col"><div class="flex justify-between items-start mb-3"><div class="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center overflow-hidden flex-shrink-0" style="background:'+ico.bg+'">'+icon+'</div><div class="flex flex-col items-end gap-1 ml-2">'+tbadge+pbadge+'</div></div><h3 class="text-[14px] font-bold text-[#0A0D12] mb-1.5 leading-snug">'+f.name+'</h3><p class="text-[12px] text-[#6B7280] leading-relaxed flex-1 mb-2">'+f.desc+'</p>'+psec+'<a href="https://wa.me/qr/CJD3UOF3XJ2PH1?text='+mainWa+'" target="_blank" rel="noopener" class="mt-3 flex items-center justify-center gap-2 border border-[#E5E7EB] hover:border-[#0A0D12] hover:bg-[#F9FAFB] rounded-xl py-2.5 text-[12px] font-bold text-[#0A0D12] transition-colors">'+WA+'Solicite um orçamento</a></div>';
+}
+
+function renderPagination(total,page){
+  var tp=Math.ceil(total/PER_PAGE),el=document.getElementById('pagination');
+  if(tp<=1){el.innerHTML='';return;}
+  var h='<button class="page-btn" onclick="goPage('+(page-1)+')" '+(page===1?'disabled':'')+'>← Anterior</button>';
+  var pages=[];if(tp<=7){for(var i=1;i<=tp;i++)pages.push(i);}else{pages.push(1);if(page>3)pages.push('…');for(var j=Math.max(2,page-1);j<=Math.min(tp-1,page+1);j++)pages.push(j);if(page<tp-2)pages.push('…');pages.push(tp);}
+  pages.forEach(function(p){if(p==='…')h+='<span class="page-btn text-[#9CA3AF] border-transparent">…</span>';else h+='<button class="page-btn'+(p===page?' active':'')+'" onclick="goPage('+p+')">'+p+'</button>';});
+  h+='<button class="page-btn" onclick="goPage('+(page+1)+')" '+(page===tp?'disabled':'')+'>Próximo →</button>';
+  el.innerHTML=h;
+}
+
+function updateHeroContext(){
+  var brands=Object.keys(activeBrands),msg=document.getElementById('hero-context-msg'),txt=document.getElementById('hero-context-text');
+  var text='';
+  if(brands.length===1){var bl=BRANDS.find(function(b){return b.id===brands[0];});text='Exibindo produtos '+(bl?bl.label:brands[0]);}
+  else if(brands.length>1)text=brands.length+' marcas selecionadas';
+  else if(activePorte)text='Filtrando: '+(activePorte==='pme'?'PME':'Empresarial');
+  else if(searchQuery)text='Buscando: "'+searchQuery+'"';
+  if(text){txt.textContent=text;msg.style.display='inline-flex';}
+  else msg.style.display='none';
+  // sync brand pills
+  document.querySelectorAll('.brand-pill').forEach(function(btn){btn.classList.toggle('active',!!activeBrands[btn.getAttribute('data-brand')]);});
+}
+
+function render(){
+  var filtered=getFiltered(),total=filtered.length,start=(currentPage-1)*PER_PAGE,items=filtered.slice(start,start+PER_PAGE);
+  var hasF=Object.keys(activeBrands).length||Object.keys(activeCats).length||activePorte||searchQuery;
+  document.getElementById('product-count').textContent=total+' famíli'+(total===1?'a':'as')+' encontrada'+(total===1?'':'s');
+  document.getElementById('clear-filters').classList.toggle('hidden',!hasF);
+  var fc=Object.keys(activeBrands).length+Object.keys(activeCats).length+(activePorte?1:0),badge=document.getElementById('filter-count-badge');
+  if(fc>0){badge.textContent=fc;badge.classList.remove('hidden');}else badge.classList.add('hidden');
+  var ti=document.getElementById('top-pagination-info');
+  if(total>PER_PAGE){ti.classList.remove('hidden');document.getElementById('range-start').textContent=start+1;document.getElementById('range-end').textContent=Math.min(start+PER_PAGE,total);document.getElementById('range-total').textContent=total;}else ti.classList.add('hidden');
+  var grid=document.getElementById('product-grid'),empty=document.getElementById('empty-state');
+  if(items.length===0){grid.innerHTML='';empty.classList.remove('hidden');}else{empty.classList.add('hidden');grid.innerHTML=items.map(renderCard).join('');}
+  renderPagination(total,currentPage);updateHeroContext();
+}
+
+function goPage(p){var tp=Math.ceil(getFiltered().length/PER_PAGE);if(p<1||p>tp)return;currentPage=p;window.scrollTo({top:0,behavior:'smooth'});render();}
+
+function clearAllFilters(){activeBrands={};activeCats={};activePorte=null;searchQuery='';document.getElementById('hero-search').value='';document.querySelectorAll('input[data-type]').forEach(function(cb){cb.checked=false;});document.querySelectorAll('.porte-btn').forEach(function(b){b.classList.remove('active');});document.querySelectorAll('.brand-pill').forEach(function(b){b.classList.remove('active');});currentPage=1;render();updateURL();}
+
+document.getElementById('sort-select').addEventListener('change',function(){activeSort=this.value;currentPage=1;render();updateURL();});
+
+// Autocomplete
+var heroSearch=document.getElementById('hero-search'),dropdown=document.getElementById('autocomplete-dropdown'),acFocus=-1,lastSug=[];
+function showSug(q){
+  if(!q||q.length<2){dropdown.classList.add('hidden');return;}
+  var seen={},matches=SEARCH_TERMS.filter(function(t){if(t.label.toLowerCase().indexOf(q.toLowerCase())===-1)return false;if(seen[t.label])return false;seen[t.label]=true;return true;}).slice(0,7);
+  lastSug=matches;
+  if(!matches.length){dropdown.classList.add('hidden');return;}
+  dropdown.innerHTML=matches.map(function(t,i){var bl=BRANDS.find(function(b){return b.id===t.brand;});return'<div class="suggestion-item px-4 py-2.5 cursor-pointer flex items-center justify-between gap-3 border-b border-[#F3F4F6] last:border-0" data-idx="'+i+'" onclick="applySug('+i+')"><span class="text-sm text-[#0A0D12] truncate">'+t.label+'</span><span class="text-[11px] text-[#9CA3AF] flex-shrink-0">'+(bl?bl.label:'')+'</span></div>';}).join('');
+  acFocus=-1;dropdown.classList.remove('hidden');
+}
+function applySug(i){var t=lastSug[i];if(!t)return;heroSearch.value=t.label;searchQuery=t.label.toLowerCase();dropdown.classList.add('hidden');currentPage=1;render();updateURL();}
+heroSearch.addEventListener('input',function(){searchQuery=this.value.trim().toLowerCase();showSug(this.value.trim());currentPage=1;render();updateURL();});
+heroSearch.addEventListener('keydown',function(e){var items=dropdown.querySelectorAll('.suggestion-item');if(e.key==='ArrowDown'){e.preventDefault();acFocus=Math.min(acFocus+1,items.length-1);items.forEach(function(el,i){el.classList.toggle('focused',i===acFocus);});}else if(e.key==='ArrowUp'){e.preventDefault();acFocus=Math.max(acFocus-1,0);items.forEach(function(el,i){el.classList.toggle('focused',i===acFocus);});}else if(e.key==='Enter'&&acFocus>=0){applySug(acFocus);}else if(e.key==='Escape'){dropdown.classList.add('hidden');}});
+document.addEventListener('click',function(e){if(!dropdown.contains(e.target)&&e.target!==heroSearch)dropdown.classList.add('hidden');});
+
+// URL state
+function updateURL(){
+  var p=new URLSearchParams();
+  Object.keys(activeBrands).forEach(function(b){p.append('marca',b);});
+  Object.keys(activeCats).forEach(function(c){p.append('cat',c);});
+  if(activePorte)p.set('porte',activePorte);if(searchQuery)p.set('q',searchQuery);if(activeSort!=='relevance')p.set('sort',activeSort);
+  var s=p.toString();history.replaceState(null,'',s?'?'+s:location.pathname);
+}
+function readURL(){
+  var p=new URLSearchParams(location.search);
+  p.getAll('marca').forEach(function(b){activeBrands[b]=true;});p.getAll('cat').forEach(function(c){activeCats[c]=true;});
+  var porte=p.get('porte');if(porte)activePorte=porte;
+  var q=p.get('q');if(q){searchQuery=q.toLowerCase();heroSearch.value=q;}
+  var sort=p.get('sort');if(sort){activeSort=sort;document.getElementById('sort-select').value=sort;}
+}
+
+buildFilters();readURL();
+Object.keys(activeBrands).forEach(function(b){document.querySelectorAll('input[data-type="brand"][data-id="'+b+'"]').forEach(function(cb){cb.checked=true;});document.querySelectorAll('.brand-pill[data-brand="'+b+'"]').forEach(function(btn){btn.classList.add('active');});});
+Object.keys(activeCats).forEach(function(c){document.querySelectorAll('input[data-type="cat"][data-id="'+c+'"]').forEach(function(cb){cb.checked=true;});});
+if(activePorte)document.querySelectorAll('.porte-btn[data-porte="'+activePorte+'"]').forEach(function(btn){btn.classList.add('active');});
+render();
+</script>
+</body>
+</html>
